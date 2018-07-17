@@ -4,8 +4,8 @@ This is my html working template.
 
 ## Information
 
-### About Envieronment
-This environment inclueds tools below.
+### About Environment
+This environment includes tools below.
 ```
 - Node.js
 - Babel
@@ -14,7 +14,7 @@ This environment inclueds tools below.
 ```
 
 ### About Liblaries
-This environment has libralies below.
+This environment has libraries below.
 ```
 - jQuery
 - Bootstrap4 (and Popper.js)
@@ -27,23 +27,15 @@ This environment has libralies below.
 git@github.com:sumi37/tmp-html-project.git
 ```
 
-2. Install node modeules (with yarn).
+2. Install node modules (with yarn).
 ```
 $ cd sumi37-html-project-tmp
 $ yarn install
 ```
 
-3. See the project on your browzer.
+3. See the project on your browser.
 ```
 $ yarn start
 
 and open http://localhost:8080/
 ```
-
-
-
-
-
-
-
-
