@@ -103,6 +103,21 @@ $greens: map-merge(
 // ---------------------------------
 // Color alias
 // ---------------------------------
+
+// Role color ※ Override
+// ------------------------------
+$primary: $gray;
+$secondary: #456;
+$success: #789;
+$info: #789;
+$warning: #789;
+$danger: #789;
+$light: #789;
+$dark: #789;
+// The primary button color is light. To let primary buttons have a light text color,
+// the threshold needs to upped.
+// $yiq-contrasted-threshold: 175;
+
 // Alpha color
 // ------------------------------
 $color-black-alpha20: rgba(0, 0, 0, .2);
@@ -116,25 +131,11 @@ $color-white-alpha60: rgba(255, 255, 255, .6);
 $color-white-alpha80: rgba(255, 255, 255, .8);
 $color-white-alpha90: rgba(255, 255, 255, .9);
 
-// Role color
+// Bg color
 // ------------------------------
-// *** Global ※ Override
-$primary: $gray;
-$secondary: #456;
-$success: #789;
-$info: #789;
-$warning: #789;
-$danger: #789;
-$light: #789;
-$dark: #789;
-// The primary button color is light. To let primary buttons have a light text color,
-// the threshold needs to upped.
-// $yiq-contrasted-threshold: 175;
-
-// *** Bg
-$color-accent-bg1: #e89;
-$color-accent-bg2: #ee0;
-$color-accent-bg3: #ee4;
+$color-accent-bg1: $green-200;
+$color-accent-bg2: $gray-700;
+$color-accent-bg3: $gray-200;
 
 
 
@@ -157,13 +158,11 @@ $link-hover-decoration: underline;
 
 
 // ---------------------------------
-// Spacers
+// Grid columns / Spacers *Extend
 // ---------------------------------
+$grid-gutter-width: 30px;
+$spacer-cmn: $grid-gutter-width / 2;
 
-// spacers ※ Extend Bootstrap
-// ------------------------------
-
-// $spacers
 // ex) .mb-3 = margin-bottom: 1rem;
 // ------------------------------
 $spacer: 1rem;
@@ -182,15 +181,8 @@ $spacers: map-merge((
   7: ($spacer * 6),
   8: ($spacer * 7.5),
   9: ($spacer * 9),
+  cmn: $spacer-cmn
 ), $spacers);
-
-
-// ----------------------------------------
-// Gutter
-// ----------------------------------------
-$gutter-cmn: 15px;
-$gutter-x-cmn: 15px;
-$gutter-y-cmn: 15px;
 
 
 // ---------------------------------
