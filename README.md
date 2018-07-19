@@ -24,7 +24,6 @@ This environment has javascript libraries below.
 
 
 ## Getting Started
-非常に
 
 1. Clone this repository.
 ```
@@ -68,7 +67,35 @@ and open http://localhost:8080/
 6.Pages
 (7.User)
 ```
-これら各コンテクストに属するcssは1から6に向けてロードされるため、このヒエラルキ構造をうまく活用することにより目的に即したデザインにおける定義・オーバーライドが効率よく行えます
+これら各コンテクストに属するcssは1から7に向けてロードされます。
+このヒエラルキ構造をうまく活用することにより目的に即したデザインの定義・オーバーライドを効率よく行います。
+
+以下は具体的にエンドポイントとなるindex.scssの記述例を示しています。
+後述で説明しますが、`_utilities.scss`のみイレギュラーなソート順になっていることに注目してください。
+```
+// Libraries (& Override Core)
+@import 'core/variables';
+@import '~bootstrap/scss/bootstrap';
+
+// Core
+@import 'core/utilities';
+
+// Containers
+@import 'containers/page';
+@import 'containers/header';
+@import 'containers/main';
+@import 'containers/footer';
+
+// Primitive Parts
+@import 'parts-primitive/tmp-parts';
+
+// Complex Parts
+@import 'parts-complex/tmp-ui';
+
+// Page
+@import 'pages/tmp-page';
+```
+
 
 #### 1.Libraries
 Librariesに属するcssは主に外部のライブラリサービスを指します。このテンプレートにはこのコンテクストにはjQueryとBootstrap4がそれに当たります。
@@ -78,7 +105,9 @@ Librariesに属するcssは主に外部のライブラリサービスを指し�
 基本設定にまつわるファイルです。以下のような重要なファイルがCoreファイルに属します。
 
 ##### _variables.scss
-グローバルに利用できる変数を保管します。
+WEBサイトにおいてグローバルに利用できる変数を保管します。Bootstrapのbvariables.scssで定義されている変数も数多くオーバーライドして利用します。
+bootstrapの変数定義には、ほとんどがdefaultフラグを用いています。そのためこのファイルは先読みさせる形となります。
+
 
 ##### _utilities.scss
 グローバルに利用できるユーティリティクラスを保管します。一般的にはスタイルを強くオーバーライドするために用いるものです。
