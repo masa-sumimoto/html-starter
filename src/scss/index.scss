@@ -7,11 +7,11 @@
 @import 'core/variables';
 @import 'core/utilities';
 
-// Layout
-@import 'layouts/page';
-@import 'layouts/header';
-@import 'layouts/main';
-@import 'layouts/footer';
+// Containers
+@import 'containers/page';
+@import 'containers/header';
+@import 'containers/main';
+@import 'containers/footer';
 
 // Primitive Parts
 @import 'parts-primitive/tmp-parts';
