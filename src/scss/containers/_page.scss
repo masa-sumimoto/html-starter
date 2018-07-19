@@ -5,41 +5,57 @@
 // ---------------------------------
 // Reset
 // ---------------------------------
+*:focus {outline: none;}
+
 html,
 body,
 div,
 span {margin: 0;padding: 0;}
 
-img {max-width: 100%;vertical-align: bottom;}
 table {border: 0;border-collapse: collapse;border-spacing: 0;}
-*:focus {outline: none;}
 
 
 // ---------------------------------
 // Global
 // ---------------------------------
-* {
-  font-family: $site-font-family;
-  font-size: 100%;
-  font-style: normal;
-  font-weight: normal;
+html,
+body {
+  height: 100%;
+  position: relative;
 }
 
 html {
-  font-size: $site-font-size;
+  font-size: 10px;
   height: 100%;
   overflow-x: hidden;
 }
 
 body {
-  background: $color-site-bg;
-  color: $color-site-txt;
-  font-size: 1.6rem;
+  background: $body-bg;
+  color: $body-color;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  margin: 0;
   overflow-wrap: break-word;
   overflow-x: hidden;
-  position: relative;
+  padding: 0;
   text-size-adjust: 100%;
   word-wrap: break-word;
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+
+  &:hover {
+    color: darken($link-color, 15%);
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
 }

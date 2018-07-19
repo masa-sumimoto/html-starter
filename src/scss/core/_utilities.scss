@@ -7,37 +7,136 @@
 // ---------------------------------
 // cmn
 // ------------------------------
-$site-font-size: 10px;
-$site-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
 
 
 // ---------------------------------
-// Text
+// Color
 // ---------------------------------
-// cmn
+// text
 // ------------------------------
-$color-site-txt: #fff; // $white
-$color-site-txt-rvs: #000; // $black
+.color-body { color: $body-color !important; }
+.color-body-bg { color: $body-bg !important; }
+.color-body-rvs { color: $body-rvs-color !important; }
+.color-body-rvs-bg { color: $body-rvs-bg !important; }
+.color-orange { color: $orange !important; }
+.color-green { color: $green !important; }
 
-
-// ---------------------------------
-// Bg
-// ---------------------------------
-// cmn
+// bg
 // ------------------------------
-$color-site-bg: #000; // $black
+.bg-green { background: $green !important; }
+
+// .bg-white {background: $color-white!important;}
+// .bg-gray {background: $color-mono9!important;}
+// .bg-gray2 {background: $color-mono7!important;}
+// .bg-1 {background: $color-mono7!important;}
+// .bg-2 {background: $color-cyan7!important;}
+// .bg-3 {background: $color-mono8!important;}
+// .bg-4 {background: $color-mono7!important;}
+// .bg-5 {background: $color-mono7!important;}
 
 
 // ---------------------------------
-// Margin
+// gutter
 // ---------------------------------
-// cmn
-// ------------------------------
-.mb-10px {margin-bottom: 10px;}
+.mx-xs-0 {@include media-breakpoint-up(xs) {margin-left:0 !important;margin-right:0 !important;}}
+.mx-sm-0 {@include media-breakpoint-up(sm) {margin-left:0 !important;margin-right:0 !important;}}
+.mx-md-0 {@include media-breakpoint-up(md) {margin-left:0 !important;margin-right:0 !important;}}
+.mx-lg-0 {@include media-breakpoint-up(lg) {margin-left:0 !important;margin-right:0 !important;}}
+.mx-xs-cmn {@include media-breakpoint-up(xs) {margin-left:$gutter-x-cmn !important;margin-right:$gutter-x-cmn !important;}}
+.mx-sm-cmn {@include media-breakpoint-up(sm) {margin-left:$gutter-x-cmn !important;margin-right:$gutter-x-cmn !important;}}
+.mx-md-cmn {@include media-breakpoint-up(md) {margin-left:$gutter-x-cmn !important;margin-right:$gutter-x-cmn !important;}}
+.mx-lg-cmn {@include media-breakpoint-up(lg) {margin-left:$gutter-x-cmn !important;margin-right:$gutter-x-cmn !important;}}
+.px-xs-0 {@include media-breakpoint-up(xs) {padding-left:0 !important;padding-right:0 !important;}}
+.px-sm-0 {@include media-breakpoint-up(sm) {padding-left:0 !important;padding-right:0 !important;}}
+.px-md-0 {@include media-breakpoint-up(md) {padding-left:0 !important;padding-right:0 !important;}}
+.px-lg-0 {@include media-breakpoint-up(lg) {padding-left:0 !important;padding-right:0 !important;}}
+.px-xs-cmn {@include media-breakpoint-up(xs) {padding-left:$gutter-x-cmn !important;padding-right:$gutter-x-cmn !important;}}
+.px-sm-cmn {@include media-breakpoint-up(sm) {padding-left:$gutter-x-cmn !important;padding-right:$gutter-x-cmn !important;}}
+.px-md-cmn {@include media-breakpoint-up(md) {padding-left:$gutter-x-cmn !important;padding-right:$gutter-x-cmn !important;}}
+.px-lg-cmn {@include media-breakpoint-up(lg) {padding-left:$gutter-x-cmn !important;padding-right:$gutter-x-cmn !important;}}
+.pl-xs-0 {@include media-breakpoint-up(xs) {padding-left:0 !important;}}
+.pl-sm-0 {@include media-breakpoint-up(sm) {padding-left:0 !important;}}
+.pl-md-0 {@include media-breakpoint-up(md) {padding-left:0 !important;}}
+.pl-lg-0 {@include media-breakpoint-up(lg) {padding-left:0 !important;}}
+.pr-xs-0 {@include media-breakpoint-up(xs) {padding-right:0 !important;}}
+.pr-sm-0 {@include media-breakpoint-up(sm) {padding-right:0 !important;}}
+.pr-md-0 {@include media-breakpoint-up(md) {padding-right:0 !important;}}
+.pr-lg-0 {@include media-breakpoint-up(lg) {padding-right:0 !important;}}
+.pl-xs-1 {@include media-breakpoint-up(xs) {padding-left:0.25rem !important;}}
+.pl-sm-1 {@include media-breakpoint-up(sm) {padding-left:0.25rem !important;}}
+.pl-md-1 {@include media-breakpoint-up(md) {padding-left:0.25rem !important;}}
+.pl-lg-1 {@include media-breakpoint-up(lg) {padding-left:0.25rem !important;}}
+.pr-xs-1 {@include media-breakpoint-up(xs) {padding-right:0.25rem !important;}}
+.pr-sm-1 {@include media-breakpoint-up(sm) {padding-right:0.25rem !important;}}
+.pr-md-1 {@include media-breakpoint-up(md) {padding-right:0.25rem !important;}}
+.pr-lg-1 {@include media-breakpoint-up(lg) {padding-right:0.25rem !important;}}
+.pl-xs-2 {@include media-breakpoint-up(xs) {padding-left:0.5rem !important;}}
+.pl-sm-2 {@include media-breakpoint-up(sm) {padding-left:0.5rem !important;}}
+.pl-md-2 {@include media-breakpoint-up(md) {padding-left:0.5rem !important;}}
+.pl-lg-2 {@include media-breakpoint-up(lg) {padding-left:0.5rem !important;}}
+.pr-xs-2 {@include media-breakpoint-up(xs) {padding-right:0.5rem !important;}}
+.pr-sm-2 {@include media-breakpoint-up(sm) {padding-right:0.5rem !important;}}
+.pr-md-2 {@include media-breakpoint-up(md) {padding-right:0.5rem !important;}}
+.pr-lg-2 {@include media-breakpoint-up(lg) {padding-right:0.5rem !important;}}
+.pl-xs-3 {@include media-breakpoint-up(xs) {padding-left:1rem !important;}}
+.pl-sm-3 {@include media-breakpoint-up(sm) {padding-left:1rem !important;}}
+.pl-md-3 {@include media-breakpoint-up(md) {padding-left:1rem !important;}}
+.pl-lg-3 {@include media-breakpoint-up(lg) {padding-left:1rem !important;}}
+.pr-xs-3 {@include media-breakpoint-up(xs) {padding-right:1rem !important;}}
+.pr-sm-3 {@include media-breakpoint-up(sm) {padding-right:1rem !important;}}
+.pr-md-3 {@include media-breakpoint-up(md) {padding-right:1rem !important;}}
+.pr-lg-3 {@include media-breakpoint-up(lg) {padding-right:1rem !important;}}
+.pl-xs-4 {@include media-breakpoint-up(xs) {padding-left:1.5rem !important;}}
+.pl-sm-4 {@include media-breakpoint-up(sm) {padding-left:1.5rem !important;}}
+.pl-md-4 {@include media-breakpoint-up(md) {padding-left:1.5rem !important;}}
+.pl-lg-4 {@include media-breakpoint-up(lg) {padding-left:1.5rem !important;}}
+.pr-xs-4 {@include media-breakpoint-up(xs) {padding-right:1.5rem !important;}}
+.pr-sm-4 {@include media-breakpoint-up(sm) {padding-right:1.5rem !important;}}
+.pr-md-4 {@include media-breakpoint-up(md) {padding-right:1.5rem !important;}}
+.pr-lg-4 {@include media-breakpoint-up(lg) {padding-right:1.5rem !important;}}
 
 
 // ---------------------------------
-// State
+// Size
 // ---------------------------------
-// hover
-// ------------------------------
+// *** max width -> (ex) .max-w-f800
+$w-sizes: '900', '800', '700', '600', '500', '400', '300';
+
+@each $w-size in $w-sizes {
+  .max-w-f#{$w-size} {max-width: #{$w-size}px !important;}
+}
+
+// *** glid width
+// extend bootstrap 指定したサイズ以上がその値%でfixされる。 w-100やw-75などと併用する
+.w-xs-100 {@include media-breakpoint-up(xs) {width: 100% !important;}}
+.w-sm-100 {@include media-breakpoint-up(sm) {width: 100% !important;}}
+.w-md-100 {@include media-breakpoint-up(md) {width: 100% !important;}}
+.w-lg-100 {@include media-breakpoint-up(lg) {width: 100% !important;}}
+.w-xs-90 {@include media-breakpoint-up(xs) {width: 90% !important;}}
+.w-sm-90 {@include media-breakpoint-up(sm) {width: 90% !important;}}
+.w-md-90 {@include media-breakpoint-up(md) {width: 90% !important;}}
+.w-lg-90 {@include media-breakpoint-up(lg) {width: 90% !important;}}
+.w-xs-80 {@include media-breakpoint-up(xs) {width: 80% !important;}}
+.w-sm-80 {@include media-breakpoint-up(sm) {width: 80% !important;}}
+.w-md-80 {@include media-breakpoint-up(md) {width: 80% !important;}}
+.w-lg-80 {@include media-breakpoint-up(lg) {width: 80% !important;}}
+.w-xs-75 {@include media-breakpoint-up(xs) {width: 75% !important;}}
+.w-sm-75 {@include media-breakpoint-up(sm) {width: 75% !important;}}
+.w-md-75 {@include media-breakpoint-up(md) {width: 75% !important;}}
+.w-lg-75 {@include media-breakpoint-up(lg) {width: 75% !important;}}
+.w-xs-50 {@include media-breakpoint-up(xs) {width: 50% !important;}}
+.w-sm-50 {@include media-breakpoint-up(sm) {width: 50% !important;}}
+.w-md-50 {@include media-breakpoint-up(md) {width: 50% !important;}}
+.w-lg-50 {@include media-breakpoint-up(lg) {width: 50% !important;}}
+.w-xs-40 {@include media-breakpoint-up(xs) {width: 40% !important;}}
+.w-sm-40 {@include media-breakpoint-up(sm) {width: 40% !important;}}
+.w-md-40 {@include media-breakpoint-up(md) {width: 40% !important;}}
+.w-lg-40 {@include media-breakpoint-up(lg) {width: 40% !important;}}
+.w-xs-25 { @include media-breakpoint-up(xs) {width: 25% !important;}}
+.w-sm-25 {@include media-breakpoint-up(sm) {width: 25% !important;}}
+.w-md-25 {@include media-breakpoint-up(md) {width: 25% !important;}}
+.w-lg-25 {@include media-breakpoint-up(lg) {width: 25% !important;}}
+.w-xs-auto {@include media-breakpoint-up(xs) {width: auto !important;}}
+.w-sm-auto {@include media-breakpoint-up(sm) {width: auto !important;}}
+.w-md-auto {@include media-breakpoint-up(md) {width: auto !important;}}
+.w-lg-auto {@include media-breakpoint-up(lg) {width: auto !important;}}

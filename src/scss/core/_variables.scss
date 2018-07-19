@@ -2,19 +2,108 @@
 // variables.scss
 // ========================================
 
+// [note] These definitions also include overriding & extending Bootstrap.
+
 // ---------------------------------
-// Colors
+// Fonts ※Override
+// ---------------------------------
+$font-size-base: 1.6rem;
+// [note] $font-family-base = $font-family-sans-serif
+$font-family-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif, Yu Gothic;
+
+
+// ---------------------------------
+// Color System
 // ---------------------------------
 
-// General Color
+// Mono ※ Override & Extend
 // ------------------------------
-$black: #000;
 $white: #fff;
-$gray: #787;
+
+$black: #000;
+$black-600: #5c5c5c;
+$black-700: #464646;
+$black-800: #2e2e2e;
+$black-900: #181818; // main text
+
+$gray: #676767;
+$gray-100: #F7F8F8; // ※tmp
+$gray-200: #F1F2F3; // ※共通アクセントBG
+$gray-300: #E8EBEE; // ※日本地図
+$gray-400: #E8E8E8; // ※TOKYO地図弱 / ボーダーカラー
+$gray-500: #D9D9D9; // ※tmp
+$gray-600: #D1D1D1; // ※TOKYO地図強
+$gray-700: #C0C1C2; // ※ACESSサブテキスト
+$gray-800: #8b8b8b; // ※サブテキスト
+$gray-900: #818181; // ※tmp
 
 
+// Orange ※ Override & Extend
+// ------------------------------
+$orange: #F83023; // ※Add button hvr
+$orange-100: #FEE9E7; // ※tmp
+$orange-200: #FDD4D2; // ※tmp
+$orange-300: #FCBFBB; // ※tmp
+$orange-400: #FCABA6; // ※tmp
+$orange-500: #FB9690; // ※tmp
+$orange-600: #FA827A; // ※tmp
+$orange-700: #FA6D64; // ※tmp
+$orange-800: #F9594E; // ※tmp
+$orange-900: #FF473B; // ※Add button
 
-// Alpha Mono Color
+$oranges: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$oranges: map-merge(
+  (
+    "100": $orange-100,
+    "200": $orange-200,
+    "300": $orange-300,
+    "400": $orange-400,
+    "500": $orange-500,
+    "600": $orange-600,
+    "700": $orange-700,
+    "800": $orange-800,
+    "900": $orange-900
+  ),
+  $oranges
+);
+
+
+// Green ※ Override & Extend
+// ------------------------------
+$green: #05792D;
+$green-100: #E4F0E8; // ※tmp
+$green-200: #CCE3D4; // ※tmp
+$green-300: #B2D6BF; // ※tmp
+$green-400: #9AC9AA; // ※tmp
+$green-500: #81BB95; // ※tmp
+$green-600: #68AE80; // ※tmp
+$green-700: #4FA06B; // ※tmp
+$green-800: #369356; // ※tmp
+$green-900: #009132; // ※Add button cr
+
+$greens: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$greens: map-merge(
+  (
+    "100": $green-100,
+    "200": $green-200,
+    "300": $green-300,
+    "400": $green-400,
+    "500": $green-500,
+    "600": $green-600,
+    "700": $green-700,
+    "800": $green-800,
+    "900": $green-900
+  ),
+  $greens
+);
+
+
+// ---------------------------------
+// Color alias
+// ---------------------------------
+// Alpha color
 // ------------------------------
 $color-black-alpha20: rgba(0, 0, 0, .2);
 $color-black-alpha30: rgba(0, 0, 0, .4);
@@ -26,3 +115,136 @@ $color-white-alpha40: rgba(255, 255, 255, .4);
 $color-white-alpha60: rgba(255, 255, 255, .6);
 $color-white-alpha80: rgba(255, 255, 255, .8);
 $color-white-alpha90: rgba(255, 255, 255, .9);
+
+// Role color
+// ------------------------------
+// *** Global ※ Override
+$primary: $gray;
+$secondary: #456;
+$success: #789;
+$info: #789;
+$warning: #789;
+$danger: #789;
+$light: #789;
+$dark: #789;
+// The primary button color is light. To let primary buttons have a light text color,
+// the threshold needs to upped.
+// $yiq-contrasted-threshold: 175;
+
+// *** Bg
+$color-accent-bg1: #e89;
+$color-accent-bg2: #ee0;
+$color-accent-bg3: #ee4;
+
+
+
+// ---------------------------------
+// Body
+// ---------------------------------
+$body-bg: $white;
+$body-color: $black-900;
+$body-rvs-bg: $body-color;
+$body-rvs-color: $body-bg;
+
+
+// ---------------------------------
+// Links
+// ---------------------------------
+$link-color: $orange-900;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+
+
+// ---------------------------------
+// Spacers
+// ---------------------------------
+
+// spacers ※ Extend Bootstrap
+// ------------------------------
+
+// $spacers
+// ex) .mb-3 = margin-bottom: 1rem;
+// ------------------------------
+$spacer: 1rem;
+$spacers: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge((
+  // ↓[note] Already defined
+  // 0: 0,
+  // 1: ($spacer * .25),
+  // 2: ($spacer * .5),
+  // 3: $spacer,
+  // 4: ($spacer * 1.5),
+  // 5: ($spacer * 3),
+  // ↑[note] Already defined
+  6: ($spacer * 4.5),
+  7: ($spacer * 6),
+  8: ($spacer * 7.5),
+  9: ($spacer * 9),
+), $spacers);
+
+
+// ----------------------------------------
+// Gutter
+// ----------------------------------------
+$gutter-cmn: 15px;
+$gutter-x-cmn: 15px;
+$gutter-y-cmn: 15px;
+
+
+// ---------------------------------
+// Sizes
+// ---------------------------------
+
+// $sizes
+// ex) .w-90 = width: 90%;
+// ------------------------------
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge((
+  // ↓[note] Already defined
+  // 25: 25%,
+  // 50: 50%,
+  // 75: 75%,
+  // 100: 100%,
+  // auto: auto
+  // ↑[note] Already defined
+  90: 90%,
+  80: 80%,
+  70: 70%,
+  60: 60%,
+  40: 40%,
+  30: 30%
+), $sizes);
+
+
+// ---------------------------------
+// Grid breakpoints
+// ---------------------------------
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// );
+
+
+// ---------------------------------
+// Grid containers
+// ---------------------------------
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1140px
+// );
+
+
+
+// ---------------------------------
+// Buttons + Forms
+// ---------------------------------
+// $input-btn-padding-y: 0.5rem;
+// $btn-padding-x: 2rem;
