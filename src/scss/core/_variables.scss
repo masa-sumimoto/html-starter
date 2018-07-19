@@ -100,11 +100,25 @@ $greens: map-merge(
 );
 
 
+// Alpha
+// ------------------------------
+$color-black-alpha20: rgba(0, 0, 0, .2);
+$color-black-alpha30: rgba(0, 0, 0, .4);
+$color-black-alpha40: rgba(0, 0, 0, .4);
+$color-black-alpha60: rgba(0, 0, 0, .6);
+$color-black-alpha80: rgba(0, 0, 0, .8);
+$color-white-alpha20: rgba(255, 255, 255, .2);
+$color-white-alpha40: rgba(255, 255, 255, .4);
+$color-white-alpha60: rgba(255, 255, 255, .6);
+$color-white-alpha80: rgba(255, 255, 255, .8);
+$color-white-alpha90: rgba(255, 255, 255, .9);
+
+
 // ---------------------------------
-// Color alias
+// Colors
 // ---------------------------------
 
-// Role color ※ Override
+// Bootstrap ※ Override
 // ------------------------------
 $primary: $gray;
 $secondary: #456;
@@ -118,20 +132,7 @@ $dark: #789;
 // the threshold needs to upped.
 // $yiq-contrasted-threshold: 175;
 
-// Alpha color
-// ------------------------------
-$color-black-alpha20: rgba(0, 0, 0, .2);
-$color-black-alpha30: rgba(0, 0, 0, .4);
-$color-black-alpha40: rgba(0, 0, 0, .4);
-$color-black-alpha60: rgba(0, 0, 0, .6);
-$color-black-alpha80: rgba(0, 0, 0, .8);
-$color-white-alpha20: rgba(255, 255, 255, .2);
-$color-white-alpha40: rgba(255, 255, 255, .4);
-$color-white-alpha60: rgba(255, 255, 255, .6);
-$color-white-alpha80: rgba(255, 255, 255, .8);
-$color-white-alpha90: rgba(255, 255, 255, .9);
-
-// Bg color
+// Bg
 // ------------------------------
 $color-accent-bg1: $green-200;
 $color-accent-bg2: $gray-700;

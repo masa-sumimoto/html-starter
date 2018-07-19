@@ -3,36 +3,36 @@
 // ========================================
 
 // ---------------------------------
-// Font
+// Colors
 // ---------------------------------
-// cmn
-// ------------------------------
 
-
-// ---------------------------------
-// Color
-// ---------------------------------
 // text
 // ------------------------------
+// *** global
+.color-white { color: $white !important; }
+.color-black { color: $black !important; }
+.color-gray { color: $gray !important; }
+.color-orange { color: $orange !important; }
+.color-green { color: $green !important; }
+// *** role
 .color-body { color: $body-color !important; }
 .color-body-bg { color: $body-bg !important; }
 .color-body-rvs { color: $body-rvs-color !important; }
 .color-body-rvs-bg { color: $body-rvs-bg !important; }
-.color-orange { color: $orange !important; }
-.color-green { color: $green !important; }
+
 
 // bg
 // ------------------------------
+// *** global
 .bg-green { background: $green !important; }
-
-// .bg-white {background: $color-white!important;}
-// .bg-gray {background: $color-mono9!important;}
-// .bg-gray2 {background: $color-mono7!important;}
-// .bg-1 {background: $color-mono7!important;}
-// .bg-2 {background: $color-cyan7!important;}
-// .bg-3 {background: $color-mono8!important;}
-// .bg-4 {background: $color-mono7!important;}
-// .bg-5 {background: $color-mono7!important;}
+.bg-orange { background: $orange !important; }
+.bg-white { background: $white !important; }
+.bg-black { background: $black !important; }
+.bg-gray { background: $gray !important; }
+// *** role
+.bg-accent1 { background: $color-accent-bg1 !important; }
+.bg-accent2 { background: $color-accent-bg2 !important; }
+.bg-accent3 { background: $color-accent-bg3 !important; }
 
 
 // ---------------------------------
