@@ -1,11 +1,11 @@
 # Overview
-This is my html working template.
+This is a starter kit when I do html coding.
+I will share the coding environment and my method.
 
 
+## Environment Information
 
-## Information
-
-### About Environment
+### About Web Tools
 This environment includes tools below.
 ```
 - Node.js
@@ -14,8 +14,8 @@ This environment includes tools below.
 - Scss
 ```
 
-### About Liblaries
-This environment has libraries below.
+### About Libraries
+This environment has javascript libraries below.
 ```
 - jQuery
 - Bootstrap4 (and Popper.js)
@@ -24,6 +24,7 @@ This environment has libraries below.
 
 
 ## Getting Started
+非常に
 
 1. Clone this repository.
 ```
@@ -47,11 +48,11 @@ and open http://localhost:8080/
 
 
 
-## Tips
+## Cording Tips
 上記までの設定で環境自体は準備することが可能です。
-ここからは、私の中で形式化しているコーディング作法をシェアします。
+ここからは、私の中で形式化しているコーディング作法をご紹介します。
 
-本方式はBootstrapのコンポーネントを大幅に活用することを想定し、且つ、OOCSS・BEMを混合させたスタイルを用います。
+本環境はBootstrapのコンポーネントを大幅に活用することを想定し、且つ、OOCSS・BEMを混合させたスタイルを用います。
 また、全く方針が異なる他者がコーディングに介入することも想定しているため、かなり冗長なものになる可能性があります。
 取捨選択の元、ご参照ください。
 
@@ -61,7 +62,7 @@ and open http://localhost:8080/
 ```
 1.Libraries
 2.Core
-3.Layouts
+3.Containers
 4.Primitive Parts
 5.Complex Parts
 6.Pages
@@ -83,11 +84,23 @@ Librariesに属するcssは主に外部のライブラリサービスを指し�
 グローバルに利用できるユーティリティクラスを保管します。一般的にはスタイルを強くオーバーライドするために用いるものです。
 そのため!importキーワードを用います。
 
-#### 3.Layouts
+#### 3.Containers
 WEBサイトを構成する最も上位のレイアウトブロックに関するスタイルを記します。
 概ね、サイトヘッダーに_header.scss、サイトフッターに_footer.scss、サイトコンテンツ部分の最上位ブロックに_main.scssを用います。
 サイドバーなど2カラムを想定したものであれば、_sub.scssなどとし、利用しても良いと思います。
 
 #### 4.Primitive Parts
+デザイン上、最小単位となるパーツをパーツ単位でstylesheetにして保存します。
+「_button.scss」「_table.scss」「_heading.scss」などが該当します。
+
+
+#### 5.Complex Parts
+比較的複合的なパーツで、且つ、複数回使用されようなものをパーツ単位でstylesheetにして保存します。
+例えば、「_breadcrumbs.scss」「_pagination.scss」など、一般的なWEBサイトにもよく見られるパーツや
+「_food-image-gallery-ui」など、そのwebサイトにおいては何回も登場するパーツなどがこのコンテキストには適しています。
+
+
+#### 6.Pages
+
 
 ※※※※※ ↓以下、製作中↓ ※※※※※
