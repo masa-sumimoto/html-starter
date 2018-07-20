@@ -97,16 +97,28 @@
 
 
 // ---------------------------------
-// Size
+// Sizes
 // ---------------------------------
-// *** max width -> (ex) .max-w-f800
-$w-sizes: '900', '800', '700', '600', '500', '400', '300';
 
-@each $w-size in $w-sizes {
-  .max-w-f#{$w-size} {max-width: #{$w-size}px !important;}
+// width / height
+// ------------------------------
+// [note] Extended Bootstrap $sizes / use Bootstrap utilities.
+// ex) .w-300px = width: 300px;
+// ex) .h-30 = height: 30%;
+
+// max-width
+// ------------------------------
+// [note] Extended Bootstrap $sizes and difined my utilities below / use my utilities.
+// ex) .mw-500px = max-width: 500px;
+// ex) .mw-50 = max-width: 50%;
+@each $key, $val in $sizes {
+  .mw-#{$key} {
+    max-width: #{$val} !important;
+  }
 }
 
-// *** glid width
+// glid-width
+// ------------------------------
 // extend bootstrap 指定したサイズ以上がその値%でfixされる。 w-100やw-75などと併用する
 .w-xs-100 {@include media-breakpoint-up(xs) {width: 100% !important;}}
 .w-sm-100 {@include media-breakpoint-up(sm) {width: 100% !important;}}
