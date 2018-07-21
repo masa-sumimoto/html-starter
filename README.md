@@ -2,10 +2,12 @@
 This is a starter kit when I do html coding myself.
 I will share the coding environment and some my method.
 
-:fish: - :tropical_fish: - :cat2: - :whale2: - - - - -
+:fish: - :tropical_fish: - :cat2: - :whale2:
+
 There are good libraries, templates and ideas in the world.
 My template is not that good, but it should have a little bit better idea, being aided by these.  
 Thanks developers and designers. m(_ _)m
+
 :goat: - :rabbit2: - :octopus: - :cow2: - - - - -
 
 ## Environment Information
@@ -101,10 +103,12 @@ My CSS policy has 7 contexts below.
 (7.User)
 ```
 これら各コンテクストに属するcssは1から7に向けてロードされます。
-このヒエラルキ構造をうまく活用することにより目的に即したデザインの定義・オーバーライドを効率よく行います。
+このヒエラルキ構造をうまく活用することにより目的に即したデザインの定義・オーバーライドを効率よく行えます。
 
-以下は具体的にエンドポイントとなるindex.scssの記述例を示しています。
-後述で説明しますが、`_utilities.scss`のみイレギュラーなソート順になっていることに注目してください。
+以下はscssのエンドポイントとなるindex.scssの記述例を示しています。
+これらは上から下に順番にコンパイル・ロードされます。
+また`_variables.scss`のみイレギュラーなソート順になっていることに注目してください。（詳しくは後述）
+
 ```
 // Libraries (& Override Core)
 @import 'core/variables';
@@ -131,25 +135,56 @@ My CSS policy has 7 contexts below.
 
 
 #### 1.Libraries
-Librariesに属するcssは主に外部のライブラリサービスを指します。このテンプレートにはこのコンテクストにはjQueryとBootstrap4がそれに当たります。
-尚、これらのファイルは書き換えることを想定していません。
+Librariesコンテクストに属するcssは一般的に外部のライブラリサービスを指します。このテンプレートに既に組み込まれているものではBootstrap4がそれに当たります。
+これら外部ファイルはそのもの自体を直に書き換えることを想定していません。また、これらは可能な限りpackageとして管理します。
 
 #### 2.Core
-基本設定にまつわるファイルです。以下のような重要なファイルがCoreファイルに属します。
+変数やmixinまた!importantフラグを用いて利用するユーティリティ的な役割のスタイルを管理するファイル群です。
+また、そのほとんどがBootstrapのオーバーライドや拡張を基本としています。
 
 ##### _variables.scss
-WEBサイトにおいてグローバルに利用できる変数を保管します。Bootstrapのbvariables.scssで定義されている変数も数多くオーバーライドして利用します。
-bootstrapの変数定義には、ほとんどがdefaultフラグを用いています。そのためこのファイルは先読みさせる形となります。
-
+WEBサイトにおいてグローバルに利用できる変数を保管します。Bootstrapのvariables.scssで定義されている変数を数多くオーバーライドして利用します。
+bootstrapの変数定義には、ほとんどがdefaultフラグを用ます。そのためこのファイルは先読みさせる形となります。
 
 ##### _utilities.scss
-グローバルに利用できるユーティリティクラスを保管します。一般的にはスタイルを強くオーバーライドするために用いるものです。
-そのため!importキーワードを用います。
+グローバルに利用できるユーティリティクラスを保管します。これらは基本的には!importantフラグが用いられています。
+スタイルを強くオーバーライドすることを目的とした破壊的なクラス群です。
+
+BEMで丁寧にスタイリングされた要素に対し、そのページのためだけのイレギュラーなスタイルを適用するのに適しています。
+当然BEMモディファイアを利用して表現することが好ましい場合もありますが、それらはケースバイケースです。
+また、マージンやパディングのような周辺要素の影響で印象が刻々と変わる要素に関しては大いに用いる重要性はあるでしょう。
+
 
 #### 3.Containers
 WEBサイトを構成する最も上位のレイアウトブロックに関するスタイルを記します。
-概ね、サイトヘッダーに_header.scss、サイトフッターに_footer.scss、サイトコンテンツ部分の最上位ブロックに_main.scssを用います。
-サイドバーなど2カラムを想定したものであれば、_sub.scssなどとし、利用しても良いと思います。
+概ね、ページ全体に_page.scss、サイトヘッダーに_header.scss、サイトフッターに_footer.scss、サイトコンテンツ部分の最上位ブロックに_main.scssなどとscssを対応させ、用います
+サイドバーなど、2カラム構成が基本のWEBサイトには_sub.scssなども加え、運用するのも良いと思います。
+
+```
+[HTML]
+
+<body class="page">
+  <header class="site-header">
+  <main class="site-main">
+  <footer class="site-footer"
+```
+
+```
+[SCSS]
+
+// _page.scss
+.page { }
+
+// _header.scss
+.site-header { }
+
+// _footer.scss
+.site-footer { }
+
+// _main.scss
+.site-main { }
+```
+
 
 #### 4.Primitive Parts
 デザイン上、最小単位となるパーツをパーツ単位でstylesheetにして保存します。
@@ -175,7 +210,7 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 これを踏まえて表現される形が以下になります。
 
 ```
-// HTML
+[HTML]
 
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/user.css">
@@ -187,13 +222,13 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 ```
 
 ```
-// SCSS in bundle.css
+[SCSS in bundle.css]
 
 .foo { color: red; }
 ```
 
 ```
-// SCSS in user.css
+[SCSS in user.css]
 
 #page-top .foo { color: blue }
 ```
@@ -205,5 +240,5 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 
 
 
-
+### HTML
 ※※※※※ ↓以下、製作中↓ ※※※※※
