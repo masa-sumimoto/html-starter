@@ -3,7 +3,7 @@
 // ========================================
 
 // ---------------------------------
-// Reset
+// Global
 // ---------------------------------
 *:focus {outline: none;}
 
@@ -12,12 +12,6 @@ body,
 div,
 span {margin: 0;padding: 0;}
 
-table {border: 0;border-collapse: collapse;border-spacing: 0;}
-
-
-// ---------------------------------
-// Global
-// ---------------------------------
 html,
 body {
   height: 100%;
@@ -55,7 +49,11 @@ a {
   }
 }
 
-img {
-  max-width: 100%;
-  vertical-align: bottom;
-}
+img { max-width: 100%; vertical-align: bottom; }
+table { border: 0;border-collapse: collapse;border-spacing: 0; }
+
+
+// ---------------------------------
+// Main container
+// ---------------------------------
+// .page {}
