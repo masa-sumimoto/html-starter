@@ -21,35 +21,164 @@ $font-family-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif, Yu Gothic
 $white: #fff;
 
 $black: #000;
-$black-600: #5c5c5c;
-$black-700: #464646;
-$black-800: #2e2e2e;
+$black-100: #e4e4e4;
+$black-200: #cbcbcb;
+$black-300: #b1b1b1;
+$black-400: #989898;
+$black-500: #7e7e7e;
+$black-600: #656565;
+$black-700: #4b4b4b;
+$black-800: #323232;
 $black-900: #181818;
 
-$gray: #676767;
-$gray-100: #f7f8f8;
-$gray-200: #f1f2f3;
-$gray-300: #e8ebee;
-$gray-400: #e8e8e8;
-$gray-500: #d9d9d9;
-$gray-600: #d1d1d1;
-$gray-700: #c0c1c2;
-$gray-800: #8b8b8b;
-$gray-900: #818181;
+$gray: #808080;
+$gray-100: #f1f1f1;
+$gray-200: #e5e5e5;
+$gray-300: #d8d8d8;
+$gray-400: #cbcbcb;
+$gray-500: #bfbfbf;
+$gray-600: #b2b2b2;
+$gray-700: #a5a5a5;
+$gray-800: #999;
+$gray-900: #8c8c8c;
+
+
+// Red ※ Override & Extend
+// ------------------------------
+$red: #f00;
+$red-100: #ffe4e4;
+$red-200: #ffcbcb;
+$red-300: #ffb1b1;
+$red-400: #ff9898;
+$red-500: #ff7e7e;
+$red-600: #ff6565;
+$red-700: #ff4b4b;
+$red-800: #ff3232;
+$red-900: #ff1818;
+
+$reds: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$reds: map-merge(
+  (
+    "100": $red-100,
+    "200": $red-200,
+    "300": $red-300,
+    "400": $red-400,
+    "500": $red-500,
+    "600": $red-600,
+    "700": $red-700,
+    "800": $red-800,
+    "900": $red-900
+  ),
+  $reds
+);
+
+
+// Tomato ※ Override
+// ------------------------------
+$tomato: #ff6347;
+$tomato-100: #ffeeeb;
+$tomato-200: #ffdfd9;
+$tomato-300: #ffcfc6;
+$tomato-400: #ffc0b4;
+$tomato-500: #ffb0a2;
+$tomato-600: #ffa190;
+$tomato-700: #ff917d;
+$tomato-800: #ff826b;
+$tomato-900: #ff7258;
+
+$tomatos: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$tomatos: map-merge(
+  (
+    "100": $tomato-100,
+    "200": $tomato-200,
+    "300": $tomato-300,
+    "400": $tomato-400,
+    "500": $tomato-500,
+    "600": $tomato-600,
+    "700": $tomato-700,
+    "800": $tomato-800,
+    "900": $tomato-900
+  ),
+  $tomatos
+);
+
+
+// Blue ※ Override & Extend
+// ------------------------------
+$blue: #165e83;
+$blue-100: #e6eef1;
+$blue-200: #cfdee5;
+$blue-300: #b8cdd9;
+$blue-400: #a1becd;
+$blue-500: #89adc0;
+$blue-600: #729eb4;
+$blue-700: #5b8da7;
+$blue-800: #447e9b;
+$blue-900: #2c6d8f;
+
+$blues: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$blues: map-merge(
+  (
+    "100": $blue-100,
+    "200": $blue-200,
+    "300": $blue-300,
+    "400": $blue-400,
+    "500": $blue-500,
+    "600": $blue-600,
+    "700": $blue-700,
+    "800": $blue-800,
+    "900": $blue-900
+  ),
+  $blues
+);
+
+
+// Dark Cyan ※ Extend
+// ------------------------------
+$dark-cyan: #008b8b;
+$dark-cyan-100: #e4f2f2;
+$dark-cyan-200: #cbe7e7;
+$dark-cyan-300: #b1dbdb;
+$dark-cyan-400: #98d0d0;
+$dark-cyan-500: #7ec4c4;
+$dark-cyan-600: #65b9b9;
+$dark-cyan-700: #4badad;
+$dark-cyan-800: #4badad;
+$dark-cyan-900: #189696;
+
+$dark-cyans: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$dark-cyans: map-merge(
+  (
+    "100": $dark-cyan-100,
+    "200": $dark-cyan-200,
+    "300": $dark-cyan-300,
+    "400": $dark-cyan-400,
+    "500": $dark-cyan-500,
+    "600": $dark-cyan-600,
+    "700": $dark-cyan-700,
+    "800": $dark-cyan-800,
+    "900": $dark-cyan-900
+  ),
+  $dark-cyans
+);
 
 
 // Orange ※ Override & Extend
 // ------------------------------
-$orange: #f83023;
-$orange-100: #fee9e7;
-$orange-200: #fdd4d2;
-$orange-300: #fcbfbb;
-$orange-400: #fcaba6;
-$orange-500: #fb9690;
-$orange-600: #fa827a;
-$orange-700: #fa6d64;
-$orange-800: #f9594e;
-$orange-900: #ff473b;
+$orange: #ff8c00;
+$orange-100: #fff2e4;
+$orange-200: #ffe7cb;
+$orange-300: #ffdbb1;
+$orange-400: #ffd098;
+$orange-500: #ffc57e;
+$orange-600: #ffb965;
+$orange-700: #ffae4b;
+$orange-800: #ffa232;
+$orange-900: #ff9718;
 
 $oranges: ();
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -71,16 +200,16 @@ $oranges: map-merge(
 
 // Green ※ Override & Extend
 // ------------------------------
-$green: #05792d;
-$green-100: #e4f0e8;
-$green-200: #cce3d4;
-$green-300: #b2d6bf;
-$green-400: #9acc9a;
-$green-500: #81bb95;
-$green-600: #68ae80;
-$green-700: #4fa06b;
-$green-800: #369356;
-$green-900: #009132;
+$green: #008000;
+$green-100: #e4f1e4;
+$green-200: #cbe5cb;
+$green-300: #b1d8b1;
+$green-400: #98cb98;
+$green-500: #7ebf7e;
+$green-600: #65b265;
+$green-700: #4ba54b;
+$green-800: #329932;
+$green-900: #188c18;
 
 $greens: ();
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -97,6 +226,37 @@ $greens: map-merge(
     "900": $green-900
   ),
   $greens
+);
+
+
+// Olive ※ Override
+// ------------------------------
+$olive: #808000;
+$olive-100: #f1f1e4;
+$olive-200: #e5e5cb;
+$olive-300: #d8d8b1;
+$olive-400: #cbcb98;
+$olive-500: #bfbf7e;
+$olive-600: #b2b265;
+$olive-700: #a5a54b;
+$olive-800: #999932;
+$olive-900: #8c8c18;
+
+$olives: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$olives: map-merge(
+  (
+    "100": $olive-100,
+    "200": $olive-200,
+    "300": $olive-300,
+    "400": $olive-400,
+    "500": $olive-500,
+    "600": $olive-600,
+    "700": $olive-700,
+    "800": $olive-800,
+    "900": $olive-900
+  ),
+  $olives
 );
 
 
@@ -120,24 +280,28 @@ $color-white-alpha90: rgba(255, 255, 255, .9);
 
 // Bootstrap ※ Override
 // ------------------------------
-$primary: $gray;
-$secondary: #456;
-$success: #789;
-$info: #789;
-$warning: #789;
-$danger: #789;
-$light: #789;
-$dark: #789;
+$primary: $blue;
+$secondary: $olive;
+$success: $orange;
+$info: $dark-cyan;
+$warning: $tomato;
+$danger: $red;
+$light: $white;
+$dark: $black;
 // The primary button color is light. To let primary buttons have a light text color,
 // the threshold needs to upped.
 // $yiq-contrasted-threshold: 175;
 
 // Bg
 // ------------------------------
-$color-accent-bg1: $green-200;
-$color-accent-bg2: $gray-700;
-$color-accent-bg3: $gray-200;
-
+$color-accent-bg1: $gray-200;
+$color-accent-bg2: $blue-200;
+$color-accent-bg3: $olive-200;
+$color-accent-bg5: $orange-200;
+$color-accent-bg4: $dark-cyan-200;
+$color-accent-bg6: $tomato-200;
+$color-accent-bg7: $red-200;
+$color-accent-bg8: $green-200;
 
 
 // ---------------------------------
@@ -152,7 +316,7 @@ $body-rvs-color: $body-bg;
 // ---------------------------------
 // Links
 // ---------------------------------
-$link-color: $orange-900;
+$link-color: $blue;
 $link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
@@ -240,7 +404,6 @@ $sizes: map-merge((
 //   lg: 960px,
 //   xl: 1140px
 // );
-
 
 
 // ---------------------------------
