@@ -12,7 +12,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: publidDir,
-    filename: 'js/bundle.js'
+    filename: 'js/bundle.js',
   },
   module: {
     rules: [
@@ -22,8 +22,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015']
-          }
+            presets: ['es2015'],
+          },
         },
         exclude: /node_modules/,
       },
@@ -39,30 +39,30 @@ module.exports = {
                 url: false,
                 minimize: enableCssMinimize,
                 sourceMap: enabledSourceMap,
-                importLoaders: 2
+                importLoaders: 2,
               },
             },
             {
               loader: 'postcss-loader',
-                options: {
-                  sourceMap: enabledSourceMap,
-                  plugins: [
-                    require('autoprefixer')({
-                      browsers: [ 'last 2 versions' ]
-                    }),
-                  ]
-                }
+              options: {
+                sourceMap: enabledSourceMap,
+                plugins: [
+                  require('autoprefixer')({
+                    browsers: ['last 2 versions'],
+                  }),
+                ],
+              },
             },
             {
               loader: 'sass-loader',
               options: {
                 sourceMap: enabledSourceMap,
-              }
-            }
-          ]
+              },
+            },
+          ],
         }),
       },
-    ]
+    ],
   },
   plugins: [
     new ExtractTextPlugin('css/bundle.css'),
@@ -70,5 +70,5 @@ module.exports = {
   devServer: {
     contentBase: publidDir,
     port: 8080,
-  }
+  },
 };

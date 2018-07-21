@@ -1,12 +1,17 @@
 # Overview
-This is a starter kit when I do html coding.
-I will share the coding environment and my method.
+This is a starter kit when I do html coding myself.
+I will share the coding environment and some my method.
 
+ - :fish: - :tropical_fish: - :cat2: - :whale2: -
+There are good templates in the world. Most of these are helped by excellent template.
+My template is not that good, but it should have a little bit better idea, being aided by these.
+Thanks developers and designers. m(_ _)m
+ - :goat: - :rabbit2: - :octopus: - :cow2: -
 
 ## Environment Information
 
-### About Web Tools
-This environment includes tools below.
+### About Technologies
+This environment includes technologies below.
 ```
 - Node.js
 - Babel
@@ -14,50 +19,78 @@ This environment includes tools below.
 - Scss
 ```
 
-### About Libraries
-This environment has javascript libraries below.
+### About Javascript Libraries
+This environment already includes javascript libraries below.
 ```
 - jQuery
 - Bootstrap4 (and Popper.js)
 ```
 
-
-
 ## Getting Started
 
-1. Clone this repository.
+### Installation
+You can start coding immediately in the following way.
+1. Clone this repository: `git clone git@github.com:sumi37/tmp-html-project.git` (or download)
+2. Move directory: `cd sumi37-html-project-tmp`
+3. Install node modules with yarn: `yarn install`
+4. View the site at `http://localhost:8080/`
+
+※ If you don't have node.js and yarn, Please install on your PC in advance.
+※ If you want to stop server, Please use `ctrl+c` on your shell.
+
+### Add Html files
+Please add html files to under `/public/`.
 ```
-git clone git@github.com:sumi37/tmp-html-project.git
+ex:
+./public/index.html => http://localhost:8080/
+./public/foo.html => http://localhost:8080/foo.html
 ```
-or download.
+This directory can be used as an area for saving static files.
+so For example, it is recommended to save image files like `/public/images/*`
 
 
-2. Install node modules (with yarn).
+### Add Stylesheets
+Please add css files as scss to under `/src/scss`.
 ```
-$ cd sumi37-html-project-tmp
-$ yarn install
+ex:
+/src/scss/_foo.scss
+```
+And import the file to `/src/scss/index.scss`.
+You can use both css style and scss style on scss files.
+
+
+### Add Javascripts
+Please add css files to under `/src/js`.
+```
+ex:
+/src/js/_foo.js
+```
+And import the file to `/src/js/index.js`.
+You can use both es5 style and es6 style on javascript files.
+
+
+### Build
+If you get static files, There is `yarn run build`.
+Please stop server once and enter the command.
+`public/css` and `public/js` folder will get bundle files.
+You only associate these files with html files as following.
+```
+<link rel="stylesheet" href="/css/bundle.css">
+<script src="/js/bundle.js"></script>
 ```
 
-3. See the project on your browser.
-```
-$ yarn start
 
-and open http://localhost:8080/
-```
+## Cording Methods
+If you start working with this project template, you will notice that it contains several styles and html tags.
+I will introduce my coding method from here on.
+If you already have good way, Please delete my codes.
 
-
-
-## Cording Tips
-上記までの設定で環境自体は準備することが可能です。
-ここからは、私の中で形式化しているコーディング作法をご紹介します。
-
-本環境はBootstrapのコンポーネントを大幅に活用することを想定し、且つ、OOCSS・BEMを混合させたスタイルを用います。
-また、全く方針が異なる他者がコーディングに介入することも想定しているため、かなり冗長なものになる可能性があります。
-取捨選択の元、ご参照ください。
-
+I use a lot of Bootstrap4 components and methods of OOCSS and BEM.
+Also, this method assumes the possibility of filling in the codes of others who have different ideas and policies of my teammates.
+Sometimes you feel redundant. so Please choose at your option at that time.
 
 ### SCSS
-この環境は6つのパーソナルなcss(scss)の作業環境があります。
+My CSS policy has 7 contexts below.
 ```
 1.Libraries
 2.Core
@@ -130,6 +163,7 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 
 
 #### 6.Pages
+ページテンプレート単位にスタイルを制御したい時に利用します。基本的にはBEM記法で書かれたBlockがもつモディファイアがその大半を担ってくれますが、
 
 
 ※※※※※ ↓以下、製作中↓ ※※※※※
