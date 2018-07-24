@@ -11,7 +11,6 @@ $font-size-base: 1.6rem;
 // [note] $font-family-base = $font-family-sans-serif
 $font-family-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif, Yu Gothic;
 
-
 // ---------------------------------
 // Color System
 // ---------------------------------
@@ -41,7 +40,6 @@ $gray-600: #b2b2b2;
 $gray-700: #a5a5a5;
 $gray-800: #999;
 $gray-900: #8c8c8c;
-
 
 // Red ※ Override & Extend
 // ------------------------------
@@ -73,7 +71,6 @@ $reds: map-merge(
   $reds
 );
 
-
 // Tomato ※ Override
 // ------------------------------
 $tomato: #ff6347;
@@ -103,7 +100,6 @@ $tomatos: map-merge(
   ),
   $tomatos
 );
-
 
 // Blue ※ Override & Extend
 // ------------------------------
@@ -135,7 +131,6 @@ $blues: map-merge(
   $blues
 );
 
-
 // Dark Cyan ※ Extend
 // ------------------------------
 $dark-cyan: #008b8b;
@@ -165,7 +160,6 @@ $dark-cyans: map-merge(
   ),
   $dark-cyans
 );
-
 
 // Orange ※ Override & Extend
 // ------------------------------
@@ -197,7 +191,6 @@ $oranges: map-merge(
   $oranges
 );
 
-
 // Green ※ Override & Extend
 // ------------------------------
 $green: #008000;
@@ -227,7 +220,6 @@ $greens: map-merge(
   ),
   $greens
 );
-
 
 // Olive ※ Override
 // ------------------------------
@@ -259,20 +251,18 @@ $olives: map-merge(
   $olives
 );
 
-
 // Alpha
 // ------------------------------
-$color-black-alpha20: rgba(0, 0, 0, .2);
-$color-black-alpha30: rgba(0, 0, 0, .4);
-$color-black-alpha40: rgba(0, 0, 0, .4);
-$color-black-alpha60: rgba(0, 0, 0, .6);
-$color-black-alpha80: rgba(0, 0, 0, .8);
-$color-white-alpha20: rgba(255, 255, 255, .2);
-$color-white-alpha40: rgba(255, 255, 255, .4);
-$color-white-alpha60: rgba(255, 255, 255, .6);
-$color-white-alpha80: rgba(255, 255, 255, .8);
-$color-white-alpha90: rgba(255, 255, 255, .9);
-
+$color-black-alpha20: rgba(0, 0, 0, 0.2);
+$color-black-alpha30: rgba(0, 0, 0, 0.4);
+$color-black-alpha40: rgba(0, 0, 0, 0.4);
+$color-black-alpha60: rgba(0, 0, 0, 0.6);
+$color-black-alpha80: rgba(0, 0, 0, 0.8);
+$color-white-alpha20: rgba(255, 255, 255, 0.2);
+$color-white-alpha40: rgba(255, 255, 255, 0.4);
+$color-white-alpha60: rgba(255, 255, 255, 0.6);
+$color-white-alpha80: rgba(255, 255, 255, 0.8);
+$color-white-alpha90: rgba(255, 255, 255, 0.9);
 
 // ---------------------------------
 // Colors
@@ -303,7 +293,6 @@ $color-accent-bg6: $tomato-200;
 $color-accent-bg7: $red-200;
 $color-accent-bg8: $green-200;
 
-
 // ---------------------------------
 // Body
 // ---------------------------------
@@ -312,7 +301,6 @@ $body-color: $black-900;
 $body-rvs-bg: $body-color;
 $body-rvs-color: $body-bg;
 
-
 // ---------------------------------
 // Links
 // ---------------------------------
@@ -320,7 +308,6 @@ $link-color: $blue;
 $link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
-
 
 // ---------------------------------
 // Grid columns / Spacers *Extend
@@ -333,22 +320,24 @@ $spacer-cmn: $grid-gutter-width / 2;
 $spacer: 1rem;
 $spacers: ();
 // stylelint-disable-next-line scss/dollar-variable-default
-$spacers: map-merge((
-  // ↓[note] Already defined
-  // 0: 0,
-  // 1: ($spacer * .25),
-  // 2: ($spacer * .5),
-  // 3: $spacer,
-  // 4: ($spacer * 1.5),
-  // 5: ($spacer * 3),
-  // ↑[note] Already defined
-  6: ($spacer * 4.5),
-  7: ($spacer * 6),
-  8: ($spacer * 7.5),
-  9: ($spacer * 9),
-  cmn: $spacer-cmn
-), $spacers);
-
+$spacers: map-merge(
+  (
+    // ↓[note] Already defined
+    // 0: 0,
+    // 1: ($spacer * .25),
+    // 2: ($spacer * .5),
+    // 3: $spacer,
+    // 4: ($spacer * 1.5),
+    // 5: ($spacer * 3),
+    // ↑[note] Already defined
+    6: ($spacer * 4.5),
+    7: ($spacer * 6),
+    8: ($spacer * 7.5),
+    9: ($spacer * 9),
+    cmn: $spacer-cmn
+  ),
+  $spacers
+);
 
 // ---------------------------------
 // Sizes
@@ -359,29 +348,31 @@ $spacers: map-merge((
 // ------------------------------
 $sizes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$sizes: map-merge((
-  // ↓[note] Already defined
-  // 25: 25%,
-  // 50: 50%,
-  // 75: 75%,
-  // 100: 100%,
-  // auto: auto
-  // ↑[note] Already defined
-  90: 90%,
-  80: 80%,
-  70: 70%,
-  60: 60%,
-  40: 40%,
-  30: 30%,
-  900px: 900px,
-  800px: 800px,
-  700px: 700px,
-  600px: 600px,
-  500px: 500px,
-  400px: 400px,
-  300px: 300px
-), $sizes);
-
+$sizes: map-merge(
+  (
+    // ↓[note] Already defined
+    // 25: 25%,
+    // 50: 50%,
+    // 75: 75%,
+    // 100: 100%,
+    // auto: auto
+    // ↑[note] Already defined
+    90: 90%,
+    80: 80%,
+    70: 70%,
+    60: 60%,
+    40: 40%,
+    30: 30%,
+    900px: 900px,
+    800px: 800px,
+    700px: 700px,
+    600px: 600px,
+    500px: 500px,
+    400px: 400px,
+    300px: 300px
+  ),
+  $sizes
+);
 
 // ---------------------------------
 // Grid breakpoints
@@ -394,7 +385,6 @@ $sizes: map-merge((
 //   xl: 1200px
 // );
 
-
 // ---------------------------------
 // Grid containers
 // ---------------------------------
@@ -404,7 +394,6 @@ $sizes: map-merge((
 //   lg: 960px,
 //   xl: 1140px
 // );
-
 
 // ---------------------------------
 // Buttons + Forms

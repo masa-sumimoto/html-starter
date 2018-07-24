@@ -5,12 +5,15 @@
 // ---------------------------------
 // Global
 // ---------------------------------
-*:focus {outline: none;}
+*:focus { outline: none; }
 
 html,
 body,
 div,
-span {margin: 0;padding: 0;}
+span {
+  margin: 0;
+  padding: 0;
+}
 
 html,
 body {
@@ -49,9 +52,16 @@ a {
   }
 }
 
-img { max-width: 100%; vertical-align: bottom; }
-table { border: 0;border-collapse: collapse;border-spacing: 0; }
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
 
+table {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 // ---------------------------------
 // Main container

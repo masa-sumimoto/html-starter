@@ -20,7 +20,6 @@
 .color-body-rvs { color: $body-rvs-color !important; }
 .color-body-rvs-bg { color: $body-rvs-bg !important; }
 
-
 // bg
 // ------------------------------
 // *** global
@@ -29,7 +28,6 @@
 .bg-white { background: $white !important; }
 .bg-black { background: $black !important; }
 .bg-gray { background: $gray !important; }
-
 
 // *** role
 .bg-accent1 { background: $color-accent-bg1 !important; }
@@ -44,6 +42,7 @@
 // ---------------------------------
 // gutter
 // ---------------------------------
+/* stylelint-disable */
 .mx-xs-0 {@include media-breakpoint-up(xs) {margin-left:0 !important;margin-right:0 !important;}}
 .mx-sm-0 {@include media-breakpoint-up(sm) {margin-left:0 !important;margin-right:0 !important;}}
 .mx-md-0 {@include media-breakpoint-up(md) {margin-left:0 !important;margin-right:0 !important;}}
@@ -100,7 +99,7 @@
 .pr-sm-4 {@include media-breakpoint-up(sm) {padding-right:1.5rem !important;}}
 .pr-md-4 {@include media-breakpoint-up(md) {padding-right:1.5rem !important;}}
 .pr-lg-4 {@include media-breakpoint-up(lg) {padding-right:1.5rem !important;}}
-
+/* stylelint-enable */
 
 // ---------------------------------
 // Sizes
@@ -126,6 +125,7 @@
 // glid-width
 // ------------------------------
 // extend bootstrap 指定したサイズ以上がその値%でfixされる。 w-100やw-75などと併用する
+/* stylelint-disable */
 .w-xs-100 {@include media-breakpoint-up(xs) {width: 100% !important;}}
 .w-sm-100 {@include media-breakpoint-up(sm) {width: 100% !important;}}
 .w-md-100 {@include media-breakpoint-up(md) {width: 100% !important;}}
@@ -158,3 +158,4 @@
 .w-sm-auto {@include media-breakpoint-up(sm) {width: auto !important;}}
 .w-md-auto {@include media-breakpoint-up(md) {width: auto !important;}}
 .w-lg-auto {@include media-breakpoint-up(lg) {width: auto !important;}}
+/* stylelint-enable */

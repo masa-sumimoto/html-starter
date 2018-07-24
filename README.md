@@ -91,7 +91,7 @@ I use a lot of Bootstrap4 components and methods of OOCSS and BEM.
 Also, this method assumes the possibility of filling in the codes of others who have different ideas and policies of my teammates.
 Sometimes you feel redundant. so Please choose at your option at that time.
 
-### SCSS
+### SCSS (CSS) : Overview
 My CSS policy has 7 contexts below.
 ```
 1.Libraries
@@ -238,6 +238,24 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 
 定期的にuser.css内に書き落とされたコードを、1〜6の正しいレギュレーションの世界に移植することがベターです。（あなたの時間が許される限り）
 
+
+
+### SCSS (CSS) : about lint
+コーディングのルールには以下のものを利用しています。
+```
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-no-unknown": null
+  }
+}
+```
+
+コーディングエディタに対応するツールがあるならば、それを利用すると便利です。
+例えばAtomの場合は以下のコマンドでpackageをインストールします。
+```
+apm install linter-stylelint
+````
 
 
 ### HTML
