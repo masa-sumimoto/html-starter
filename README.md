@@ -1,11 +1,15 @@
 English | [日本語](README_ja.md)  
 
 # Overview
-:fish: - :tropical_fish: - :cat2: - :whale2:
+:fish: - :tropical_fish: - :cat2: - :whale2:  
+
 Thank you for your looking at this page.
 This is a starter kit when I use it at html cording work.
 I will share the environment and some my method.
-:goat: - :rabbit2: - :octopus: - :cow2:
+
+※It is under construction in some places..
+
+:goat: - :rabbit2: - :octopus: - :cow2:  
 
 ## Environment Information
 This starter has the following structure.
@@ -32,20 +36,20 @@ Cording Libraries:
 - Bootstrap4
 ```
 
-
-## Getting Started
+## How to Use
 
 ### Installation
 You can start coding immediately in the following way.
 1. Clone this repository: `git clone git@github.com:sumi37/tmp-html-project.git` (or download)
 2. Move directory: `cd sumi37-html-project-tmp`
 3. Install node modules with yarn: `yarn install`
-4. View the site at `http://localhost:8080/`
+4. Start server: `yarn start`
+5. View the site at `http://localhost:8080/`
 
 ※ If you don't have node.js and yarn, Please install on your PC in advance.
 ※ If you want to stop server, Please use `ctrl+c` on your shell.
 
-### Add Html files
+### How to add Html files
 Please add html files to under `/public/`.
 ```
 ex:
@@ -56,7 +60,7 @@ This directory can be used as an area for saving static files.
 so For example, it is recommended to save image files like `/public/images/*`
 
 
-### Add Stylesheets
+### How to add Stylesheets
 Please add css files as scss to under `/src/scss`.
 ```
 ex:
@@ -66,7 +70,7 @@ And import the file to `/src/scss/index.scss`.
 You can use both css style and scss style on scss files.
 
 
-### Add Javascripts
+### How to add Javascripts
 Please add css files to under `/src/js`.
 ```
 ex:

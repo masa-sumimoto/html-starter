@@ -1,14 +1,17 @@
 [English](README.md) | 日本語  
 
-# Overview
-:fish: - :tropical_fish: - :cat2: - :whale2:
-こんにちは。これは私が仕事などでhtmlコーディングを行う際のスターターキットです。
-このリポジトリではその環境とコーディング方法を少し紹介させていただきます。
-:goat: - :rabbit2: - :octopus: - :cow2:
+# 概要
+:fish: - :tropical_fish: - :cat2: - :whale2:  
 
-## Environment Information
+こんにちは。これは私がでhtmlコーディングを行う際に利用するスターターキットです。
+このリポジトリではその環境のシェアとコーディング方法を少し紹介させていただきます。
+
+※少しづつ書き進めています。
+
+:goat: - :rabbit2: - :octopus: - :cow2:  
+
+## 環境について
 このスターターキットは以下のもので構成されています。
-This starter has the following structure.
 ```
 Package management:
 - Node.js + Yarn
@@ -33,71 +36,74 @@ Cording Libraries:
 ```
 
 
-## Getting Started
+## 使い方
 
-### Installation
-You can start coding immediately in the following way.
-1. Clone this repository: `git clone git@github.com:sumi37/tmp-html-project.git` (or download)
-2. Move directory: `cd sumi37-html-project-tmp`
-3. Install node modules with yarn: `yarn install`
-4. View the site at `http://localhost:8080/`
+### はじめに
+以下の方法でローカル環境にこのスターターキットを展開できます。
+1. このリポジトリをクローンする: `git clone git@github.com:sumi37/tmp-html-project.git` (or download)
+2. 対象のディレクトリに移動: `cd sumi37-html-project-tmp`
+3. node moduleをインストール: `yarn install`
+4. サーバを起動: `yarn start`
+5. ページを確認: `http://localhost:8080/` にブラウザでアクセスする。
 
-※ If you don't have node.js and yarn, Please install on your PC in advance.
-※ If you want to stop server, Please use `ctrl+c` on your shell.
+※ PCにnode.jsとyarnを導入していない場合は事前にインストールをしてください。
+※ サーバをストップする際は、`ctrl+c` を利用します。
 
-### Add Html files
-Please add html files to under `/public/`.
+### HTMLの追加の仕方
+`/public/`以下に保存してください。
+
 ```
-ex:
+例:
 ./public/index.html => http://localhost:8080/
 ./public/foo.html => http://localhost:8080/foo.html
 ```
-This directory can be used as an area for saving static files.
-so For example, it is recommended to save image files like `/public/images/*`
+publicディレクトリは静的なファイルの保存場所として機能します。
+例えば画像ファイルなどはな`/public/images/*`どに保存するなどが良いでしょう。
 
 
-### Add Stylesheets
-Please add css files as scss to under `/src/scss`.
+### SCSSの追加の仕方
+`/src/scss`以下に保存してください。
 ```
-ex:
+例:
 /src/scss/_foo.scss
 ```
-And import the file to `/src/scss/index.scss`.
-You can use both css style and scss style on scss files.
+その上で`/src/scss/index.scss`にimport構文により読み込みを行ってください。
+スタイルにはscss, cssのどちらのスタイルを記述しても大丈夫です。
 
 
-### Add Javascripts
-Please add css files to under `/src/js`.
+### Javascriptsの追加の仕方
+`/src/js`以下に保存してください。
 ```
-ex:
+例:
 /src/js/foo.js
 ```
-And import the file to `/src/js/index.js`.
-You can use both es5 style and es6 style on javascript files.
+その上で`/src/js/index.js`により読み込みを行ってください。
+スクリプトはes5, es6のどちらのスタイルで記述しても大丈夫です。
 
 
 ### Build
-If you get static files, There is `yarn run build`.
-Please stop server once and enter the command.
-`public/css` and `public/js` folder will get bundle files.
-You only associate these files with html files as following.
+記述したcssおよびjsのバンドルファイルを入手したい場合は`yarn run build`コマンドを利用します。
+サーバを一度ストップし、コマンドを入力してください。
+`public/css` と `public/js` フォルダにバンドルファイルが生成されるはずです。
+そして、以下のようにこれらのファイルをhtmlに関連づけることでそれらを反映します。
 ```
 <link rel="stylesheet" href="/css/bundle.css">
 <script src="/js/bundle.js"></script>
 ```
 
 
-## Cording Methods
-If you start working with this project template, you will notice that it contains several styles and html tags.
-I will introduce my coding method from here on.
-If you already have good way, Please delete my codes.
+## コーディング方法
+ここからは私のコーディングレギュレーションの紹介になります。
+このスターターキットには既にいくらかhtmlとcssのコードを含みます。
+興味がある方は是非、それらを参照の元、このまま読み進めてください。
+必要がない方はそれらコードを削除し、改めてコーディングをスタートさせてください。
 
-I use a lot of Bootstrap4 components and methods of OOCSS and BEM.
-Also, this method assumes the possibility of filling in the codes of others who have different ideas and policies of my teammates.
-Sometimes you feel redundant. so Please choose at your option at that time.
+私はBootstrapのコンポーネント及びOOCSS・BEMを混合させたスタイルでコーディングを行います。
+これらは私のチームメイトやコーディング環境を踏まえたものになります。
+そのため、冗長な箇所や、煩雑な考えが所々ありますが、取捨選択の上、参考いただけると幸いです。
 
-### SCSS (CSS) : Overview
-My CSS policy has 7 contexts below.
+### SCSS (CSS) : 概要
+CSSは7つのコンテクストで考えます。
 ```
 1.Libraries
 2.Core
