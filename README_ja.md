@@ -1,13 +1,13 @@
-English | [日本語](README_ja.md)  
+[English](README.md) | 日本語  
 
 # Overview
 :fish: - :tropical_fish: - :cat2: - :whale2:
-Thank you for your looking at this page.
-This is a starter kit when I use it at html cording work.
-I will share the environment and some my method.
+こんにちは。これは私が仕事などでhtmlコーディングを行う際のスターターキットです。
+このリポジトリではその環境とコーディング方法を少し紹介させていただきます。
 :goat: - :rabbit2: - :octopus: - :cow2:
 
 ## Environment Information
+このスターターキットは以下のもので構成されています。
 This starter has the following structure.
 ```
 Package management:
