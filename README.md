@@ -40,8 +40,8 @@ Cording Libraries:
 
 ### Installation
 You can start coding immediately in the following way.
-1. Clone this repository: `git clone git@github.com:sumi37/tmp-html-project.git` (or download)
-2. Move directory: `cd sumi37-html-project-tmp`
+1. Clone this repository: `git clone git@github.com:sumi37/html-starter.git` (or download)
+2. Move directory: `cd cd html-starter`
 3. Install node modules with yarn: `yarn install`
 4. Start server: `yarn start`
 5. View the site at `http://localhost:8080/`
@@ -111,12 +111,12 @@ My CSS policy has 7 contexts below.
 6.Pages
 (7.User)
 ```
-これら各コンテクストに属するcssは1から7に向けてロードされます。
-このヒエラルキ構造をうまく活用することにより目的に即したデザインの定義・オーバーライドを効率よく行えます。
+These are compailed from 1 to 7.
+Please use this sort regulation, It will clarify the role of the design.
 
-以下はscssのエンドポイントとなるindex.scssの記述例を示しています。
+以下はscssのエンドポイントとなるindex.scssの記述例です。
 これらは上から下に順番にコンパイル・ロードされます。
-また`_variables.scss`のみイレギュラーなソート順になっていることに注目してください。（詳しくは後述）
+※`_variables.scss`のみイレギュラーなソート順になっていることについては後述します。
 
 ```
 // Libraries (& Override Core)
@@ -151,11 +151,11 @@ Librariesコンテクストに属するcssは一般的に外部のライブラ�
 変数やmixinまた!importantフラグを用いて利用するユーティリティ的な役割のスタイルを管理するファイル群です。
 また、そのほとんどがBootstrapのオーバーライドや拡張を基本としています。
 
-##### _variables.scss
+##### `_variables.scss`
 WEBサイトにおいてグローバルに利用できる変数を保管します。Bootstrapのvariables.scssで定義されている変数を数多くオーバーライドして利用します。
 bootstrapの変数定義には、ほとんどがdefaultフラグを用ます。そのためこのファイルは先読みさせる形となります。
 
-##### _utilities.scss
+##### `_utilities.scss`
 グローバルに利用できるユーティリティクラスを保管します。これらは基本的には!importantフラグが用いられています。
 スタイルを強くオーバーライドすることを目的とした破壊的なクラス群です。
 
@@ -211,25 +211,20 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 ここにはそれらで表現しきれなかったものや、このページにしか存在しない共通化できないパーツのスタイルを記述するのに最適です。
 
 #### 7.User
-この1〜6のコンテクストを十分理解し、そのレギュレーションが正確に共有された制作作業チームの他に、例えばクライアントのインハウスのWEBサイト管理者がいることを想像してください。また、他社の制作会社がプロジェクトの一部の担う場合もあるでしょう。この全員がコードを改変することがあります。このケースは私の経験上では稀なことではありません。
-その際に、明確に切り分けられた環境があると便利です。
-
-通常1〜6のコンテクストスタイルシートは1枚のcssファイルにバンドルされますが
-このコンテキストはそれを想定していません。そして必ずもっとも強いオーバーライド能力が必要になります。
-これを踏まえて表現される形が以下になります。
-
+この1〜6の取り決めを十分理解したチームメイトのみでコーディングを行う場合、このコンテクストは必要ありません。
+しかし、普段は別セクションを担当するエンジニアまたは他社の制作関係者、など、このデザインルールに不慣れな人間がコーディングに加わることもあるでしょう。
+「User」はこのケースを吸収する考え方です。と、言っても単純にCSSの作業環境を分けるだけです。
 ```
 [HTML]
 
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/user.css">
 
-<div class="page page-top" id="page-top">
-  <h1>This is site top page</h1>
-  <div class="foo">This was red. but now, this is blue.</div>
-</div>
+<div class="foo">This was red. but now, this is blue.</div>
 ```
 
+通常全てのコンテクストスタイルシートは1枚のcssファイルにバンドルされますが
+Userはそこに含まれません。
 ```
 [SCSS in bundle.css]
 
@@ -239,14 +234,15 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 ```
 [SCSS in user.css]
 
-#page-top .foo { color: blue }
+.foo { color: blue }
 ```
 
-ただ、あくまでこのプロジェクトのコーディング業務制作を率いるのがあなたを含むこの環境を理解したチームであることを忘れないでください。
-そのためuser.cssは「一時的なもの」「緊急の作業」「取り急ぎの処置」などの目的に用いられる、統制の取れていないコードの受け場所として存在すると考えます。
+ファイルのロード順でもわかるように、user.cssは、bundle.cssをオーバーライドできる存在です。
+そのためuser.cssは「一時的なもの」「緊急の作業」「取り急ぎの処置」などの目的にも用いられます。
+これは統制の取れていないコードの受け場所として存在するとも言えます。
 
-定期的にuser.css内に書き落とされたコードを、1〜6の正しいレギュレーションの世界に移植することがベターです。（あなたの時間が許される限り）
-
+また1〜6のコンテキストを理解したチームメイトは、コード保守の観点から定期的にuser.css内に書き落とされたコードを、
+正しいレギュレーションの世界に移植してあげてください。（時間が許される限り）
 
 
 ### SCSS (CSS) : about lint
