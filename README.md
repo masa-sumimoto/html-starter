@@ -3,7 +3,7 @@ English | [日本語](README_ja.md)
 # Overview
 :fish: - :tropical_fish: - :cat2: - :whale2:  
 
-Hello. This is my HTML starter kid.  
+Hello. This is HTML starter kid.  
 I often do HTML static cording with the kid before I start using a framework.  
 (I often use Ruby on Rails as main framework.)  
 Please refer only to the necessary part.
