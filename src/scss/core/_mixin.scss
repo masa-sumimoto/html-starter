@@ -1,0 +1,97 @@
+// ========================================
+// _mixins.scss
+// ========================================
+
+// ---------------------------------
+// Global mixin
+// ---------------------------------
+
+// Transision
+// ------------------------------
+@mixin cmn-transision {
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, width, height, opacity, border-color, border;
+  transition-timing-function: ease;
+}
+
+// Reset list
+// ------------------------------
+@mixin resetListStyle {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+// Positioning
+// ------------------------------
+@mixin pos-absolute-center() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+// Cover style
+// ------------------------------
+@mixin cover($t: 0, $r: 0, $b: 0, $l: 0) {
+  position: absolute;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+}
+
+@mixin cover-x {
+  @include cover(auto, 0, auto, 0);
+}
+
+@mixin cover-y {
+  @include cover(0, auto, 0, auto);
+}
+
+@mixin cover-bg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+}
+
+// Change Col gutter
+// ------------------------------
+@mixin colSpace($m: 0.75) {
+  $spacer: $spacer * $m;
+
+  & > [class*="row"] {
+    margin-right: -($spacer * $m);
+    margin-left: -($spacer * $m);
+
+    @include media-breakpoint-up(lg) {
+      margin-right: -$spacer;
+      margin-left: -$spacer;
+    }
+
+    & > [class*="col"] {
+      padding-left: $spacer * $m;
+      padding-right: $spacer * $m;
+
+      @include media-breakpoint-up(lg) {
+        padding-left: $spacer;
+        padding-right: $spacer;
+      }
+    }
+  }
+}
+
+// set link color
+// ------------------------------
+@mixin setLinkColor($c1: $body-color, $c2: $body-color) {
+  color: $c1;
+
+  &:hover,
+  &:focus {
+    color: $c2;
+  }
+}
