@@ -2,46 +2,68 @@
 // variables.scss
 // ========================================
 
-// [note] These definitions also include overriding & extending Bootstrap.
-
 // ---------------------------------
-// Fonts ※Override
+// Fonts
 // ---------------------------------
-$font-size-base: 1.6rem;
 // [note] $font-family-base = $font-family-sans-serif
 $font-family-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif, Yu Gothic;
+$font-family-condensed-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif, Yu Gothic;
+$font-family-serif: Times, Georgia, serif;
+$font-family-monospace: monospace;
+
+$font-family-base: $font-family-sans-serif;
+$font-family-base-cond: $font-family-condensed-sans-serif;
+$font-family-display: $font-family-sans-serif;
+$headings-font-family: $font-family-sans-serif;
+
+
+// ---------------------------------
+// Font
+// ---------------------------------
+$font-size-base: 1.6rem;
+$font-weight-base: 400;
+$font-size-lg: ($font-size-base * 1.25);  // 20px
+$font-size-md: ($font-size-base * 1.125); // 18px
+$font-size-sm: ($font-size-base * 0.875); // 14px
+$font-size-xs: ($font-size-base) * 0.75;  // 12px
+
+
+// ---------------------------------
+// Heading Font
+// ---------------------------------
+$h1-font-size: $font-size-base * 3; // 48px
+$h2-font-size: $font-size-base * 2; // 32px
+$h3-font-size: $font-size-base * 1.75; // 28px
+$h4-font-size: $font-size-base * 1.5; // 24px
+$h5-font-size: $font-size-base * 1.25; // 20px
+$h6-font-size: $font-size-base; // 16px
+
 
 // ---------------------------------
 // Color System
 // ---------------------------------
 
-// Mono ※ Override & Extend
+// Mono
 // ------------------------------
 $white: #fff;
-
 $black: #000;
-$black-100: #e4e4e4;
-$black-200: #cbcbcb;
-$black-300: #b1b1b1;
-$black-400: #989898;
-$black-500: #7e7e7e;
-$black-600: #656565;
-$black-700: #4b4b4b;
-$black-800: #323232;
+$black-600: #5c5c5c;
+$black-700: #464646;
+$black-800: #2e2e2e;
 $black-900: #181818;
 
-$gray: #808080;
-$gray-100: #f1f1f1;
-$gray-200: #e5e5e5;
-$gray-300: #d8d8d8;
-$gray-400: #cbcbcb;
-$gray-500: #bfbfbf;
-$gray-600: #b2b2b2;
-$gray-700: #a5a5a5;
-$gray-800: #999;
-$gray-900: #8c8c8c;
+$gray: #676767;
+$gray-100: #f7f8f8;
+$gray-200: #f1f2f3;
+$gray-300: #e8ebee;
+$gray-400: #e8e8e8;
+$gray-500: #d9d9d9;
+$gray-600: #d1d1d1;
+$gray-700: #c0c1c2;
+$gray-800: #8b8b8b;
+$gray-900: #818181;
 
-// Red ※ Override & Extend
+// Red
 // ------------------------------
 $red: #f00;
 $red-100: #ffe4e4;
@@ -71,7 +93,7 @@ $reds: map-merge(
   $reds
 );
 
-// Tomato ※ Override
+// Tomato
 // ------------------------------
 $tomato: #ff6347;
 $tomato-100: #ffeeeb;
@@ -101,7 +123,7 @@ $tomatos: map-merge(
   $tomatos
 );
 
-// Blue ※ Override & Extend
+// Blue
 // ------------------------------
 $blue: #165e83;
 $blue-100: #e6eef1;
@@ -131,7 +153,7 @@ $blues: map-merge(
   $blues
 );
 
-// Dark Cyan ※ Extend
+// Dark Cyan
 // ------------------------------
 $dark-cyan: #008b8b;
 $dark-cyan-100: #e4f2f2;
@@ -161,7 +183,7 @@ $dark-cyans: map-merge(
   $dark-cyans
 );
 
-// Orange ※ Override & Extend
+// Orange
 // ------------------------------
 $orange: #ff8c00;
 $orange-100: #fff2e4;
@@ -191,7 +213,7 @@ $oranges: map-merge(
   $oranges
 );
 
-// Green ※ Override & Extend
+// Green
 // ------------------------------
 $green: #008000;
 $green-100: #e4f1e4;
@@ -221,7 +243,7 @@ $greens: map-merge(
   $greens
 );
 
-// Olive ※ Override
+// Olive
 // ------------------------------
 $olive: #808000;
 $olive-100: #f1f1e4;
@@ -264,11 +286,12 @@ $color-white-alpha60: rgba(255, 255, 255, 0.6);
 $color-white-alpha80: rgba(255, 255, 255, 0.8);
 $color-white-alpha90: rgba(255, 255, 255, 0.9);
 
+
 // ---------------------------------
 // Colors
 // ---------------------------------
 
-// Bootstrap ※ Override
+// Bootstrap
 // ------------------------------
 $primary: $blue;
 $secondary: $olive;
@@ -276,11 +299,19 @@ $success: $orange;
 $info: $dark-cyan;
 $warning: $tomato;
 $danger: $red;
-$light: $white;
-$dark: $black;
-// The primary button color is light. To let primary buttons have a light text color,
-// the threshold needs to upped.
-// $yiq-contrasted-threshold: 175;
+$light: $gray-200;
+$dark: $black-800;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
 
 // Bg
 // ------------------------------
@@ -293,31 +324,45 @@ $color-accent-bg6: $tomato-200;
 $color-accent-bg7: $red-200;
 $color-accent-bg8: $green-200;
 
+// SNS Colors
+// ------------------------------
+$sns-twitter: #1da1f2;
+$sns-facebook: #3b5998;
+$sns-instagram: #e1306c;
+$sns-youtube: #f00;
+
+
 // ---------------------------------
-// Body
+// Element - Body
 // ---------------------------------
 $body-bg: $white;
 $body-color: $black-900;
 $body-rvs-bg: $body-color;
 $body-rvs-color: $body-bg;
 
+
 // ---------------------------------
-// Links
+// Element - Links
 // ---------------------------------
 $link-color: $blue;
-$link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
+$link-decoration: underline;
 $link-hover-decoration: underline;
 
+
 // ---------------------------------
-// Grid columns / Spacers *Extend
+// Element - Border
 // ---------------------------------
-$grid-gutter-width: 30px;
+$color-border-cmn: $gray-400;
+
+
+// ---------------------------------
+// Grid columns / Spacers
+// ---------------------------------
+$spacer: 1rem; // Default: 1rem
+$grid-gutter-width: 30px; // Default: 30px
 $spacer-cmn: $grid-gutter-width / 2;
 
-// ex) .mb-3 = margin-bottom: 1rem;
-// ------------------------------
-$spacer: 1rem;
 $spacers: ();
 // stylelint-disable-next-line scss/dollar-variable-default
 $spacers: map-merge(
@@ -327,22 +372,29 @@ $spacers: map-merge(
     // 1: ($spacer * .25),
     // 2: ($spacer * .5),
     // 3: $spacer,
-    // 4: ($spacer * 1.5),
+    4: ($spacer * 2),
     // 5: ($spacer * 3),
     // ↑[note] Already defined
-    6: ($spacer * 4.5),
-    7: ($spacer * 6),
-    8: ($spacer * 7.5),
+    6: ($spacer * 4),
+    7: ($spacer * 5.5),
+    8: ($spacer * 7),
     9: ($spacer * 9),
-    cmn: $spacer-cmn
+    5px: 5px,
+    10px: 10px,
+    15px: 15px,
+    20px: 20px,
+    25px: 25px,
+    30px: 30px,
+    35px: 35px,
+    cmn: $spacer-cmn,
   ),
   $spacers
 );
 
+
 // ---------------------------------
 // Sizes
 // ---------------------------------
-
 // $sizes
 // ex) .w-90 = width: 90%;
 // ------------------------------
@@ -374,6 +426,7 @@ $sizes: map-merge(
   $sizes
 );
 
+
 // ---------------------------------
 // Grid breakpoints
 // ---------------------------------
@@ -385,6 +438,7 @@ $sizes: map-merge(
 //   xl: 1200px
 // );
 
+
 // ---------------------------------
 // Grid containers
 // ---------------------------------
@@ -394,6 +448,17 @@ $sizes: map-merge(
 //   lg: 960px,
 //   xl: 1140px
 // );
+
+
+// ---------------------------------
+// Various settings
+// ---------------------------------
+// $enable-rounded: false;
+// $enable-grid-classes: true;
+// $enable-gradients: false;
+// $enable-shadows: false;
+// $enable-transitions: false;
+
 
 // ---------------------------------
 // Buttons + Forms
