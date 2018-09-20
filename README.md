@@ -3,11 +3,13 @@ English | [日本語](README_ja.md)
 # Overview
 :fish: - :tropical_fish: - :cat2: - :whale2:  
 
-Thank you for your looking at this page.
-This is a starter kit when I use it at html cording work.
-I will share the environment and some my method.
+Hello. This is my HTML starter kid.  
+I often do HTML static cording with the kid before I start using a framework.  
+(I often use Ruby on Rails as main framework.)  
+Please refer only to the necessary part.
 
-※It is under construction in some places..
+※ If you get good starter kid, I suggest [web starter kid of google](https://github.com/google/web-starter-kit).  
+※ It is under construction in some places..
 
 :goat: - :rabbit2: - :octopus: - :cow2:  
 
