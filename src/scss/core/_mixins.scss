@@ -3,65 +3,12 @@
 // ========================================
 
 // ---------------------------------
-// Global mixin
+// Layout
 // ---------------------------------
 
-// Transision
+// col-space
 // ------------------------------
-@mixin cmn-transision {
-  transition-delay: 0s;
-  transition-duration: 0.3s;
-  transition-property: color, background-color, width, height, opacity, border-color, border;
-  transition-timing-function: ease;
-}
-
-// Reset list
-// ------------------------------
-@mixin resetListStyle {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-
-// Positioning
-// ------------------------------
-@mixin pos-absolute-center() {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-// Cover style
-// ------------------------------
-@mixin cover($t: 0, $r: 0, $b: 0, $l: 0) {
-  position: absolute;
-  top: $t;
-  left: $l;
-  right: $r;
-  bottom: $b;
-}
-
-@mixin cover-x {
-  @include cover(auto, 0, auto, 0);
-}
-
-@mixin cover-y {
-  @include cover(0, auto, 0, auto);
-}
-
-@mixin cover-bg {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  width: 100%;
-}
-
-// Change Col gutter
-// ------------------------------
-@mixin colSpace($m: 0.75) {
+@mixin col-space($m: 0.75) {
   $spacer: $spacer * $m;
 
   & > [class*="row"] {
@@ -85,13 +32,143 @@
   }
 }
 
-// set link color
+
+// ---------------------------------
+// Effect - Animation
+// ---------------------------------
+
+// cmn-transision
 // ------------------------------
-@mixin setLinkColor($c1: $body-color, $c2: $body-color) {
+@mixin cmn-transision {
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, width, height, opacity, border-color, border;
+  transition-timing-function: ease;
+}
+
+
+// ---------------------------------
+// Effect - state
+// ---------------------------------
+
+// fx-blur
+// ------------------------------
+@mixin fx-blur() {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+
+  &::before {
+    // posisionはブラー効果で画像の端がボヤけた分だけ位置を調整
+    background: inherit;
+    bottom: -5px;
+    content: '';
+    filter: blur(5px);
+    left: -5px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    z-index: 1;// 重なり順必須
+  }
+}
+
+
+// ---------------------------------
+// Posisioning
+// ---------------------------------
+
+// cover
+// ------------------------------
+@mixin cover($t: 0, $r: 0, $b: 0, $l: 0, $pos: absolute) {
+  position: $pos;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+}
+
+// cover-x
+// ------------------------------
+@mixin cover-x {
+  @include cover(auto, 0, auto, 0);
+}
+
+// cover-y
+// ------------------------------
+@mixin cover-y {
+  @include cover(0, auto, 0, auto);
+}
+
+
+// ---------------------------------
+// Background Posisioning
+// ---------------------------------
+
+// cover-fix-bg
+// ------------------------------
+@mixin cover-fix-bg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+// cover-bg
+// ------------------------------
+@mixin cover-bg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+}
+
+// contain-bg
+// ------------------------------
+@mixin contain-bg($width:1000, $height:500) {
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 0;
+  padding-top: $height / $width * 100%;
+  background-position: top center;
+}
+
+
+// ---------------------------------
+// Reset & Module
+// ---------------------------------
+
+// Reset list Style
+// ------------------------------
+@mixin reset-list-style {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+// Set link color
+// ------------------------------
+@mixin set-link-color($c1: $body-color, $c2: $body-color) {
   color: $c1;
 
   &:hover,
   &:focus {
     color: $c2;
+  }
+}
+
+// Add Clearfix
+// ------------------------------
+@mixin clearfix() {
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
   }
 }
