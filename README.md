@@ -157,8 +157,8 @@ I have added Bootstrap4 to here already.
 Please don't touch the libraries code. Also manage the libraries as package as much as possible.
 
 #### 2.Core
-変数やmixinまた!importantフラグを用いて利用するユーティリティ的な役割のスタイルを管理するファイル群です。
-また、そのほとんどがBootstrapのオーバーライドや拡張を基本としています。
+These stylesheets manage `variables`, `mixins` and `utility classes`.
+Also these include some override and extend class of Bootstrap.
 
 ##### `_variables.scss`
 WEBサイトにおいてグローバルに利用できる変数を保管します。Bootstrapのvariables.scssで定義されている変数を数多くオーバーライドして利用します。
@@ -185,7 +185,7 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 <body class="Page">
   <header class="Header">
   <main class="Main">
-  <footer class="Footer"
+  <footer class="Footer">
 ```
 
 ```
@@ -213,7 +213,7 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 #### 5.Complex Parts
 比較的複合的なパーツで、且つ、複数回使用されようなものをパーツ単位でstylesheetにして保存します。
 例えば、`_breadcrumbs.scss`, `_pagination.scss` など、一般的なWEBサイトにもよく見られるパーツや
-`_food-image-gallery-ui` など、そのwebサイトにおいては何回も登場するパーツなどがこのコンテキストには適しています。
+例えば`_food-image-gallery-ui` など、そのwebサイトにおいては何回も登場すると言うパーツにこのコンテキストを利用します。
 
 
 #### 6.Pages
@@ -252,8 +252,10 @@ Userはそこに含まれません。
 これは統制の取れていないコードの受け場所として存在するとも言えます。
 
 また1〜6のコンテキストを理解したチームメイトは、コード保守の観点から定期的にuser.css内に書き落とされたコードを、
-正しいレギュレーションの世界に移植してあげます。
+定期的に正しいレギュレーションの世界に移植してあげルことが望ましいです。
 
+※上記では、便宜上スタイルシートを増やすという形でこのuserの概念を提示しましたが、
+これも含めて1枚のスタイルシートにバンドルできる環境がある場合はそれがもっとも好ましいです。
 
 ### SCSS (CSS) : リントに関して
 linterはstylelintを利用し、stylelint-config-standardを若干変更して利用しています。
