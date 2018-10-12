@@ -465,3 +465,22 @@ $sizes: map-merge(
 // ---------------------------------
 // $input-btn-padding-y: 0.5rem;
 // $btn-padding-x: 2rem;
+
+
+// ---------------------------------
+// z-index
+// ---------------------------------
+// $zindex-dropdown:          1000 !default;
+// $zindex-sticky:            1020 !default;
+// $zindex-fixed:             1030 !default;
+// $zindex-modal-backdrop:    1040 !default;
+// $zindex-modal:             1050 !default;
+// $zindex-popover:           1060 !default;
+// $zindex-tooltip:           1070 !default;
+$zindex-header: 10;
+
+
+// ---------------------------------
+// web site globals
+// ---------------------------------
+$header-height: 70px;
