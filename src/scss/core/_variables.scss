@@ -361,7 +361,10 @@ $color-border-cmn: $gray-400;
 // ---------------------------------
 $spacer: 1rem; // Default: 1rem
 $grid-gutter-width: 30px; // Default: 30px
-$spacer-cmn: $grid-gutter-width / 2;
+$grid-gutter-half-width: $grid-gutter-width / 2;
+
+$spacer-g: $grid-gutter-width;// Alias
+$spacer-hg: $grid-gutter-half-width;// Alias
 
 $spacers: ();
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -386,7 +389,8 @@ $spacers: map-merge(
     25px: 25px,
     30px: 30px,
     35px: 35px,
-    cmn: $spacer-cmn,
+    g: $grid-gutter-width,
+    hg: $grid-gutter-half-width,
   ),
   $spacers
 );
