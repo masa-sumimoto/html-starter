@@ -1,7 +1,7 @@
 [English](README.md) | 日本語  
 
 # 概要
-:fish: - :tropical_fish: - :cat2: - :whale2:  
+:smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
 
 こんにちは。これは私のhtmlコーディングスターターキットです。   
 私はしばしばCMSフレームワークを利用する前の静的なHTMLコーディングのために、
@@ -17,7 +17,7 @@
 ※ もし、一般的なより良いスターターキットをお探しならば [web starter kid of google](https://github.com/google/web-starter-kit) をオススメします。  
 ※ 少しづつ書き進めているため内容が完全でない箇所があります。
 
-:goat: - :rabbit2: - :octopus: - :cow2:  
+:smile: :goat: :rabbit2: :leopard: :octopus: :dog2: :panda_face: :cow2: :smile:  
 
 ## 環境について
 このスターターキットは以下のもので構成されています。
@@ -166,7 +166,7 @@ Librariesコンテクストに属するcssは外部のライブラリサービ�
 また、そのほとんどがBootstrapのオーバーライドや拡張を基本としています。
 
 ##### `_variables.scss`
-WEBサイトにおいてグローバルに利用できる変数を保管します。Bootstrapのvariables.scssで定義されている変数を数多くオーバーライドして利用します。
+グローバルに利用できる変数を保管します。Bootstrapのvariables.scssで定義されている変数を数多くオーバーライドして利用します。
 bootstrapの変数定義には、ほとんどがdefaultフラグを用ます。そのためこのファイルは先読みさせる形となります。
 
 ##### `_utilities.scss`
@@ -182,42 +182,14 @@ WEBサイトを構成する最も上位のレイアウトブロックに関す�
 概ね、ページ全体に_page.scss、サイトヘッダーに_header.scss、サイトフッターに_footer.scss、サイトコンテンツ部分の最上位ブロックに_main.scssなどとscssを対応させ、用います
 サイドバーなど、2カラム構成が基本のWEBサイトには_sub.scssなども加え、運用するのも良いと思います。
 
-```
-[HTML]
-
-<body class="Page">
-  <header class="Header">
-  <main class="Main">
-  <footer class="Footer">
-```
-
-```
-[SCSS]
-
-// _page.scss
-.Page { }
-
-// _header.scss
-.Header { }
-
-// _footer.scss
-.Footer { }
-
-// _main.scss
-.Main { }
-```
-
-
 #### 4.Primitive Parts
 デザイン上、最小単位となるパーツをパーツ単位でstylesheetにして保存します。
 `_button.scss`, `_table.scss`, `_heading.scss`などが該当します。
-
 
 #### 5.Complex Parts
 比較的複合的なパーツで、且つ、複数回使用されようなものをパーツ単位でstylesheetにして保存します。
 例えば、`_breadcrumbs.scss`, `_pagination.scss` など、一般的なWEBサイトにもよく見られるパーツや
 例えば`_food-image-gallery-ui` など、そのwebサイトにおいては何回も登場すると言うパーツにこのコンテキストを利用します。
-
 
 #### 6.Pages
 ページテンプレート単位にスタイルを制御したい時に利用します。共通化されたパーツブは基本的にはBEM記法で書かれたBlockがもつモディファイアによりその大半を表現することが可能です。
@@ -273,5 +245,34 @@ apm install linter-stylelint
 ````
 
 
+
+
+
+
+
+
 ### HTML
-※※※※※ ↓以下、製作中↓ ※※※※※
+```
+[HTML]
+
+<body class="Page">
+  <header class="Header">
+  <main class="Main">
+  <footer class="Footer">
+```
+
+```
+[SCSS]
+
+// _page.scss
+.Page { }
+
+// _header.scss
+.Header { }
+
+// _footer.scss
+.Footer { }
+
+// _main.scss
+.Main { }
+```

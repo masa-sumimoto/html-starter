@@ -1,7 +1,7 @@
 English | [日本語](README_ja.md)  
 
 # Overview
-:fish: - :tropical_fish: - :cat2: - :whale2:  
+:smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
 
 Hello. This is my html cording starter kid.
 I often use the kit to markup static HTML before using CMS framework.
@@ -16,7 +16,7 @@ If your case includes the following, Please use the kid.
 ※ If you get good starter kid, I suggest [web starter kid of google](https://github.com/google/web-starter-kit).  
 ※ It is under construction in some places..
 
-:goat: - :rabbit2: - :octopus: - :cow2:  
+:smile: :goat: :rabbit2: :leopard: :octopus: :dog2: :panda_face: :cow2: :smile:  
 
 ## Environment Information
 This starter has the following structure.
@@ -121,9 +121,9 @@ My CSS policy has 7 contexts below.
 These are compailed from 1 to 7.
 Please use this sort regulation, It will clarify the role of the design.
 
-以下はscssのエンドポイントとなるindex.scssの記述例です。
-これらは上から下に順番にコンパイル・ロードされます。
-※`_variables.scss`のみイレギュラーなソート順になっていることについては後述します。
+A description example of endpoint stylesheet is as follows. (index.scss)
+Stylesheets are compiled and loaded from top to bottom.
+※ `_variables.scss` is only irregular sort position.
 
 ```
 // Libraries (& Override Core)
@@ -161,49 +161,22 @@ These stylesheets manage `variables`, `mixins` and `utility classes`.
 Also these include some override and extend class of Bootstrap.
 
 ##### `_variables.scss`
-WEBサイトにおいてグローバルに利用できる変数を保管します。Bootstrapのvariables.scssで定義されている変数を数多くオーバーライドして利用します。
-bootstrapの変数定義には、ほとんどがdefaultフラグを用ます。そのためこのファイルは先読みさせる形となります。
+The file defines global variables. Also, the file includes overrides of Bootstrap.
+Definitions of Bootstrap almost use default flag.
+Therefore, this file will be prefetched form.
 
 ##### `_mixins.scss`
-グローバルに利用できるmixinはここにまとめます。
-
+The file defines mixins.
 
 ##### `_utilities.scss`
-グローバルに利用できるユーティリティクラスを保管します。これらは基本的には!importantフラグが用いられています。
-スタイルを強くオーバーライドすることを目的とした破壊的なクラス群です。
-Bootstrapのutilitiesに含まれないものを足したり、そのwebサイト独自のユーティリティを定義したりなどします。
-
+The file includes global utility classes. The classes usually have `!important` flag.
+Bootstrap has many utility classes.
+I added something not included in Bootstrap utilities file to here.
 
 #### 3.Containers
 WEBサイトを構成する最も上位のレイアウトブロックに関するスタイルを記します。
 概ね、ページ全体に_page.scss、サイトヘッダーに_header.scss、サイトフッターに_footer.scss、サイトコンテンツ部分の最上位ブロックに_main.scssなどとscssを対応させ、用います
 サイドバーなど、2カラム構成が基本のWEBサイトには_sub.scssなども加え、運用するのも良いと思います。
-
-```
-[HTML]
-
-<body class="Page">
-  <header class="Header">
-  <main class="Main">
-  <footer class="Footer">
-```
-
-```
-[SCSS]
-
-// _page.scss
-.Page { }
-
-// _header.scss
-.Header { }
-
-// _footer.scss
-.Footer { }
-
-// _main.scss
-.Main { }
-```
-
 
 #### 4.Primitive Parts
 デザイン上、最小単位となるパーツをパーツ単位でstylesheetにして保存します。
@@ -269,5 +242,49 @@ apm install linter-stylelint
 ````
 
 
-### HTML
-※※※※※ ↓以下、製作中↓ ※※※※※
+### Containersのマークアップ
+HTMLをマークアップする際、まず骨組みとなるグローバルなコンテナ要素のマークアップを行います。
+これらは最初の文字のみアッパーケースを利用します。
+
+```
+[HTML]
+
+<body class="Page">
+  <header class="Header">
+  </header>
+  <main class="Main">
+  </main>
+  <footer class="Footer">
+  </footer>
+</body>
+```
+
+またページコンテンツ内のデザイン上のセクションとなるラッパー要素には`Sec`と言うクラスを用い（Sectionの略）
+同じレギュレーションを利用します。
+
+```
+<main class="Main">
+  <div class="Sec">1つ目のデザインセクション</div>
+  <div class="Sec">2つ目のデザインセクション</div>
+</main>
+
+```
+
+
+
+
+```
+[SCSS]
+
+// _page.scss
+.Page { }
+
+// _header.scss
+.Header { }
+
+// _footer.scss
+.Footer { }
+
+// _main.scss
+.Main { }
+```
