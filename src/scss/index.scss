@@ -8,11 +8,11 @@
 @import 'core/mixins';
 @import 'core/utilities';
 
-// Containers
-@import 'containers/page';
-@import 'containers/header';
-@import 'containers/main';
-@import 'containers/footer';
+// Layouts
+@import 'layouts/page';
+@import 'layouts/header';
+@import 'layouts/main';
+@import 'layouts/footer';
 
 // Primitive Parts
 @import 'parts-primitive/tmp-parts';
