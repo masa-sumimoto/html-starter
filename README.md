@@ -76,7 +76,8 @@ so For example, it is recommended to save image files like `/public/images/*`
 ## How to add Stylesheets
 Please add css files as scss to under `/src/scss`.
 ```
-ex:
+[ ex ]
+
 /src/scss/_foo.scss
 ```
 And import the file to `/src/scss/index.scss`.
@@ -86,7 +87,8 @@ You can use both css style and scss style on scss files.
 ## How to add Javascripts
 Please add css files to under `/src/js`.
 ```
-ex:
+[ ex ]
+
 /src/js/foo.js
 ```
 And import the file to `/src/js/index.js`.
