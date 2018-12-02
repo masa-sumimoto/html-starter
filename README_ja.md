@@ -491,7 +491,7 @@ Block要素の子要素として用意されたelmはアンダースコア2つ�
     &--state_inactive { background-color: black; }
   }
 }
-
+```
 
 ただし、仮にblock自体がactiveかもしくはinactiveかという事実に追従する形で、ElementにもModifierを付加したという理由なのであれば、
 それを明確にした以下のスタイルの方が意味が通りそうです。
