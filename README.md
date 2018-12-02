@@ -12,11 +12,13 @@ If your case includes the following, Please use the kid.
 
 - Use Bootstrap as css library.
 - Use jQuery
+- Use SCSS
 - Use BEM style
-- like Component-oriented
+- Want to manage the design in units such as page layout, parts.
 
 ※ If you get good starter kid, I suggest [web starter kid of google](https://github.com/google/web-starter-kit).  
-※ It is under construction in some places..
+※ This is for creating basic web pages. I have another idea for web App using React, Vue.js. (I want to show the other way on another occasion ) 
+※ It is under construction in some places.
 
 :smile: :goat: :rabbit2: :leopard: :octopus: :dog2: :panda_face: :cow2: :smile:  
 
@@ -58,14 +60,14 @@ You can start coding immediately in the following way.
 ※ If you don't have node.js and yarn, Please install on your PC in advance.
 ※ If you want to stop server, Please use `ctrl+c` on your shell.
 
-## How to add Html files
+## How to add HTML files
 Please add html files to under `/public/`.
 ```
 ex:
 ./public/index.html => http://localhost:8080/
 ./public/foo.html => http://localhost:8080/foo.html
 ```
-This directory can be used as an area for saving static files.
+And this directory can be used as an area for saving static files.
 so For example, it is recommended to save image files like `/public/images/*`
 
 
@@ -89,15 +91,18 @@ And import the file to `/src/js/index.js`.
 You can use both es5 style and es6 style on javascript files.
 
 
-## Build
+## Build and Reading files
 If you get static files, There is `yarn run build`.
 Please stop server once and enter the command.
 `public/css` and `public/js` folder will get bundle files.
-You only associate these files with html files as following.
+
+You have to load bundle file in HTML.
 ```
 <link rel="stylesheet" href="/css/bundle.css">
 <script src="/js/bundle.js"></script>
 ```
+Also, while the server is active, 
+the latest state is automatically reflected in the browser without executing the build.
 
 
 # Design methods
@@ -105,9 +110,12 @@ If you start working with this project template, you will notice that it contain
 I will introduce my coding method from here on.
 If you already have good way, Please delete my codes.
 
-I use a lot of Bootstrap4 components and methods of OOCSS and BEM.
-Also, this method assumes the possibility of filling in the codes of others who have different ideas and policies of my teammates.
-Sometimes you feel redundant. so Please choose at your option at that time.
+I extend the components of Bootstrap a lot.
+However contrary to Bootstrap's style based on the basic OOCSS design, 
+I am trying to use many BEM design way for new design parts.
+We focus on separating styles in component units.
+By doing so, I do not care much about this difference.
+
 
 ## Style Contexts
 My CSS policy has 7 contexts below.
@@ -175,59 +183,146 @@ The file includes global utility classes. The classes usually have `!important` 
 Bootstrap has many utility classes.
 I added something not included in Bootstrap utilities file to here.
 
+
 ### 3.Layouts
-WEBサイトを構成する最も上位のレイアウトブロックに関するスタイルを記します。
-概ね、ページ全体に_page.scss、サイトヘッダーに_header.scss、サイトフッターに_footer.scss、サイトコンテンツ部分の最上位ブロックに_main.scssなどとscssを対応させ、用います
-サイドバーなど、2カラム構成が基本のWEBサイトには_sub.scssなども加え、運用するのも良いと思います。
+WEBサイトを構成する最も基礎となるレイアウトコンテナに関するスタイルを記します。
+WEBサイト全てのコンテナに共通させたいことを`_page.scss` へ、
+サイトヘッダーのレイアウトや内部のパーツのための記述を`_header.scss`へ、
+サイトフッターのレイアウトや内部のパーツのための記述を`_footer.scss`へ行います。
+また、
+ヘッダーとフッターを除く、サイトコンテンツ部分のラップ要素のために`_main.scss`などといった名前のものを用意します。
+注意したいことは、これらは「自身のレイアウト」及び「内包する要素共通のデザインレギュレーション」を定義することが主な役割だという点です。
+そのため、各コンテナに内包されるデザインパーツたちは後述する4〜7のコンテクストで定義することがが可能です。
+ただし、headerやfooterなど他に重複が見られないパーツに関しては、このLayoutsコンテキストで定義してしまうことも可です。
+
+以下は、そのイメージです。
+```
+[ html ]
+
+<div class="Page">
+  <header class="Header">
+    <div class="header-foo">...</div>
+  </header>
+  <main class="Main">
+    <div class="foo-parts">...</div>
+    <div class="bar-parts">...</div>
+  </main>
+  <footer class="Footer">
+    <div class="site-footer-foo">...</div>
+  </footer>
+</div>
+```
+
+```
+[ _page.scss ]
+
+// webサイト全体に関わることを定義する
+
+* { ... }
+div { ... }
+a { ... }
+
+```
+
+```
+[ _header.scss ]
+
+// サイトヘッダー全体に関わることを定義する
+Header { ... }
+Header * { ... }
+
+// サイトフッター内のブロックに関して定義
+// 4〜7のコンテクストで定義しても良いが他に重複を見ない要素のケースが多いのでこちらに記述
+header-foo { ... }
+
+```
+
+```
+[ _footer.scss ]
+
+// サイトフッター全体に関わることを定義する
+Footer { ... }
+Footer * { ... }
+
+// サイトフッター内のブロックに関して定義
+// 4〜7のコンテクストで定義しても良いが他に重複を見ない要素のケースが多いのでこちらに記述
+footer-foo { ... }
+
+```
+
+```
+[ _main.scss ]
+
+// メイン（このWEBサイトのコンテンツ）全体に関わることを定義する
+Main { ... }
+Main * { ... }
+
+// 内包するパーツは4〜7のコンテクストで定義する方針が良い
+```
 
 ### 4.Primitive Parts
-デザイン上、最小単位となるパーツをパーツ単位でstylesheetにして保存します。
-`_button.scss`, `_table.scss`, `_heading.scss`などが該当します。
-
+デザイン上、最小単位となるエレメントをパーツ単位にstylesheetにして切り分けます。`_button.scss`, `_table.scss`, `_heading.scss`などが該当します。
+Bootstrapが本来持っているcomponentを上書きするケースも頻発します。
 
 ### 5.Complex Parts
-比較的複合的なパーツで、且つ、複数回使用されようなものをパーツ単位でstylesheetにして保存します。
-例えば、`_breadcrumbs.scss`, `_pagination.scss` など、一般的なWEBサイトにもよく見られるパーツや
-例えば`_food-image-gallery-ui` など、そのwebサイトにおいては何回も登場すると言うパーツにこのコンテキストを利用します。
-
+比較的複合的なパーツを切り分けたい時に利用します。
+`_food-image-gallery-carousel.scss`や `_for-new-user-modal.scss`のように「carousel」や「modal」などと具体的なパーツの種類を示してあげるとより明確です。
+また、`_breadcrumbs.scss`, `_pagination.scss` など、一般的なWEBサイトにもよく登場する複合的なパーツも
+このコンテクストで整理するのが良さそうです。
+Complex PartsはPrimitive Partsを含むことが可能です。
 
 ### 6.Pages
-ページテンプレート単位にスタイルを制御したい時に利用します。共通化されたパーツブは基本的にはBEM記法で書かれたBlockがもつモディファイアによりその大半を表現することが可能です。
-ここにはそれらで表現しきれなかったものや、このページにしか存在しない共通化できないパーツのスタイルを記述するのに最適です。
+「ページ」といった単位でデザインを考えたい時に利用します。
+しかしながら、ほとんどの場合は、Bootstrapの持つコンポーネント及び、1〜5のコンテクスト、そして、後述するBEM記法によるモディファイア表現により、欲求のほとんどが満たされてしまいます。
+
+しかしながらあえてページ単位にデザインをまとめたい場合、また、デザインの方向性が見えないパーツなどをとりあえず配置するにはうってつけの場所です。HTML5によりDOMエレメントの定義が革新される以前のコーディングを知る方にはこの考え方はむしろ馴染みのあるものではないでしょうか。
 
 ### 7.User
-まず初めにこのコンテクストはできる限り利用しないようにします。
-このコンテクストは、「普段は別セクションを担当するエンジニア」「他社の制作関係者」など、このデザインルールに不慣れな人間がコーディングに加わる際を考慮しています。
-「User」はこのケースを吸収します。と、言っても実際は単純にCSSのシートを分けるという話だけのことです。
+まず初めにこのコンテクストはできる限り利用しないことが好ましいです。
+このコンテクストは、「このデザイン設計を共有できない状態」が生まれた場合にのみ利用します。
+
+仮に、制作したWEBサイトがローンチした後、クライアント先のWEB担当がサイトを引き継ぎ、管理することを想像してください。
+彼は独自の方法でマークアップを行いたいと考えています。また彼の日常業務は非常に軽微なデザインの修正です。
+そのため、大きな改修タスクが新たに発生すると、WEBサイトを制作した、あなたの出番がまたおとれます。
+
+例えばこういった場合の、橋渡しに利用されるのがこのコンテクストです。
+実際は単純にCSSのシートを分けるというだけの話です。
 ```
-[HTML]
+[ HTML ]
 
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/user.css">
 
-<div class="foo">This was red. but now, this is blue.</div>
+<div class="foo">The div was red. The div is blue.</div>
+<div class="bar" id="bar">The div was big. The div is small.</div>
 ```
 
 通常全てのコンテクストスタイルシートは1枚のcssファイルにバンドルされますが
 Userはそこに含まれません。
 ```
-[SCSS in bundle.css]
+[ bundle.css ]
 
 .foo { color: red; }
+.bar { width: 100px; }
 ```
 
 ```
-[SCSS in user.css]
+[ user.css ]
 
 .foo { color: blue }
+#bar { width: 500px; }
 ```
 
-ファイルのロード順でもわかるように、user.cssは、bundle.cssをオーバーライドできる存在です。
-このようにuser.cssは「一時的なもの」「緊急の作業」「取り急ぎの処置」などの目的にも用いられます。
-これは統制の取れていないコードの受け場所として存在するとも言えます。
+またファイルのロード順でもわかるように、user.cssは、bundle.cssをオーバーライドできる存在です。
+このようにuser.cssは「一時的なもの」「緊急の作業」「取り急ぎの処置」などといった目的にも有効です。
 
-また1〜6のコンテキストを理解したチームメイトは、コード保守の観点から定期的にuser.css内に書き落とされたコードを、
-定期的に正しいレギュレーションの世界に移植してあげルことが望ましいです。
+さらに、1〜6のコンテクストのサンプルコードの中に、IDを用いたスタイルの指定がないことにも注目してください。
+サンプルには使用意図が明確なutilities.scssに含まれるimport構文を用いたクラス指定以外に強力なスタイル指定は存在しません。
+これらもuserに確保された強制力の一つです。WEBサイトを一つのサービスと捉えたら1〜6のコンテクストはインフラで7はユーザー設定と言えるでしょう。
 
 ※上記では、便宜上スタイルシートを増やすという形でこのuserの概念を提示しましたが、
 これも含めて1枚のスタイルシートにバンドルできる環境がある場合はそれがもっとも好ましいです。
+
+
+## スタイル方法
+基本的にCSSのclass名にはBEM記法を利用します。
