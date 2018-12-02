@@ -233,12 +233,12 @@ a { ... }
 [ _header.scss ]
 
 // サイトヘッダー全体に関わることを定義する
-Header { ... }
-Header * { ... }
+.Header { ... }
+.Header * { ... }
 
 // サイトフッター内のブロックに関して定義
 // 4〜7のコンテクストで定義しても良いが他に重複を見ない要素のケースが多いのでこちらに記述
-header-foo { ... }
+.header-foo { ... }
 
 ```
 
@@ -246,12 +246,12 @@ header-foo { ... }
 [ _footer.scss ]
 
 // サイトフッター全体に関わることを定義する
-Footer { ... }
-Footer * { ... }
+.Footer { ... }
+.Footer * { ... }
 
 // サイトフッター内のブロックに関して定義
 // 4〜7のコンテクストで定義しても良いが他に重複を見ない要素のケースが多いのでこちらに記述
-footer-foo { ... }
+.footer-foo { ... }
 
 ```
 
@@ -259,11 +259,14 @@ footer-foo { ... }
 [ _main.scss ]
 
 // メイン（このWEBサイトのコンテンツ）全体に関わることを定義する
-Main { ... }
-Main * { ... }
+.Main { ... }
+.Main * { ... }
 
 // 内包するパーツは4〜7のコンテクストで定義する方針が良い
 ```
+
+また、これら最上位のレイアウトブロックには最初の文字だけアッパーケースを利用することで、
+その他のクラス命名表現とに違いをつけています。
 
 ### 4.Primitive Parts
 デザイン上、最小単位となるエレメントをパーツ単位にstylesheetにして切り分けます。`_button.scss`, `_table.scss`, `_heading.scss`などが該当します。
@@ -331,4 +334,208 @@ Userはそこに含まれません。
 
 
 ## スタイル方法
+
+### クラス命名規則について
+スタイル名には、最上位コンテナのみアッパーケバブケースを用い、その他のものにはケバブケースを利用するようにしています。
+ここは正直正解はなく、個人的に読みやすさの点でケバブケースを用いています。
+細かな命名規則は後述するBEMに任せることができるので、比較的いつも楽に名前が確定します。
+
+
+### BEMについて
 基本的にCSSのclass名にはBEM記法を利用します。
+一つのwebパーツのルートとなる要素をBlockとして考え、子要素をElementとし、
+Modifierにより、これら要素の利用方法に厚みをつけます。
+
+BEMはこの基本理念を守れば、とりあえずOKだと考えています。
+必ず冗長な書き方になってしまうことは避けられないので、
+ケースバイケースでアレンジすることをオススメします。
+
+それでは、私の記述方法を要点だけをステップバイステップで説明してゆきます。
+
+下記はmodifierを用いないシンプルな例です。
+```
+<div class="foo-block">
+  <div class="foo-block__elm"></div>
+</div>
+```
+
+Block要素の子要素として用意されたelmはアンダースコア2つを用い連結させます。
+
+スタイルシートでは以下のように、SCSSが提供する入れ子構造を利用し、Block単位に記述します。
+```
+.foo-block {
+  font-size: 16px;
+  backraund-color: blue;
+
+  &__elm { color: #fff; }
+}
+```
+
+&はblock名を参照します。そのため`&__elm`は`.foo-block__elm`となります。
+&記法は賛否が分かれるところですが、Block単位にコードを管理する際には非常に有効な方法だと考えています。
+
+さらに以下はfoo-blockの、ある状態をModifierにより表現したものです。
+```
+<div class="foo-block foo-block--state_active">
+  <div class="foo-block__elm"></div>
+</div>
+
+<div class="foo-block foo-block--state_inactive">
+  <div class="foo-block__elm"></div>
+</div>
+```
+
+この2つのfoo-blockはSCSSを用いることにより以下のように表現ができるでしょう。
+
+```
+.foo-block {
+  font-size: 16px;
+  backraund-color: blue;
+
+  &--state_active { background-color: red; }
+  &--state_inactive { background-color: gray; }
+
+  &__elm { color: white; }
+}
+```
+
+さらに、以下はModifierで「状態」を表現することに加え、用いられる場所をcaseという言葉で表現してみました。
+
+```
+<div class="foo-block foo-block--state_active foo-block--case_top">
+  <div class="foo-block__elm"></div>
+</div>
+
+<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
+  <div class="foo-block__elm"></div>
+</div>
+```
+
+```
+.foo-block {
+  font-size: 16px;
+  backraund-color: blue;
+
+  &--state_active { background-color: red; }
+  &--state_inactive { background-color: gray; }
+
+  &--case_top { width: 100%; }
+  &--case_side-bar { width: 50%; }
+
+  &__elm { color: white; }
+}
+```
+
+このように、font-sizeが16pxであること、そしてbackground-colorがblueであることを基とし、
+その時々で、形態の違うfoo-blockを作ることができました。
+
+そしてさらに以下は、Blockに対してもModifierを用いた例です。
+
+```
+<div class="foo-block foo-block--state_active foo-block--case_top">
+  <div class="foo-block__elm foo-block__elm--radius_normal"></div>
+</div>
+
+<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
+  <div class="foo-block__elm foo-block__elm--radius_deep"></div>
+</div>
+```
+
+```
+.foo-block {
+  font-size: 16px;
+  backraund-color: blue;
+
+  &--state_active { background-color: red; }
+  &--state_inactive { background-color: gray; }
+
+  &--case_top { width: 100%; }
+  &--case_side-bar { width: 50%; }
+
+  &__elm {
+    color: white;
+
+    &--radius_normal { border-radius: 3px; }
+    &--radius_deep { border-radius: 30px; }
+  }
+}
+
+
+また、以下はElementにもactiveかもしくはinactiveかという状態を表現した例です。
+
+```
+<div class="foo-block foo-block--state_active foo-block--case_top">
+  <div class="foo-block__elm foo-block__elm--state_active"></div>
+</div>
+
+<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
+  <div class="foo-block__elm foo-block__elm--state_inactive"></div>
+</div>
+```
+
+```
+.foo-block {
+  font-size: 16px;
+  backraund-color: blue;
+
+  &--state_active { background-color: red; }
+  &--state_inactive { background-color: gray; }
+
+  &--case_top { width: 100%; }
+  &--case_side-bar { width: 50%; }
+
+  &__elm {
+    color: white;
+
+    &--state_active { background-color: green; }
+    &--state_inactive { background-color: black; }
+  }
+}
+
+
+ただし、仮にblock自体がactiveかもしくはinactiveかという事実に追従する形で、ElementにもModifierを付加したという理由なのであれば、
+それを明確にした以下のスタイルの方が意味が通りそうです。
+
+```
+.foo-block {
+  $root: &;
+  $active-state: $root + "--state_active";
+  $inactive-state: $root + "--state_inactive";  
+
+  font-size: 16px;
+  backraund-color: blue;
+
+  &--state_active { background-color: red; }
+  &--state_inactive { background-color: gray; }
+
+  &--case_top { width: 100%; }
+  &--case_side-bar { width: 50%; }
+
+  &__elm {
+    color: white;
+
+    $ative-state & { color: green; }
+    $disable-state & { color: black; }
+  }
+}
+```
+
+ここまで見てみると、BEM記法がいかに冗長な書き方であるかということがわかると思いますが、
+これの対策の一つとして、Block及びModifier表現を短縮する方法などもよく見かけます。
+
+以下はModifireの記述を省略した例です
+```
+[ A ]
+<div class="foo-block --state_active --case_top"></div>
+
+<div class="foo-block --state_inactive --case_side-bar"></div>
+```
+or
+```
+[ B ]
+<div class="foo-block --active --top"></div>
+
+<div class="foo-block --inactive --side-bar"></div>
+```
+
+私は、Aの表現も好んでよく利用します。
