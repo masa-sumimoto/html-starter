@@ -6,7 +6,7 @@
 :smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
 
 こんにちは。これは私が普段用いるhtmlコーディングのためのスターターキッドです。
-私はしばしばCMSフレームワークを利用する事前の静的HTMLコーディングには、このスターターキッドを利用します。  
+私はしばしばCMSフレームワークを利用する事前の静的HTMLコーディングには、このスターターキッドを利用します。
 また、これはhtmlコーディングの一つの考え方を記載したドキュメントです。
 
 以下の条件に該当する場合、このキッドの利用が有効になるケースがあります。
@@ -138,8 +138,8 @@ Cording Libraries:
 // Boostrap4 の_buttons.scss のコンパイル後のコード
 
 .btn {
-	display: inline-block;
-	...
+  display: inline-block;
+  ...
 }
 
 .btn-primary {
@@ -158,15 +158,15 @@ Cording Libraries:
 // 後述するprimary-partsコンテクストに新たに追加した上書き用のスタイルシート
 
 .btn {
-	display: block; // Override
-	
-	&--foo_bar { ... } // Extend
-	&--foo_hoge { ... } // Extend
+  display: block; // Override
+
+  &--foo_bar { ... } // Extend
+  &--foo_hoge { ... } // Extend
 }
 
 .btn-primary {
-	&--foo_bar { ... } // Extend
-	&--foo_hoge { ... } // Extend
+  &--foo_bar { ... } // Extend
+  &--foo_hoge { ... } // Extend
 }
 ```
 
@@ -179,8 +179,8 @@ Cording Libraries:
 [ primary-parts/_button.scss ]
 
 .btn {
-	&--foo_bar { ... }
-	&--foo_hoge { ... }
+  &--foo_bar { ... }
+  &--foo_hoge { ... }
 }
 ```
 
@@ -191,14 +191,14 @@ Cording Libraries:
 [ primary-parts/_button.scss ]
 
 .btn {
-	&--foo_bar { ... }
-	&--foo_hoge { ... }
-	
-	// Difine new type instance button with BEM special modifier
-	&--type_table-style {
-		display: table;
-		...
-	}
+  &--foo_bar { ... }
+  &--foo_hoge { ... }
+
+  // Difine new type instance button with BEM special modifier
+  &--type_table-style {
+    display: table;
+    ...
+  }
 }
 ```
 
@@ -210,13 +210,13 @@ typeモディファイアは特別なモディファイアと事前に自分の�
 [ primary-parts/_button.scss ]
 
 .btn {
-	&--foo_bar { ... }
-	&--foo_hoge { ... }
+  &--foo_bar { ... }
+  &--foo_hoge { ... }
 }
 
 .btn-table {
-	display: table;
-	...
+  display: table;
+  ...
 }
 ```
 

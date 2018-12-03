@@ -65,7 +65,7 @@ You can start coding immediately in the following way.
 ## How to add HTML files
 Please add html files to under `/public/`.
 ```
-ex:
+example:
 ./public/index.html => http://localhost:8080/
 ./public/foo.html => http://localhost:8080/foo.html
 ```
@@ -76,7 +76,7 @@ so For example, it is recommended to save image files like `/public/images/*`
 ## How to add Stylesheets
 Please add css files as scss to under `/src/scss`.
 ```
-[ ex ]
+[ example ]
 
 /src/scss/_foo.scss
 ```
@@ -87,7 +87,7 @@ You can use both css style and scss style on scss files.
 ## How to add Javascripts
 Please add css files to under `/src/js`.
 ```
-[ ex ]
+[ example ]
 
 /src/js/foo.js
 ```
@@ -135,8 +135,8 @@ If you already have good way, Please delete my codes.
 // Boostrap4 の_buttons.scss のコンパイル後のコード
 
 .btn {
-	display: inline-block;
-	...
+  display: inline-block;
+  ...
 }
 
 .btn-primary {
@@ -155,15 +155,15 @@ If you already have good way, Please delete my codes.
 // 後述するprimary-partsコンテクストに新たに追加した上書き用のスタイルシート
 
 .btn {
-	display: block; // Override
-	
-	&--foo_bar { ... } // Extend
-	&--foo_hoge { ... } // Extend
+  display: block; // Override
+
+  &--foo_bar { ... } // Extend
+  &--foo_hoge { ... } // Extend
 }
 
 .btn-primary {
-	&--foo_bar { ... } // Extend
-	&--foo_hoge { ... } // Extend
+  &--foo_bar { ... } // Extend
+  &--foo_hoge { ... } // Extend
 }
 ```
 
@@ -176,8 +176,8 @@ If you already have good way, Please delete my codes.
 [ primary-parts/_button.scss ]
 
 .btn {
-	&--foo_bar { ... }
-	&--foo_hoge { ... }
+  &--foo_bar { ... }
+  &--foo_hoge { ... }
 }
 ```
 
@@ -188,14 +188,14 @@ If you already have good way, Please delete my codes.
 [ primary-parts/_button.scss ]
 
 .btn {
-	&--foo_bar { ... }
-	&--foo_hoge { ... }
-	
-	// Difine new type instance button with BEM special modifier
-	&--type_table-style {
-		display: table;
-		...
-	}
+  &--foo_bar { ... }
+  &--foo_hoge { ... }
+
+  // Difine new type instance button with BEM special modifier
+  &--type_table-style {
+    display: table;
+    ...
+  }
 }
 ```
 
@@ -207,13 +207,13 @@ typeモディファイアは特別なモディファイアと事前に自分の�
 [ primary-parts/_button.scss ]
 
 .btn {
-	&--foo_bar { ... }
-	&--foo_hoge { ... }
+  &--foo_bar { ... }
+  &--foo_hoge { ... }
 }
 
 .btn-table {
-	display: table;
-	...
+  display: table;
+  ...
 }
 ```
 
