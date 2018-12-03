@@ -114,11 +114,114 @@ If you start working with this project template, you will notice that it contain
 I will introduce my coding method from here on.
 If you already have good way, Please delete my codes.
 
-I extend the components of Bootstrap a lot.
-However contrary to Bootstrap's style based on the basic OOCSS design, 
-I am trying to use many BEM design way for new design parts.
-We focus on separating styles in component units.
-By doing so, I do not care much about this difference.
+## コーディングスタイル概要
+私はBootstrapのコンポーネントをベースとし、それを拡張・上書きする方針でデザインを進めます。
+そのためBootstrapへのある程度の事前理解がかなり重要になります。
+また、新規に記述するデザインパーツにはBEM設計を用いるようにしています。
+これはOOCSS設計に基づくBootstrap4のスタイル方針に反しており、そのため、やがてコードは混沌としてゆきます。
+
+しかし、Bootstrapはデザインそのものでありながらインフラでもあるととらえます。
+すなわち、誤解を恐れず言ってしまうと、本コーディング環境はBootstrapによりリセットされ、それを土台にBEMコーディングがコードを汚染してゆくスタイルなのです。
+
+しかしながら、安心してください。
+コンポーネント単位にデザインを管理する方針を徹底すると意外にこの混沌は些細な事に思えてきます。
+また、Bootstrapのユーティリティクラス群はBEM拡張の概念とはアンマッチです。
+そのため、あくまで「webパーツ」に着目した話になります。
+
+以下は、Boostrapがもつ既存のwebパーツであるボタンコンポーネントのデザインを拡張した一例です。
+
+```
+[ bootstrap.css ]
+// Boostrap4 の_buttons.scss のコンパイル後のコード
+
+.btn {
+	display: inline-block;
+	...
+}
+
+.btn-primary {
+  color: #fff;
+  ...
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+```
+
+```
+[ primary-parts/_button.scss ]
+// 後述するprimary-partsコンテクストに新たに追加した上書き用のスタイルシート
+
+.btn {
+	display: block; // Override
+	
+	&--foo_bar { ... } // Extend
+	&--foo_hoge { ... } // Extend
+}
+
+.btn-primary {
+	&--foo_bar { ... } // Extend
+	&--foo_hoge { ... } // Extend
+}
+```
+
+しかし、この例は幾分冗長に見えます。
+また、ボタンというパーツの性質を考えるとボタンのカラーリング（およびアウトラインされたカラーリングデザイン）という観点で事前にOOCSS化されたボタンエレメントにおいて、そこを起点にBEMモディファイアを定義してゆくのは荷が重すぎます。
+
+カラーリングというデザイン拡張の点はBootstrapに一任させ、全てのモディファイアは起点となる.btnクラスのみに付加するのがほど良いでしょう。（重複コードをmixinで管理する手もありますが、ここでは省略します。）
+
+```
+[ primary-parts/_button.scss ]
+
+.btn {
+	&--foo_bar { ... }
+	&--foo_hoge { ... }
+}
+```
+
+また、さらに.btnを継承したクラスである .btn-primary, .btn-secondary...などが表現できないボタンなども必ず登場します。
+ここではBEMでの拡張を徹底してみましょう。
+
+```
+[ primary-parts/_button.scss ]
+
+.btn {
+	&--foo_bar { ... }
+	&--foo_hoge { ... }
+	
+	// Difine new type instance button with BEM special modifier
+	&--type_table-style {
+		display: table;
+		...
+	}
+}
+```
+
+typeモディファイアは特別なモディファイアと事前に自分の中で定義しましょう。またそれらが.btnを継承した .btn-primary, .btn-secondary...クラスと同等のものであるとさらに定義します。そうするとこのコードは幾分整頓されたものに見えてきます。
+
+または、以下のように従来通り新規インスタンスボタンにはOOCSS拡張を試みてみます。
+
+```
+[ primary-parts/_button.scss ]
+
+.btn {
+	&--foo_bar { ... }
+	&--foo_hoge { ... }
+}
+
+.btn-table {
+	display: table;
+	...
+}
+```
+
+一例をあげて見ましたが、全てはケースバイケースです。
+最終形である後半2つのコードを見て、混沌とした印象を受けた場合、このデザインアイデアのことはすっかり忘れてください。
+
+また、繰り返しになりますが、Bootstrapの事前理解が重要です。すでに完成されたライブラリのスタイルを頭の片隅におきながら、それに反して拡張してゆくということ自体がある程度のストレス、また業務の遅延につながりかねません故。
+
 
 
 ## Style Contexts
@@ -163,7 +266,6 @@ Stylesheets are compiled and loaded from top to bottom.
 // Page
 @import 'pages/tmp-page';
 ```
-
 
 ### 1.Libraries
 Libraries context is used for external css libraries.
