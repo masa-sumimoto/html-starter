@@ -117,7 +117,7 @@ If you already have good way, Please delete my codes. and Enjoy cording!!
 
 ※ This is for creating basic web pages. Regarding the design method conscious of PWA, SPA, I have another idea.
 
-## Outline of my cording style
+## Style overview
 Based on the Bootstrap component, I proceed with the design by extending / overwriting.
 For that reason some prior understanding to Bootstrap is important.
 In addition, I use BEM style for newly defined design parts.
@@ -170,12 +170,14 @@ Below, I overwrite and expand the design of the button component which is the ex
 }
 ```
 
-親クラスである.btnと継承クラスである.btn-primaryの双方にBEM拡張を施しました。
-しかしこれはややオーバーです。
-完全にBEM定義でOOCSSをマウントする場合はこれら両クラスをBEMブロックとみなし、そこを起点にBEMモディファイアを定義してゆくのは確かに筋が通っている気がします。
-しかしながら、ボタンコンポーネントはカラーリング（およびアウトラインされたカラーリングデザイン）という観点でのみOOCSS化されたコンポーネントです。ここを頂点に物事を考えると無駄な拡張性の担保になりかねません。
+I applied BEM extension to both parent class `.btn` and inheritance class `.btn-primary`.
+However, this is a bit extreme.
+If we consider these as BEM blocks, to mount OOCSS completely with BEM modifier should be seems like to be correct.
+But `Button` is a component that OOCSS was used only in terms of coloring.
+Thinking design from the point can be a guarantee of wasteful extensibility.
 
-「カラーリング」というジャンルのデザイン拡張をBootstrapに一任させ、モディファイアによる拡張は親クラスである.btnクラスのみに行うのがほど良いでしょう。
+It is better to depend on Bootstrap to extend the design of the genre "coloring", 
+and extend it by modifier only to the parent class `.btn`.
 
 ```
 [ my-override-button.scss ]
@@ -186,8 +188,8 @@ Below, I overwrite and expand the design of the button component which is the ex
 }
 ```
 
-また、さらに.btnを継承したクラスである .btn-primary, .btn-secondary...などが表現できないボタンなども必ず登場します。
-ここではBEMでの拡張を徹底してみましょう。
+Next, Let's consider a button design that can not be expressed by classes (`.btn-primary`, ` .btn-secondary`...) that inherited `.btn`.
+Although it seems good to define another component, try BEM extension within the same component.
 
 ```
 [ my-override-button.scss ]
@@ -204,9 +206,11 @@ Below, I overwrite and expand the design of the button component which is the ex
 }
 ```
 
-typeモディファイアは特別なモディファイアと事前に自分の中で定義しましょう。またそれらが.btnを継承した .btn-primary, .btn-secondary...クラスと同等のものであるとさらに定義します。そうするとこのコードは幾分整頓されたものに見えてきます。
+`type` modifier is a special modifier key for me.
+This modifier distinguishes it from other modifiers as meaning "inheritance" equivalent to `.btn-primary`,` .btn-secondary`.
+Based on this idea, this code appears to be in order.
 
-または、以下のように従来通り新規インスタンスボタンにはOOCSS拡張を試みてみます。
+but, If you are uncomfortable with this concept, please use OOCSS as inheritance button as below.
 
 ```
 [ my-override-button.scss ]
@@ -222,8 +226,10 @@ typeモディファイアは特別なモディファイアと事前に自分の�
 }
 ```
 
-一例をあげて見ましたが、全てはケースバイケースで良いと考えています。
-最終形である後半2つのコードを見て、混沌とした印象を受けた場合、このデザインアイデアのことはすっかり忘れてください。
+The base class `.btn` still uses the BEM modifier, but this code is basically based on OOCSS.
+
+I think that everything is good on a case by case basis.
+If you see the code until the end, if you can not accept it, please completely forget about this design idea.
 
 
 ## Style Contexts
@@ -445,7 +451,7 @@ Userはそこに含まれません。
 これも含めて1枚のスタイルシートにバンドルできる環境がある場合はそれがもっとも好ましいです。
 
 
-## Styling methods
+## Style notation
 
 ### クラス命名規則について
 スタイル名には、最上位コンテナのみアッパーケバブケースを用い、その他のものにはケバブケースを利用するようにしています。
