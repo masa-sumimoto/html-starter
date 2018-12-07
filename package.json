@@ -1,5 +1,7 @@
 {
-  "name": "sumi37-html-project-tmp",
+  "name": "html-starter",
+  "private": true,
+  "description": "This is my html cording template.",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
