@@ -227,7 +227,10 @@ typeモディファイアは特別なモディファイアと事前に自分の�
 
 
 ## Style Contexts
+ここからはデザインの記述場所にコンテクストという言葉を用い、各スタイルをジャンル分けしてゆきましょう。
+
 My CSS policy has 7 contexts below.
+
 ```
 1.Libraries
 2.Core
