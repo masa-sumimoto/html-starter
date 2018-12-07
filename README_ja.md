@@ -5,11 +5,9 @@
 ## はじめに
 :smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
 
-こんにちは。これは私が普段用いるhtmlコーディングのためのスターターキッドです。
-私はしばしばCMSフレームワークを利用する事前の静的HTMLコーディングには、このスターターキッドを利用します。
-また、これはhtmlコーディングの一つの考え方を記載したドキュメントです。
-
-以下の条件に該当する場合、このキッドの利用が有効になるケースがあります。
+こんにちは。これは私が普段HTMLコーディングのために用いるスターターキッドです。
+私はしばしばこのキッドをCMSフレームワークにHTMLを組み込む前の事前コーディングに利用します。
+以下の条件に該当する場合、もしかしたらご活用いただけるかもしれません。
 
 - cssライブラリにBootstrapを利用する
 - JavascriptライブラリにjQueryを利用する
@@ -17,8 +15,10 @@
 - cssマークアップにはBEM記法を利用する
 - デザインをページ・レイアウト・パーツといった単位で管理したい
 
-※ もし、一般的で優れたスターターキットをお探しならば [web starter kid of google](https://github.com/google/web-starter-kit) をオススメします。  
-※ あくまで一般的なWEBページを作成することを想定しています。PWA, SPAなど、アプリケーションを作るというスタンスでデザインを見つめる時には、また少し異なる別のアイデアが有効だと考えています。（いつかドキュメントにまとめたいと思っています）  
+また、併せてhtmlコーディングの考え方も後半に少し書いています。
+
+※ 一般的で優れたスターターキットをお探しならば [web starter kid of google](https://github.com/google/web-starter-kit) をオススメします。  
+※ あくまで一般的なWEBページを作成することを想定しています。
 ※ 少しづつ書き進めているため内容が完全でない箇所があります。
 
 :smile: :goat: :rabbit2: :leopard: :octopus: :dog2: :panda_face: :cow2: :smile:  
@@ -68,7 +68,7 @@ Cording Libraries:
 `/public/`以下にファイルを保存してください。
 
 ```
-[ 例 ]
+例:
 
 ./public/index.html => http://localhost:8080/
 ./public/foo.html => http://localhost:8080/foo.html
@@ -80,7 +80,7 @@ Cording Libraries:
 ## SCSSの管理方法
 `/src/scss`以下にファイルを保存してください。
 ```
-[ 例 ]
+例:
 
 /src/scss/_foo.scss
 ```
@@ -118,25 +118,24 @@ Cording Libraries:
 必要のない場合はコードを削除し、自由にコーディングをスタートしましょう！！
 
 ## コーディングスタイル概要
-私はBootstrapのコンポーネントをベースとし、それを拡張・上書きする方針でデザインを進めます。
-そのためBootstrapへのある程度の事前理解が重要なポイントになります。
-また、新規に記述するデザインパーツにはBEM設計を用いるようにしています。
+私はBootstrapのコンポーネントをベースに、拡張・上書きする形でデザインを進めます。
+そのためここからはBootstrapへのある程度の事前理解が重要となります。
+また、新規に定義するデザインパーツにはBEM設計を用いるようにしています。
 これはOOCSS設計に基づくBootstrap4のスタイル方針に反しており、そのため、やがてコードは混沌としてゆきます。
 
 しかし、Bootstrapはデザインそのものでありながらインフラでもあるととらえます。
-すなわち、誤解を恐れず言ってしまうと、本コーディング環境はBootstrapによりリセットされ、それを土台にBEMコーディングがコードを汚染してゆくスタイルなのです。
+誤解を恐れず言ってしまうと、本コーディング環境はBootstrapによりリセットされ、それを土台にBEMコーディングがコードをマウントしてゆくスタイルなのです。
 
 しかしながら、安心してください。
-コンポーネント単位にデザインを管理する方針を徹底すると意外にこの混沌は些細な事に思えてきます。
-また、Bootstrapのユーティリティクラス群はBEM拡張の概念とはアンマッチです。
-（そのため、ユーティリティクラスでの破壊的な補助を抜きにした、純粋にパーツデザインに着目した話になります。）
+コンテキスト・コンポーネント単位にデザインを管理する方針を徹底すると意外にこの混沌は些細な事に思えてきます。
 
-以下は、Boostrapがもつ既存のwebパーツであるボタンコンポーネントのデザインを拡張した一例です。
+では実際にOOCSSとBEMが混在する状況を見てみましょう。
+以下は、Boostrapがもつ既存のwebパーツであるボタンコンポーネントのデザインを別のSCSSファイル内でBEMを利用し上書き拡張しています。
 
 ```
-[ bootstrap.css ]
+[ in bootstrap.css ]
 
-// Boostrap4 の_buttons.scss のコンパイル後のコード
+// boostrap.css内にある_buttons.scssがコンパイルされたコード
 
 .btn {
   display: inline-block;
@@ -155,34 +154,36 @@ Cording Libraries:
 ```
 
 ```
-[ primary-parts/_button.scss ]
+[ my-override-button.scss ]
 
-// 後述するprimary-partsコンテクストに新たに追加した上書き用のスタイルシート
+// 別のSCSSファイル内で上書きとBEMのモディファイア拡張
 
 .btn {
   display: block; // Override
 
-  &--foo_bar { ... } // Extend
-  &--foo_hoge { ... } // Extend
+  &--width_small { ... } // Extend
+  &--width_big { ... } // Extend
 }
 
 .btn-primary {
-  &--foo_bar { ... } // Extend
-  &--foo_hoge { ... } // Extend
+  &--width_small { ... } // Extend
+  &--width_big { ... } // Extend
 }
 ```
 
-しかし、この例は幾分冗長に見えます。
-また、ボタンというパーツの性質を考えるとボタンのカラーリング（およびアウトラインされたカラーリングデザイン）という観点で事前にOOCSS化されたボタンエレメントにおいて、そのそれぞれを起点にBEMモディファイアを定義してゆくのは荷が重すぎます。
+親クラスである.btnと継承クラスである.btn-primaryの双方にBEM拡張を施しました。
+しかしこれはややオーバーです。
+完全にBEM定義でOOCSSをマウントする場合はこれら両クラスをBEMブロックとみなし、そこを起点にBEMモディファイアを定義してゆくのは確かに筋が通っている気がします。
+しかしながら、ボタンコンポーネントはカラーリング（およびアウトラインされたカラーリングデザイン）という観点でのみOOCSS化されたコンポーネントです。ここを頂点に物事を考えると無駄な拡張性の担保になりかねません。
 
-「カラーリング」というジャンルのデザイン拡張をBootstrapに一任させ、全てのモディファイアは起点となる.btnクラスのみに付加するのがほど良いでしょう。（重複コードをmixinで管理する手もありますが、ここでは省略します。）
+「カラーリング」というジャンルのデザイン拡張をBootstrapに一任させ、モディファイアによる拡張は親クラスである.btnクラスのみに行うのがほど良いでしょう。
 
 ```
-[ primary-parts/_button.scss ]
+[ my-override-button.scss ]
 
 .btn {
-  &--foo_bar { ... }
-  &--foo_hoge { ... }
+  &--width_small { ... } // Extend
+  &--width_big { ... } // Extend
 }
 ```
 
@@ -190,11 +191,11 @@ Cording Libraries:
 ここではBEMでの拡張を徹底してみましょう。
 
 ```
-[ primary-parts/_button.scss ]
+[ my-override-button.scss ]
 
 .btn {
-  &--foo_bar { ... }
-  &--foo_hoge { ... }
+  &--width_small { ... } // Extend
+  &--width_big { ... } // Extend
 
   // typeというモディファイアを新たに定義し、そこにボタンのスタイルを書く
   &--type_table-style {
@@ -212,11 +213,11 @@ typeモディファイアは特別なモディファイアと事前に自分の�
 または、以下のように従来通り新規インスタンスボタンをOOCSS拡張で試みてみます。
 
 ```
-[ primary-parts/_button.scss ]
+[ my-override-button.scss ]
 
 .btn {
-  &--foo_bar { ... }
-  &--foo_hoge { ... }
+  &--width_small { ... } // Extend
+  &--width_big { ... } // Extend
 }
 
 .btn-table {
@@ -618,7 +619,7 @@ Block要素の子要素として用意されたelmはアンダースコア2つ�
 }
 ```
 
-ただし、仮にblock自体がactiveかもしくはinactiveかという事実に追従する形で、ElementにもModifierを付加したという理由なのであれば、
+ただし、単にblock自体がactiveかもしくはinactiveかという事実に追従する形で、ElementにもModifierを付加していたという理由なのであれば、
 それを明確にした以下のスタイルの方が意味が通りそうです。
 
 ```
@@ -640,19 +641,74 @@ Block要素の子要素として用意されたelmはアンダースコア2つ�
     color: white;
 
     $ative-state & { color: green; }
-    $disable-state & { color: black; }
+    $inactive-state & { color: black; }
   }
 }
 ```
+
+その上でfoo-block__elmに付加していた、stateモディファイアを削除しましょう。
 
 ここまで見てみると、BEM記法がいかに冗長な書き方であるかということがわかると思いますが、
 これの対策の一つとして、Block及びModifier表現を短縮する方法などもよく見かけます。
 
 以下はModifireの記述を省略した例です
 ```
-<div class="foo-block --active --top"></div>
+<div class="foo-block --active --top">
+  <div class="foo-block__elm"></div>
+</div>
 
-<div class="foo-block --inactive --side-bar"></div>
+<div class="foo-block --inactive --side-bar">
+  <div class="foo-block__elm"></div>
+</div>
 ```
 
-私は、BEMブロック単位に入れ子にするコーディングを好むので、この方法はあまり利用しません。
+```
+.foo-block {
+  $root: &;
+  $active-state: $root + ".--active";
+  $inactive-state: $root + ".--inactive";  
+
+  font-size: 16px;
+  backraund-color: blue;
+
+  &.--active { background-color: red; }
+  &.--inactive { background-color: gray; }
+
+  &.--top { width: 100%; }
+  &.--side-bar { width: 50%; }
+
+  &__elm {
+    color: white;
+
+    $ative-state & { color: green; }
+    $inactive-state & { color: black; }
+  }
+}
+```
+
+これはモディファイアに与えたスタイルの優先順位がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
+
+しかし、モディファイアキーによる名前空間の重要性を感じるシーンも無きにしも非ずです。
+例えば以下の例では、先ほどの省略が利用できません。
+```
+[ 省略前 ]
+
+<div class="foo-block foo-block--width_big foo-block--height_small"></div>
+<div class="foo-block foo-block--width_small foo-block--height_small"></div>
+```
+
+```
+[ 省略後 ]
+
+<div class="foo-block --big --small"></div>
+<div class="foo-block --small --small"></div>
+```
+
+モディファイアバリューの衝突を恐るならば、キーの省略を行わない折衷案も魅力的です。
+```
+<div class="foo-block --width_big --height_small"></div>
+<div class="foo-block --width_small --height_small"></div>
+```
+
+以上、主にモディファイア中心でしたがBEMの解説でした。
+
