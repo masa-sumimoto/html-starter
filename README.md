@@ -19,7 +19,6 @@ If your case includes the following, Please use the kid.
 - Want to manage the design in units such as page layout, parts.
 
 ※ If you get good starter kid, I suggest [web starter kid of google](https://github.com/google/web-starter-kit).  
-※ This is for creating basic web pages.
 ※ It is under construction in some places.
 
 :smile: :goat: :rabbit2: :leopard: :octopus: :dog2: :panda_face: :cow2: :smile:  
@@ -115,6 +114,8 @@ the latest state is automatically reflected in the browser without executing the
 If you start working with this project template, you will notice that it contains several styles and html tags.
 I will introduce my coding method from here on.
 If you already have good way, Please delete my codes. and Enjoy cording!!
+
+※ This is for creating basic web pages. Regarding the design method conscious of PWA, SPA, I have another idea.
 
 ## Outline of my cording style
 Based on the Bootstrap component, I proceed with the design by extending / overwriting.
