@@ -172,6 +172,7 @@ Below, I overwrite and expand the design of the button component which is the ex
 
 I applied BEM extension to both parent class `.btn` and inheritance class `.btn-primary`.
 However, this is a bit extreme.
+
 If we consider these as BEM blocks, to mount OOCSS completely with BEM modifier should be seems like to be correct.
 But `Button` is a component that OOCSS was used only in terms of coloring.
 Thinking design from the point can be a guarantee of wasteful extensibility.
@@ -186,6 +187,10 @@ and extend it by modifier only to the parent class `.btn`.
   &--width_small { ... } // Extend
   &--width_big { ... } // Extend
 }
+
+.btn-primary {
+  ...
+}
 ```
 
 Next, Let's consider a button design that can not be expressed by classes (`.btn-primary`, ` .btn-secondary`...) that inherited `.btn`.
@@ -195,19 +200,21 @@ Although it seems good to define another component, try BEM extension within the
 [ my-override-button.scss ]
 
 .btn {
-  &--width_small { ... } // Extend
-  &--width_big { ... } // Extend
-
   // Difine new type instance button with BEM special modifier
   &--type_table-style {
     display: table;
     ...
   }
+
+  &--width_small { ... }
+  &--width_big { ... }
 }
 ```
 
 `type` modifier is a special modifier key for me.
 This modifier distinguishes it from other modifiers as meaning "inheritance" equivalent to `.btn-primary`,` .btn-secondary`.
+(Please be sure to mention this before other modifiers.)
+
 Based on this idea, this code appears to be in order.
 
 but, If you are uncomfortable with this concept, please use OOCSS as inheritance button as below.
@@ -220,6 +227,7 @@ but, If you are uncomfortable with this concept, please use OOCSS as inheritance
   &--foo_hoge { ... }
 }
 
+// Inherited class
 .btn-table {
   display: table;
   ...
@@ -233,8 +241,8 @@ If you see the code until the end, if you can not accept it, please completely f
 
 
 ## Style Contexts
-ここからはデザインの記述場所にコンテクストという言葉を用い、各スタイルをジャンル分けしてゆきましょう。
 
+So here we will consider the design in the construct.
 My CSS policy has 7 contexts below.
 
 ```
@@ -281,7 +289,7 @@ Stylesheets are compiled and loaded from top to bottom.
 ### 1.Libraries
 Libraries context is used for external css libraries.
 I have added Bootstrap4 to here already.
-Please don't touch the libraries code. Also manage the libraries as package as much as possible.
+Please don't touch the libraries code. If your cange the codes, Please use override in other stylesheet. 
 
 ### 2.Core
 These stylesheets manage `variables`, `mixins` and `utility classes`.
@@ -308,13 +316,12 @@ Please define about web site regulation to `_page.scss`.
 Please define about site header regulation to `_header.scss`.
 Please define about site footer regulation to `_footer.scss`.
 
-また、
-ヘッダーとフッターを除く、サイトコンテンツ部分のラップ要素のために`_main.scss`などといった名前のものを用意します。
-注意したいことは、これらは「自身のレイアウト」及び「内包する要素共通のデザインレギュレーション」を定義することが主な役割だという点です。
-そのため、各コンテナに内包されるデザインパーツたちは後述する4〜7のコンテクストで定義することがが可能です。
-ただし、headerやfooterなど他に重複が見られないパーツに関しては、このLayoutsコンテキストで定義してしまうことも可です。
+And I often use `_main.scss` for site contents parts excluding header and footer.
+The file only difined `Own design regulation` and `Common design regulation among included elements`.
+( The design parts included in each container are defined in the context of 4 to 7. )
 
-The following is this image. 
+Please look the following. 
+
 ```
 [ html ]
 
@@ -335,53 +342,55 @@ The following is this image.
 ```
 [ _page.scss ]
 
-// webサイト全体に関わることを定義する
-
+// Define for web site
 * { ... }
 div { ... }
 a { ... }
-
 ```
 
 ```
 [ _header.scss ]
 
-// サイトヘッダー全体に関わることを定義する
+// Define for only site header container
 .Header { ... }
 .Header * { ... }
-
-// サイトフッター内のブロックに関して定義
-// 4〜7のコンテクストで定義しても良いが他に重複を見ない要素のケースが多いのでこちらに記述
-.header-foo { ... }
-
 ```
 
 ```
 [ _footer.scss ]
 
-// サイトフッター全体に関わることを定義する
+// Define for only site footer container
 .Footer { ... }
 .Footer * { ... }
-
-// サイトフッター内のブロックに関して定義
-// 4〜7のコンテクストで定義しても良いが他に重複を見ない要素のケースが多いのでこちらに記述
-.footer-foo { ... }
-
 ```
 
 ```
 [ _main.scss ]
 
-// メイン（このWEBサイトのコンテンツ）全体に関わることを定義する
+// Define for only site main wrapper container
 .Main { ... }
 .Main * { ... }
-
-// 内包するパーツは4〜7のコンテクストで定義する方針が良い
 ```
 
-また、これら最上位のレイアウトブロックには最初の文字だけアッパーケースを利用することで、
-その他のクラス命名表現とに違いをつけています。
+However, with respect to relatively special parts where internal elements such as site header and site footer will not be found duplicates,
+It is possible to define in this Layouts context.
 
+The following is an example of a header.
+
+```
+[ _header.scss ]
+
+// Define for site header container
+.Header { ... }
+.Header * { ... }
+
+// Define for elements contained in header container
+.header-logo { ... }
+.header-global-nav { ... }
+```
+
+and, I prefer a way that I add classe name with Uppercase
+and, I also prefer a way that add class name with uppercase to first character.
 
 ### 4.Primitive Parts
 デザイン上、最小単位となるエレメントをパーツ単位にstylesheetにして切り分けます。`_button.scss`, `_table.scss`, `_heading.scss`などが該当します。
