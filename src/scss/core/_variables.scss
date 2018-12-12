@@ -77,7 +77,6 @@ $red-800: #ff3232;
 $red-900: #ff1818;
 
 $reds: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $reds: map-merge(
   (
     "100": $red-100,
@@ -107,7 +106,6 @@ $tomato-800: #ff826b;
 $tomato-900: #ff7258;
 
 $tomatos: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $tomatos: map-merge(
   (
     "100": $tomato-100,
@@ -137,7 +135,6 @@ $blue-800: #447e9b;
 $blue-900: #2c6d8f;
 
 $blues: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $blues: map-merge(
   (
     "100": $blue-100,
@@ -167,7 +164,6 @@ $dark-cyan-800: #4badad;
 $dark-cyan-900: #189696;
 
 $dark-cyans: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $dark-cyans: map-merge(
   (
     "100": $dark-cyan-100,
@@ -197,7 +193,6 @@ $orange-800: #ffa232;
 $orange-900: #ff9718;
 
 $oranges: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $oranges: map-merge(
   (
     "100": $orange-100,
@@ -227,7 +222,6 @@ $green-800: #329932;
 $green-900: #188c18;
 
 $greens: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $greens: map-merge(
   (
     "100": $green-100,
@@ -257,7 +251,6 @@ $olive-800: #999932;
 $olive-900: #8c8c18;
 
 $olives: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $olives: map-merge(
   (
     "100": $olive-100,
@@ -362,22 +355,17 @@ $color-border-cmn: $gray-400;
 $spacer: 1rem; // Default: 1rem
 $grid-gutter-width: 30px; // Default: 30px
 $grid-gutter-half-width: $grid-gutter-width / 2;
-
-$spacer-g: $grid-gutter-width;// Alias
-$spacer-hg: $grid-gutter-half-width;// Alias
+$spacer-cmn: $grid-gutter-half-width;// Alias
 
 $spacers: ();
-// stylelint-disable-next-line scss/dollar-variable-default
 $spacers: map-merge(
   (
-    // ↓[note] Already defined
-    // 0: 0,
-    // 1: ($spacer * .25),
-    // 2: ($spacer * .5),
-    // 3: $spacer,
-    4: ($spacer * 2),
-    // 5: ($spacer * 3),
-    // ↑[note] Already defined
+    0: 0,
+    1: ($spacer * 0.25),
+    2: ($spacer * 0.5),
+    3: $spacer,
+    4: ($spacer * 10),
+    5: ($spacer * 3),
     6: ($spacer * 4),
     7: ($spacer * 5.5),
     8: ($spacer * 7),
@@ -389,8 +377,7 @@ $spacers: map-merge(
     25px: 25px,
     30px: 30px,
     35px: 35px,
-    g: $grid-gutter-width,
-    hg: $grid-gutter-half-width,
+    cmn: $spacer-cmn,
   ),
   $spacers
 );
@@ -403,7 +390,6 @@ $spacers: map-merge(
 // ex) .w-90 = width: 90%;
 // ------------------------------
 $sizes: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $sizes: map-merge(
   (
     // ↓[note] Already defined
