@@ -8,8 +8,6 @@ English | [日本語](README_ja.md)
 :smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
 
 Hi. This is my html cording starter kid.
-I often use the kit to markup static HTML before using CMS framework.
-
 If your case includes the following, Please use the kid.
 
 - Use Bootstrap as css library.
@@ -115,7 +113,8 @@ If you start working with this project template, you will notice that it contain
 I will introduce my coding method from here on.
 If you already have good way, Please delete my codes. and Enjoy cording!!
 
-※ This is for creating basic web pages. Regarding the design method conscious of PWA, SPA, I have another idea.
+※ I will show way to create general web pages except for designs assuming Web App.
+
 
 ## Style overview
 Based on the Bootstrap component, I proceed with the design by extending / overwriting.
@@ -300,6 +299,63 @@ The file defines global variables. Also, the file includes overrides of Bootstra
 Definitions of Bootstrap almost use default flag.
 Therefore, this file will be prefetched form.
 
+The following example is an extension of `$spacers`.
+
+```
+[ core/_variable.scss ]
+
+$spacer: 1rem;
+$grid-gutter-width: 30px;
+$grid-gutter-half-width: $grid-gutter-width / 2;
+$spacer-cmn: $grid-gutter-half-width;// Alias
+
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * 0.25),
+    2: ($spacer * 0.5),
+    3: $spacer,
+    4: ($spacer * 2), // Override
+    5: ($spacer * 3),
+    6: ($spacer * 4),
+    7: ($spacer * 5.5),
+    8: ($spacer * 7),
+    9: ($spacer * 9),
+    5px: 5px, // Extend
+    10px: 10px, // Extend
+    15px: 15px, // Extend
+    20px: 20px, // Extend
+    25px: 25px, // Extend
+    30px: 30px, // Extend
+    35px: 35px, // Extend
+    cmn: $spacer-cmn, // Extend
+  ),
+  $spacers
+);
+
+```
+This is originally defined in `_variable.scss` of Bootstrap.
+I added some defines using `map-merge()`.
+
+margin and padding utility classes are generated using $spacers in `_spacing.scss` of Bootstrap.
+
+So, we can use its the following.
+
+```
+<div class="m-2 pb-20px"><!--  margin: 0.5rem; padding-bottom: 20px;  --></div>
+```
+
+This gutter adjustment is familiar to Bootstrap, 
+and it is used with media queries are common.
+
+```
+<div class="px-0 px-md-cmn"></div>
+```
+The div element has x-padding 15px generally,
+and It has no x-padding with less than md size width (991.98px). 
+
+
 #### `_mixins.scss`
 mixins are effective for organizing duplicate styles.
 The file inclueds global mixins.
@@ -393,15 +449,20 @@ and, I prefer a way that I add classe name with Uppercase
 and, I also prefer a way that add class name with uppercase to first character.
 
 ### 4.Primitive Parts
-デザイン上、最小単位となるエレメントをパーツ単位にstylesheetにして切り分けます。`_button.scss`, `_table.scss`, `_heading.scss`などが該当します。
-Bootstrapが本来持っているcomponentを上書きするケースも頻発します。
+Divide the minimum element into stylesheet in parts unit.
+Examples are `_button.scss`,` _table.scss`, `_heading.scss`.
+In many cases, it overwrites components owned by Bootstrap like `_button.scss`.
+(We mainly use for parts in the .main layout container.)
 
 ### 5.Complex Parts
-比較的複合的なパーツを切り分けたい時に利用します。
-`_food-image-gallery-carousel.scss`や `_for-new-user-modal.scss`のように「carousel」や「modal」などと具体的なパーツの種類を示してあげるとより明確です。
-また、`_breadcrumbs.scss`, `_pagination.scss` など、一般的なWEBサイトにもよく登場する複合的なパーツも
-このコンテクストで整理するのが良さそうです。
-Complex PartsはPrimitive Partsを含むことが可能です。
+It is used when you want to cut relatively complex parts.
+It is clearer to show the specific part types such as "carousel" and "modal" like `_food-image-gallery-carousel.scss` and` _for-new-user-modal.scss`.
+
+Also, there are complex parts that often appear on common web sites such as `_breadcrumbs.scss`,` _pagination.scss`
+It seems good to organize in this context.
+
+Complex Parts can include Primitive Parts.
+(We mainly use for parts in the .main layout container.)
 
 ### 6.Pages
 「ページ」といった単位でデザインを考えたい時に利用します。
@@ -450,14 +511,17 @@ Userはそこに含まれません。
 ```
 
 またファイルのロード順でもわかるように、user.cssは、bundle.cssをオーバーライドできる存在です。
-このようにuser.cssは「一時的なもの」「緊急の作業」「取り急ぎの処置」などといった目的にも有効です。
+このようにuser.cssは「一時的な取り急ぎの処理」「緊急の作業」といった目的にも有効です。
 
 さらに、1〜6のコンテクストのサンプルコードの中に、IDを用いたスタイルの指定がないことにも注目してください。
-サンプルには使用意図が明確なutilities.scssに含まれるimport構文を用いたクラス指定以外に強力なスタイル指定は存在しません。
-これらもuserに確保された強制力の一つです。WEBサイトを一つのサービスと捉えたら1〜6のコンテクストはインフラで7はユーザー設定と言えるでしょう。
+
+このコーディングルールには（使用意図が明確な）utilities.scssに含まれるimport構文を用いたクラス群以外には強力なスタイル指定は存在しません。
+
+これもuserに確保されたデザ イン強制力の担保と言えます。  
+WEBサイトを一つのサービスと捉えたら1〜6のコンテクストはインフラで7はユーザー設定と言えるでしょう。
 
 ※上記では、便宜上スタイルシートを増やすという形でこのuserの概念を提示しましたが、
-これも含めて1枚のスタイルシートにバンドルできる環境がある場合はそれがもっとも好ましいです。
+これも含めて1枚のスタイルシートにバンドルできる環境がある場合はそれがもっとも好ましいでしょう。
 
 
 ## Style notation
