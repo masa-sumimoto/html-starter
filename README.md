@@ -133,7 +133,7 @@ Below, I overwrite and expand the design of the button component which is the ex
 ```
 [ in bootstrap.css ]
 
-// _Buttons.scss compiled within bootstrap.css
+/* _Buttons.scss compiled within bootstrap.css */
 
 .btn {
   display: inline-block;
@@ -199,20 +199,21 @@ Although it seems good to define another component, try BEM extension within the
 [ my-override-button.scss ]
 
 .btn {
-  // Difine new type instance button with BEM special modifier
+  // Define 'type' modifier as base modifier
   &--type_table-style {
     display: table;
     ...
   }
 
+  // Other modifiers work as utilities for .btn class or type modifire class
   &--width_small { ... }
   &--width_big { ... }
 }
 ```
 
 `type` modifier is a special modifier key for me.
-This modifier distinguishes it from other modifiers as meaning "inheritance" equivalent to `.btn-primary`,` .btn-secondary`.
-(Please be sure to mention this before other modifiers.)
+This modifier distinguishes it from other modifiers.
+(so Please be sure to mention this before other modifiers.)
 
 Based on this idea, this code appears to be in order.
 
