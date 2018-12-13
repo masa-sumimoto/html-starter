@@ -778,18 +778,16 @@ Block要素の子要素として用意されたelmはアンダースコア2つ�
 以上、主にモディファイア中心でしたがBEMの解説でした。
 
 
-# レイアウト （及びグリッド）
+# Layout （and Grid）
 
-私の中で、HTMLマークアップでの決まりごとはごくわずかです。  
-ここではレイアウトの基礎を作るラッパー要素の使用方法についてのみ紹介します。
+I always share a little convention with HTML markup.
+Let me show the way of using layout wrappers.
 
+## Minimum layout required
 
-## 必要最小限のレイアウトについて
-複数人でのマークアップを想定した場合、
-デザイナー同士で共有すべき最も重要なことはレイアウトブロックの使用方法です。
-逆を言うと、ここさえ抑えておけば、デザイナー同士のマークアップの差異はそこまで深刻にはなりません。
-
-以下は、私が考える最低限のレイアウトを表現したものです。
+To share the way of using layout block is a one of important things when you design with other people.
+Please look 
+Below is a representation of the minimum layout I think.
 
 ```
 [ HTML ]
@@ -806,67 +804,78 @@ Block要素の子要素として用意されたelmはアンダースコア2つ�
 ```
 
 ### Sep
-`.Sec`は、コンテンツ的なセクションの区切り目を示します。（sectionタグとは必ずしも連動しません。） 
-このラッパーはBootstrapが提供するものではありません。 
-私は業務上、HTMLの組み込み先にRuby on Railsをよく選択しますが、Sepクラス単位にrenderできるよう設計します。
+`.Sec` indicates the content break.
+(The section tag is not necessarily used.)
 
-また、pageコンテクストのスタイルシートでも、Sep毎に項目コメントで区切ることで各エレメントたちのサブコンテクストを整理します。
+This wrapper is not provided by Bootstrap.
+I often choose Ruby on Rails to include HTML, I often design to use `render` for each `.Sec`.
 
-そのページにおけるコンテンツ、もしくは大きなデザイン的な転換部分にこのラッパーを使うと良いでしょう。
+Also I organize subcontexts by separating heading comments each `.Spc` in stylesheet of `Page context`.
+It is good to use this wrapper class for contents  or design branch point.
+
 
 ### container
-`.container`もしくは`.container-fluid`はBootstrapにおける、レイアウトラッパーです。
-このラッパーがWEBサイトのwidth及び左右余白をメディアクエリ毎に管理します。
-言い換えると、`.container`を全員が必ず利用することで、ページの最も重要なレイアウトレギュレーションが守られます。
+`.container` and `.container-fluid` are Bootstrap layout wrappers.
+The wrappers manage x-gutters each media query breakpoints.
+Everyone use the wrappers so that the most important design regulations are kept.
 
-ただし`.container`で得られる横幅よりも幅狭なコンテナが必要なシーンもあるでしょう。
-その場合、`.container`の使用をやめるのではなく必ず、`.container`内で調整を行ってください。
-いくつかの方法が考えられますが、私はよく直近子要素のrowを以下のように調整します。
+`.Sep` can contain multiple `.container`.
+However, there are many cases that it contains 1 `.container`.
+
+When you want to use a container with a width smaller than `.container`, don't use other container.
+Instead of please adjust inner element width. 
+
+There are several ways. I often adjust the row of the most recent child element as follows.
 
 ```
 <div class="row w-75 mx-auto">
 ```
+This element be 75% width and got margin-left auto and margin-right auto.
 
 ### row
-`.row`はBootstrapの`.container`のinner要素です。名前の通りですが、
-コンテンツを横ラインで制御します。使い所（区切りどころ）は様々です。
-コンテンツ内容というよりも、Y方向の余白などコーディングの都合の上で利用することが多いコンテナです。
-BEMブロックとして利用することも頻繁にあります。
+It is the same as `.Sep`,` .container` for use in splitting content in the vertical direction, 
+but it works as a wrapper for these minimum units.
+
+It also builds grid system with `.col-xx`.
+`.container` can includes multi `.row`s. and It can often be BEM Block.
 
 ### col-xx
-`.col-xx`は`.row`のinner要素として、
-グリッドをフレキシブルに表現します。すなわちレスポンシブ表現の中核を担うグリッドコンテナです。
-Bootstrapはwidthを12分割で考えるので、例えば、4カラムレイアウトを表現したい場合は以下のような
-コードになります。
+`.col-xx` expresses the grid flexibly as the inner element of` .row`.
+It is a grid container that is the core of responsive design.
+
+Bootstrap thinks width by 12 slices, 
+For example, If you want to get 4 column layout, do the following. 
 
 ```
 <div class="row">
-  <div class="col-3">1つ目のカラム</div>
-  <div class="col-3">2つ目のカラム</div>
-  <div class="col-3">3つ目のカラム</div>
-  <div class="col-3">4つ目のカラム</div>
+  <div class="col-3">Column 1</div>
+  <div class="col-3">Column 2</div>
+  <div class="col-3">Column 3</div>
+  <div class="col-3">Column 4</div>
 </div>
 ```
 
-メディアクエリ対応のcolクラスと併用することでその威力が発揮されます。
+By using the col class with media queries options, it get powerfully.
+
 ```
 <div class="row">
-  <div class="col-6 col-md-3">mdサイズの時は1行目の1つ目のカラム。mdサイズ未満の時は1行目の1つ目のカラム。</div>
-  <div class="col-6 col-3">mdサイズの時は1行目の2つ目のカラム。mdサイズ未満の時は1行目の2つ目のカラム。</div>
-  <div class="col-6 col-3">mdサイズの時は1行目の3つ目のカラム。mdサイズ未満の時は2行目の1つ目のカラム。</div>
-  <div class="col-6 col-3">mdサイズの時は1行目の4つ目のカラム。mdサイズ未満の時は2行目の2つ目のカラム。</div>
+  <div class="col-6 col-md-3">md size: row1 col1 / less than md size: row1 col1</div>
+  <div class="col-6 col-3">md size: row1 col2 / less than md size: row1 col2</div>
+  <div class="col-6 col-3">md size: row1 col3 / less than md size: row2 col1</div>
+  <div class="col-6 col-3">md size: row1 col4 / less than md size: row2 col2</div>
 </div>
 ```
 
-このようにレイアウト（及びグリッド）の管理はBootstrapに任せ、
-それ以外の部分で有意義なデザインライフを送りましょう。 :smile:
+In this way, management of layout (and grid) depends on Bootstrap, 
+Let's get a comfortable design life. :smile:
 
 
-# 最後に
-このドキュメントは、社内でのHTMLレギュレーションについての話し合いの過程から、
-なんとなく普段の自分の考えをメモ感覚で書き留め始めたことに端を発しますが、発しすぎてえらく長文になってしまいました。
+# In the end
+This document was starating, from the process of discussion about in-house HTML regulation.
+Sorry for my long long document.
 
-未熟者ゆえ、間違った記載や誤ったアイデアもあると思います。
-あくまで、いちコーダーとしての勉強のヒストリー・また備忘録としての意味合い強めで、ここに書き置きさせていただきます。
+I am in the process of study. So my sentences may contain some mistakes and bad ideas.
+Therefore, I would appreciate it if you read this as a man's study record.
+Thanks.
 
 :cat2:
