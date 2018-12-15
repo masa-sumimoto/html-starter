@@ -468,10 +468,15 @@ Complex Parts can include Primitive Parts.
 (We mainly use for parts in the .main layout container.)
 
 ### 6.Pages
-「ページ」といった単位でデザインを考えたい時に利用します。
-しかしながら、ほとんどの場合は、Bootstrapの持つコンポーネント及び、1〜5のコンテクスト、そして、後述するBEM記法によるモディファイア表現により、欲求のほとんどが満たされてしまいます。
+You can add style parts for a page template.
 
-しかしながらあえてページ単位にデザインをまとめたい場合、また、デザインの方向性が見えないパーツなどをとりあえず配置するにはうってつけの場所です。HTML5によりDOMエレメントの定義が革新される以前のコーディングを知る方にはこの考え方はむしろ馴染みのあるものではないでしょうか。
+So You use the space for...
+
+- Design parts for which the context has not been finalized.
+- Design parts specialized only for that page.
+
+However you can already add most design pattern with Bootstrap components and context No.1〜5.
+
 
 ### 7.User
 まず初めにこのコンテクストはできる限り利用しないことが好ましいです。
