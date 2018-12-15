@@ -285,7 +285,8 @@ typeモディファイアは私の中では特別なモディファイア名で�
 @import 'layouts/footer';
 
 // Primitive Parts
-@import 'parts-primitive/tmp-parts';
+@import 'parts-primitive/tmp';
+@import 'parts-primitive/heading';
 
 // Complex Parts
 @import 'parts-complex/tmp-ui';
@@ -450,8 +451,8 @@ a { ... }
 .Header * { ... }
 
 // サイトヘッダー内の子要素（ブロック）に関して定義
-.header-logo { ... }
-.header-global-nav { ... }
+.site-header-logo { ... }
+.site-header-global-nav { ... }
 ```
 また、これらレイアウトを意識したブロックには識別のためクラス名を最初の文字だけアッパーケースにしています。
 

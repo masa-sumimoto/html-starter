@@ -277,7 +277,8 @@ Stylesheets are compiled and loaded from top to bottom.
 @import 'layouts/footer';
 
 // Primitive Parts
-@import 'parts-primitive/tmp-parts';
+@import 'parts-primitive/tmp';
+@import 'parts-primitive/heading';
 
 // Complex Parts
 @import 'parts-complex/tmp-ui';
@@ -442,8 +443,8 @@ The following is an example of a header.
 .Header * { ... }
 
 // Define for elements contained in header container
-.header-logo { ... }
-.header-global-nav { ... }
+.site-header-logo { ... }
+.site-header-global-nav { ... }
 ```
 
 and, I prefer a way that I add classe name with Uppercase
