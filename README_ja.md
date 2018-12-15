@@ -289,10 +289,11 @@ typeモディファイアは私の中では特別なモディファイア名で�
 @import 'parts-primitive/heading';
 
 // Complex Parts
-@import 'parts-complex/tmp-ui';
+@import 'parts-complex/tmp';
 
 // Page
-@import 'pages/tmp-page';
+@import 'pages/tmp';
+@import 'pages/top';
 ```
 
 

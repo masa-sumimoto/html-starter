@@ -1,0 +1,91 @@
+// ========================================
+// _tmp-page.scss
+// ========================================
+
+// ---------------------------------
+// .Sec-top-media-query-test
+// ---------------------------------
+
+// media-query-test
+// ------------------------------
+.media-query-test {
+  $_xs-size-color: $gray-700;
+  $_sm-size-color: $blue-500;
+  $_md-size-color: $green-500;
+  $_lg-size-color: $orange-500;
+  $_xl-size-color: $red-500;
+
+  &__item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid $white;
+    font-size: 1.4rem;
+    color: $white;
+    font-weight: bold;
+
+    &--type_mobile-first {
+      background-color: $_xs-size-color;
+      &::before { content: "579 or less (no use media query)"; } // 575 => MIN
+
+      // [note] You can alse use `media-breakpoint-up(xs)` for 575px or less.
+      // @include media-breakpoint-up(xs) {
+      //   background-color: $_xs-size-color;
+
+      //   &::before { content: "xs-up: less than 576px"; } // 575 => MIN
+      // }
+
+      @include media-breakpoint-up(sm) {
+        background-color: $_sm-size-color;
+
+        &::before { content: "sm-up: 576px and up"; } // 576 => 767
+      }
+
+      @include media-breakpoint-up(md) {
+        background-color: $_md-size-color;
+
+        &::before { content: "md-up: 768px and up"; } // 768 => 991
+      }
+
+      @include media-breakpoint-up(lg) {
+        background-color: $_lg-size-color;
+
+        &::before { content: "lg-up: 992px and up"; } // 992 => 1199
+      }
+
+      @include media-breakpoint-up(xl) {
+        background-color: $_xl-size-color;
+
+        &::before { content: "xl-up: 1200px and up"; } // 1200 => MAX
+      }
+    }
+
+    &--type_pc-first {
+      background-color: $_xl-size-color;
+      &::before { content: "Over 1200 (no use media query) "; } // 1200 => MAX
+
+      @include media-breakpoint-down(lg) {
+        background-color: $_lg-size-color;
+
+        &::before { content: "lg-down: less than 1200px"; } // 1199 => 992
+      }
+
+      @include media-breakpoint-down(md) {
+        background-color: $_md-size-color;
+
+        &::before { content: "md-down: less than 992px"; } // 991 => 768
+      }
+
+      @include media-breakpoint-down(sm) {
+        background-color: $_sm-size-color;
+
+        &::before { content: "sm-down: less than 768px"; } // 767 => 576
+      }
+
+      @include media-breakpoint-down(xs) {
+        background-color: $_xs-size-color;
+
+        &::before { content: "xs-down: less than 576px"; } // 575 => MIN
+      }
+    }
+  }
+}

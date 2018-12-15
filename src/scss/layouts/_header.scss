@@ -6,6 +6,13 @@
 // .Header
 // ---------------------------------
 .Header {
-  background: $gray-800;
   height: $header-height;
+  background-color: $black-900;
+  color: $white;
+}
+
+.site-header-logo {
+  padding-top: 24px;
+  font-size: 1.6rem;
+  font-weight: bold;
 }

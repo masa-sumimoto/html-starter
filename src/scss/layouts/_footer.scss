@@ -6,6 +6,13 @@
 // .Footer
 // ---------------------------------
 .Footer {
-  background: $gray-800;
+  background-color: $black-900;
+  color: $white;
   height: 50px;
+}
+
+.site-footer-logo {
+  padding-top: 14px;
+  font-size: 1.4rem;
+  font-weight: bold;
 }

@@ -15,11 +15,12 @@
 @import 'layouts/footer';
 
 // Primitive Parts
-@import 'parts-primitive/tmp';
+@import 'parts-primitive/tmp'; // Please use this as a template.
 @import 'parts-primitive/heading';
 
 // Complex Parts
-@import 'parts-complex/tmp-ui';
+@import 'parts-complex/tmp'; // Please use this as a template.
 
 // Page
-@import 'pages/tmp-page';
+@import 'pages/tmp'; // Please use this as a template.
+@import 'pages/top';

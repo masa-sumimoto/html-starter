@@ -281,10 +281,11 @@ Stylesheets are compiled and loaded from top to bottom.
 @import 'parts-primitive/heading';
 
 // Complex Parts
-@import 'parts-complex/tmp-ui';
+@import 'parts-complex/tmp';
 
 // Page
-@import 'pages/tmp-page';
+@import 'pages/tmp';
+@import 'pages/top';
 ```
 
 ### 1.Libraries
