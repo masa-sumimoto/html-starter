@@ -116,7 +116,7 @@ If you already have good way, Please delete my codes. and Enjoy cording!!
 ※ I will show way to create general web pages except for designs assuming Web App.
 
 
-## Style overview
+## About Boostrap and BEM
 Based on the Bootstrap component, I proceed with the design by extending / overwriting.
 For that reason some prior understanding to Bootstrap is important.
 In addition, I use BEM style for newly defined design parts.
@@ -534,10 +534,26 @@ WEBサイトを一つのサービスと捉えたら1〜6のコンテクストは
 
 ## Style notation
 
-### クラス命名規則について
-スタイル名には、最上位コンテナのみ最初の一文字をアッパーケースに、そしてバブケースを用い、その他のものには小文字のケバブケースを利用するようにしています。
-ここは正直正解はなく、個人的に読みやすさの点でケバブケースを用いています。
-クラスの命名規則は後述するBEMに任せることができるので、比較的、迷うことなく名前が確定します。
+### About class naming convention
+
+I have a rule like this.
+
+Rule1. page container and top level contents container are uppercase for the first letter only and lowercase after that.
+```
+.Header, .Main, .Footer, Sec-foo-bar
+
+※ I will explain about .Sec-xxx-xxx later.
+```
+
+Rule2. Use kebab case for general new class name.
+```
+.foo, .foo-bar
+```
+
+In terms of legibility (because Bootstrap is so) I am using kebab case.
+But if the policies are unified in each project, I think that any writing style is acceptable.
+
+I am use Camel Case, such as React, when Javascript development is the focus.
 
 
 ### BEMについて
