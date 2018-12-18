@@ -479,8 +479,9 @@ However you can already add most design pattern with Bootstrap components and co
 
 
 ### 7.User
-まず初めにこのコンテクストはできる限り利用しないことが好ましいです。
-このコンテクストは、「本デザイン設計を共有できない状態」が生まれた場合にのみ利用します。
+First of all, it is preferable not to use this context as much as possible.
+これはデザインレギュレーションを共有できない場合に利用するコンテクストです。
+
 
 仮に、以下のケースを想定します。
 ```
