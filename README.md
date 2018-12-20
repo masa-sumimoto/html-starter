@@ -480,19 +480,18 @@ However you can already add most design pattern with Bootstrap components and co
 
 ### 7.User
 First of all, it is preferable not to use this context as much as possible.
-これはデザインレギュレーションを共有できない場合に利用するコンテクストです。
+This is the content to use when design regulations can not be shared.
 
+We often encounter this situation in the process of contract production.
 
-仮に、以下のケースを想定します。
-```
-あなたがWEBサイトを制作しました。
-ローンチ後、クライアント先のWEB担当者がサイトをメンテすることになりました。
-彼の日常業務は非常に軽微なデザイン（スタイル）の修正や更新です。
-大規模な改修業務修正の際には改めて改修作業をあなたがが請け負います。
-```
+The case where other companies produce some pages of the web site.  
+The case where the client inhouse person adjusts the design after launch.
 
-例えばこういった場合の、橋渡しに利用されるのがこのコンテクストです。
-実際は単純にCSSのシートを分けるというだけの話です。
+This also corresponds to cases where regulations are not shared within your company.
+
+Please use this context for this situation.
+This is a simple story. Just separate stylesheets.
+
 ```
 [ HTML ]
 
