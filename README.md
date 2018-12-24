@@ -497,13 +497,10 @@ This is a simple story. Just separate stylesheets.
 
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/user.css">
-
-<div class="foo">The div was red. The div is blue.</div>
-<div class="bar" id="bar">The div was big. The div is small.</div>
 ```
 
-通常全てのコンテクストスタイルシートは1枚のcssファイルにバンドルされますが
-Userはそこに含まれません。
+basically all of context stylesheets are bundled as 1 stylesheet. but User stylesheet is not included there. 
+
 ```
 [ bundle.css ]
 
@@ -518,18 +515,24 @@ Userはそこに含まれません。
 #bar { width: 500px; }
 ```
 
-またファイルのロード順でもわかるように、user.cssは、bundle.cssをオーバーライドできる存在です。
-このようにuser.cssは「一時的な取り急ぎの処理」「緊急の作業」といった目的にも有効です。
+```
+[ HTML ]
 
-さらに、1〜6のコンテクストのサンプルコードの中に、IDを用いたスタイルの指定がないことにも注目してください。
+<div class="foo">The div was red. The div is blue.</div>
+<div class="bar" id="bar">The div was big. The div is small.</div>
+```
 
-このコーディングルールには（使用意図が明確な）utilities.scssに含まれるimport構文を用いたクラス群以外には強力なスタイル指定は存在しません。
+Also as you can see in the file loading order, user.css can override bundle.css.
+In this way, user.css is effective for the purpose of "temporary haste processing" and "urgent work".
 
-これもuserに確保されたデザ イン強制力の担保と言えます。  
-WEBサイトを一つのサービスと捉えたら1〜6のコンテクストはインフラで7はユーザー設定と言えるでしょう。
+Also note that there is no designation of style using ID in sample code of 1 to 6 contexts.
+There is no strong style specification in this coding rule except for `_utilities.scss`.
 
-※上記では、便宜上スタイルシートを増やすという形でこのuserの概念を提示しましたが、
-これも含めて1枚のスタイルシートにバンドルできる環境がある場合はそれがもっとも好ましいでしょう。
+This is one of the design enforcement prepared for `User`. 
+If you think of the WEB site as one service, the context of 1 to 6 is infrastructure and 7 is user defined.
+
+※In the above, I presented the concept of this user in the form of increasing the style sheets for convenience,
+If you have an environment where you can bundle it in one stylesheet including this, it is most preferable.
 
 
 ## Style notation
