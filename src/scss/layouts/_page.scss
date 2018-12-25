@@ -63,7 +63,41 @@ table {
   border-spacing: 0;
 }
 
+
 // ---------------------------------
 // Main container
 // ---------------------------------
 // .page {}
+
+
+// ---------------------------------
+// Bootstrap containfers
+// ---------------------------------
+
+// .container / .container-fluid
+// ------------------------------
+.container,
+.container-fluid {
+  // *** Adjust inner elements gutter
+  &--gutter_small-gutter {
+    @include col-space();
+  }
+
+  &--gutter_small-gutter-for-sm {
+    @include media-breakpoint-down(sm) {
+      @include col-space();
+    }
+  }
+}
+
+// .sec
+// ------------------------------
+// .sec {}
+
+// .row
+// ------------------------------
+// .row {}
+
+// .col-xx
+// ------------------------------
+// .col-xx {}
