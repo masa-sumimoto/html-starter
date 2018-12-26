@@ -559,18 +559,19 @@ But if the policies are unified in each project, I think that any writing style 
 I am use Camel Case, such as React, when Javascript development is the focus.
 
 
-### BEMについて
-基本的にCSSのclass名にはBEM記法を利用します。
-一つのwebパーツのルートとなる要素をBlockとして考え、子要素をElementとし、
-Modifierにより、これら要素の利用方法に厚みをつけます。
+### About BEM
+I use BEM style for styling.
 
-BEMはこの基本理念を守れば、とりあえずOKだと考えています。
-必ず冗長な書き方になってしまうことは避けられないので、
-ケースバイケースでアレンジすることをオススメします。
 
-それでは、私の記述方法を要点だけをステップバイステップで説明してゆきます。
+Please define the root element of the WEB part as `Block`, and the inner elements as `Element`, and the element state as extended by `Modifier`.
 
-下記はmodifierを用いないシンプルな例です。
+Basically I think that it is OK to keep only this.
+BEM is often redundant notation.
+So please arrange on a case by case basis.
+
+Please look my way step by step.  
+The following is a simple example without modifier.
+
 ```
 <div class="foo-block">
   <div class="foo-block__elm"></div>
