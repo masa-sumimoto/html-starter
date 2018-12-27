@@ -495,13 +495,11 @@ WEBサイトの一部ページだけ他社が製作を行うケースや、納�
 
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/user.css">
-
-<div class="foo">The div was red. The div is blue.</div>
-<div class="bar" id="bar">The div was big. The div is small.</div>
 ```
 
 通常全てのコンテクストスタイルシートは1枚のcssファイルにバンドルされますが
 Userはそこに含まれません。
+
 ```
 [ bundle.css ]
 
@@ -516,14 +514,21 @@ Userはそこに含まれません。
 #bar { width: 500px; }
 ```
 
+```
+[ HTML ]
+
+<div class="foo">The div was red. The div is blue.</div>
+<div class="bar" id="bar">The div was big. The div is small.</div>
+```
+
 またファイルのロード順でもわかるように、user.cssは、bundle.cssをオーバーライドできる存在です。
-このようにuser.cssは「一時的な取り急ぎの処理」「緊急の作業」といった目的にも有効です。
+このようにuser.cssは「一時的な取り急ぎの処理」「緊急の作業」といった目的に有効です。
 
 さらに、1〜6のコンテクストのサンプルコードの中に、IDを用いたスタイルの指定がないことにも注目してください。
 
 このコーディングルールには（使用意図が明確な）utilities.scssに含まれるimport構文を用いたクラス群以外には強力なスタイル指定は存在しません。
 
-これもuserに確保されたデザイン強制力の担保と言えます。  
+これも`User`に用意されたデザイン強制力の一つです。  
 WEBサイトを一つのサービスと捉えたら1〜6のコンテクストはインフラで7はユーザー定義と言えるでしょう。
 
 ※上記では、便宜上スタイルシートを増やすという形でこのuserの概念を表現しましたが、
@@ -553,9 +558,9 @@ WEBサイトを一つのサービスと捉えたら1〜6のコンテクストは
 
 
 ### BEMについて
-基本的にCSSのclass名にはBEM記法を利用します。
-一つのwebパーツのルートとなる要素をBlockとして考え、子要素をElementとし、
-Modifierにより、これら要素の利用方法に厚みをつけます。
+CSSによるスタイリングにはBEM記法を用います。
+WEBパーツのルートとなる要素をBlockとし、
+内包する子要素をElement、そしてエレメントの状態をModifierにより拡張定義します。
 
 BEMはこの基本理念を守れば、とりあえずOKだと考えています。
 必ず冗長な書き方になってしまうことは避けられないので、
