@@ -360,8 +360,9 @@ and It has no x-padding with less than md size width (991.98px).
 
 
 #### `_mixins.scss`
-mixins are effective for organizing duplicate styles.
+mixins is useful if you think you want to modularize overlapping styles.
 The file inclueds global mixins.
+
 
 #### `_utilities.scss`
 The file includes global utility classes. The classes usually have `!important` flag.
