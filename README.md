@@ -570,7 +570,7 @@ BEM is often redundant notation.
 So please arrange on a case by case basis.
 
 Please look my way step by step.  
-The following is a simple example without modifier.
+The following is a simple example with `Block` and `Elements`.
 
 ```
 <div class="foo-block">
@@ -578,9 +578,10 @@ The following is a simple example without modifier.
 </div>
 ```
 
-ブロック要素の子要素として用意されたelmはアンダースコア2つを用い連結させます。
+Please use 2 underscores for the name of `element` as a child element of `Block`.
 
-スタイルシートでは以下のように、SCSSが提供する入れ子構造を利用し、Block単位に記述します。
+In Stylesheet, You can use nested structue for each `Block`.
+
 ```
 .foo-block {
   font-size: 16px;
@@ -590,10 +591,11 @@ The following is a simple example without modifier.
 }
 ```
 
-&はブロック名を参照します。そのため`&__elm`は`.foo-block__elm`となります。
-&記法は賛否が分かれるところですが、ブロック単位にコードを管理する際には非常に有効な方法だと考えています。
+`$` refers to block name. Therefore `&__elm` is` .foo-block__elm`.
+I think `$` is a very effective way to manage code on a block basis.
 
-さらに以下はfoo-blockの、ある状態をモディファイアにより表現したものです。
+The following sample inclueds modifier information.
+
 ```
 <div class="foo-block foo-block--state_active">
   <div class="foo-block__elm"></div>
@@ -603,8 +605,6 @@ The following is a simple example without modifier.
   <div class="foo-block__elm"></div>
 </div>
 ```
-
-この2つのfoo-blockはSCSSを用いることにより以下のように表現ができるでしょう。
 
 ```
 .foo-block {
