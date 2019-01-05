@@ -62,7 +62,8 @@ You can start coding immediately in the following way.
 ## How to add HTML files
 Please add html files to under `/public/`.
 ```
-Example:
+[ Example ]
+
 ./public/index.html => http://localhost:8080/
 ./public/foo.html => http://localhost:8080/foo.html
 ```
@@ -73,7 +74,7 @@ so For example, it is recommended to save image files like `/public/images/*`
 ## How to manage Stylesheets
 Please add css files as scss to under `/src/scss`.
 ```
-Example:
+[ Example ]
 
 /src/scss/_foo.scss
 ```
@@ -84,7 +85,7 @@ You can use both css style and scss style on scss files.
 ## How to manage Javascripts
 Please add css files to under `/src/js`.
 ```
-Example:
+[ Example ]
 
 /src/js/foo.js
 ```
@@ -100,6 +101,8 @@ Please stop server once and enter the command.
 You have to load bundle file in HTML.
 
 ```
+[ HTML ]
+
 <link rel="stylesheet" href="/css/bundle.css">
 <script src="/js/bundle.js"></script>
 ```
@@ -131,7 +134,7 @@ OK. Let's see the situation where OOCSS and BEM are actually mixed.
 Below, I overwrite and expand the design of the button component which is the existing web part of Boostrap using BEM in another SCSS file.
 
 ```
-[ in bootstrap.css ]
+[ bootstrap.css ]
 
 /* _Buttons.scss compiled within bootstrap.css */
 
@@ -559,7 +562,7 @@ But if the policies are unified in each project, I think that any writing style 
 I am use Camel Case, such as React, when Javascript development is the focus.
 
 
-### About BEM
+### Basic BEM
 I use BEM style for styling.
 
 
@@ -573,6 +576,8 @@ Please look my way step by step.
 The following is a simple example with `Block` and `Elements`.
 
 ```
+[ HTML ]
+
 <div class="foo-block">
   <div class="foo-block__elm"></div>
 </div>
@@ -583,6 +588,8 @@ Please use 2 underscores for the name of `element` as a child element of `Block`
 In Stylesheet, You can use nested structue for each `Block`.
 
 ```
+[ Stylesheet ]
+
 .foo-block {
   font-size: 16px;
   backraund-color: blue;
@@ -597,6 +604,8 @@ I think `$` is a very effective way to manage code on a block basis.
 The following sample inclueds modifier information.
 
 ```
+[ HTML ]
+
 <div class="foo-block foo-block--state_active">
   <div class="foo-block__elm"></div>
 </div>
@@ -607,144 +616,251 @@ The following sample inclueds modifier information.
 ```
 
 ```
+[ Stylesheet ]
+
 .foo-block {
+  // Block style
   font-size: 16px;
   backraund-color: blue;
 
+  // Block Modifier style
   &--state_active { background-color: red; }
   &--state_inactive { background-color: gray; }
+
+  // Element style
+  &__elm { color: white; }
+}
+```
+
+これで、
+- Blockのためのスタイル。
+- （Blockの子要素として定義される）Elementのためのスタイル。
+- Block（もしくはElement）の拡張のために定義されるModifierによるスタイル。
+
+これらを一つのスタイルブロックとして定義することができました。
+
+
+### Modifier context
+
+もう少しModifierを掘り下げてみましょう。
+Modifierキーは、デザインの割り当て目的を明示的に表現しています。
+以下の例では3つのmodifier拡張が行われています。
+
+```
+[ HTML ]
+
+<div class="foo-block foo-block--type_normal foo-block--radius_shallow foo-block--state_active">
+  <div class="foo-block__elm"></div>
+</div>
+
+<div class="foo-block foo-block--type_irregular foo-block--radius_deep foo-block--state_inactive">
+  <div class="foo-block__elm"></div>
+</div>
+```
+
+```
+[ Stylesheet ]
+
+.foo-block {
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+
+  // 1.Type Modifire
+  &--type_wide { padding: 100px; }
+  &--type_ { padding: 50px; }
+
+  // 2. State Modifire
+  &--state_active { background-color: red; }
+  &--state_inactive { background-color: gray; }
+
+  // 3. Individual Modifire
+  &--radius_shallow { border-radius: 8px; }
+  &--radius_deep { border-radius: 18px; }
 
   &__elm { color: white; }
 }
 ```
 
-さらに、以下はモディファイアで「状態」を表現することに加え、用いられる場所をcaseという言葉で表現してみました。
+私はModifierにも3種類のコンテクストを使い分けます。
+
+#### 1. Type Modifire
+元となるエレメント（BlockもしくはElement）を基とするが、「個」を尊重したものを定義したい場合に定義されるModifierです。
+
+「名詞」で例えるなら一般名詞をベースに固有名詞を定義しているイメージです。  
+「人」で例えるなら人をベースにアメリカ人や田中君を定義しているイメージです。
+
+#### 2. State Modifire
+状態を表現するために定義されるModifierです。
+
+例えばプルダウンするパーツのデザインを例にとります。
+
+- プルダウンされている状態を「active」な状態と定義する。
+- プルダウンが選択できない状態は「disabled」な状態と定義する。
+- プルダウンが一時的に非表示になった状態を「hide」な状態と定義する。
+
+これに対応するクラスは以下です。
 
 ```
-<div class="foo-block foo-block--state_active foo-block--case_top">
+.pulldown--state_active
+.pulldown--state_disabled
+.pulldown--state_hide
+```
+
+これらはJavaScriptによるDOM操作の際に手がかりにするクラスにも最適です。
+
+またform要素など刻々と状況が変化することが想定されたhtmlエレメントでは既に状態を表現する属性が用意されていることはおなじみです。
+（属性値に応じてブラウザはデフォルトのスタイルを提供します。）
+
+```
+<input type="text" disabled="disabled" />
+```
+
+#### 3. Individual Modifire
+部分的なスタイルを付加定義するためのModifierです。
+
+Coreコンテクストの `_utilities.scss` 内のスタイルと似た意思を感じますが、
+コンテクストの違い（書く場所）によって異なった意図や見え方になるはずです。
+
+```
+[ Stylesheet ]
+
+// サイズにフォーカスしたModifier
+.foo--size_big {
+  width: 100%;
+  height: 800px;
+}
+
+.foo--size_small {
+  width: 50%;
+  height: 200px;
+}
+
+// widthにフォーカスしたModifier
+.foo--width_big { width: 100%; }
+.foo--width_small { width: 50%; }
+
+// 角丸のみにフォーカスしたModifier
+.foo--radius_shallow { border-radius: 18px; }
+.foo--radius_deep { border-radius: 8px; }
+```
+
+### State Modifire（状態）の考え方
+あるBlockの状態を管理する時、その状態がどこを起点に始まっているのかを考えることは重要です。
+
+以下はBlockにState Modifireを用いた例です。
+
+```
+[ HTML ]
+
+<div class="foo-block foo-block--state_active">
   <div class="foo-block__elm"></div>
 </div>
 
-<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
+<div class="foo-block foo-block--state_inactive">
   <div class="foo-block__elm"></div>
 </div>
 ```
 
 ```
+[ Stylesheet ]
+
 .foo-block {
-  font-size: 16px;
-  backraund-color: blue;
+  backraund-color: black;
 
   &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
+  &--state_inactive { background-color: blue; }
 
   &__elm { color: white; }
 }
 ```
 
-このように、font-sizeが16pxであること、そしてbackground-colorがblueであることを基とし、
-その時々で、形態の違うfoo-blockを作ることができました。
-
-そしてさらに以下は、エレメントに対してもモディファイアを用いた例です。
+ここでactive, inactiveという状態表現をElementでも行う必要があったとしましょう。
 
 ```
-<div class="foo-block foo-block--state_active foo-block--case_top">
-  <div class="foo-block__elm foo-block__elm--radius_normal"></div>
-</div>
+[ HTML ]
 
-<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
-  <div class="foo-block__elm foo-block__elm--radius_deep"></div>
-</div>
-```
-
-```
-.foo-block {
-  font-size: 16px;
-  backraund-color: blue;
-
-  &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
-
-  &__elm {
-    color: white;
-
-    &--radius_normal { border-radius: 3px; }
-    &--radius_deep { border-radius: 30px; }
-  }
-}
-```
-
-さらに、以下はエレメントにもactiveかもしくはinactiveかという状態を表現したクラスを付加しました。
-
-```
-<div class="foo-block foo-block--state_active foo-block--case_top">
+<div class="foo-block foo-block--state_active">
   <div class="foo-block__elm foo-block__elm--state_active"></div>
 </div>
 
-<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
+<div class="foo-block foo-block--state_inactive">
   <div class="foo-block__elm foo-block__elm--state_inactive"></div>
 </div>
 ```
 
 ```
+[ Stylesheet ]
+
 .foo-block {
-  font-size: 16px;
-  backraund-color: blue;
+  backraund-color: black;
 
   &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
+  &--state_inactive { background-color: blue; }
 
   &__elm {
     color: white;
 
-    &--state_active { background-color: green; }
-    &--state_inactive { background-color: black; }
+    &--state_active { color: green; }
+    &--state_inactive { color: gray; }
   }
 }
 ```
 
-ただし、単にblock自体がactiveかもしくはinactiveかという事実に追従する形で、エレメントにもモディファイアを付加していたという理由なのであれば、それを明確にした以下のスタイルの方が意味が通りそうです。
+仮に、blockとelementが個々に依存関係を持たず状態を変化させる存在であるのならばこれは正しい記述の一例と言えます。
+
+ただし、Block自体がactiveか、もしくはinactiveかという事実に追従する形で連動してElementのスタイルが決まるのであれば、
+以下の方がその意図を正しく表現してそうです。
 
 ```
+[ HTML ]
+
+<div class="foo-block foo-block--state_active">
+  <div class="foo-block__elm"></div>
+</div>
+
+<div class="foo-block foo-block--state_inactive">
+  <div class="foo-block__elm"></div>
+</div>
+```
+
+```
+[ Stylesheet ]
+
 .foo-block {
+  // alias
   $root: &;
   $active-state: $root + "--state_active";
-  $inactive-state: $root + "--state_inactive";  
+  $inactive-state: $root + "--state_inactive";
 
-  font-size: 16px;
-  backraund-color: blue;
+  backraund-color: black;
 
   &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
+  &--state_inactive { background-color: blue; }
 
   &__elm {
     color: white;
 
     $ative-state & { color: green; }
-    $inactive-state & { color: black; }
+    $inactive-state & { color: gray; }
   }
 }
 ```
 
-その上でHTML上からfoo-block__elmに付加していた、stateモディファイアを削除しましょう。
+「状態」をデザインで表現する時は適当に定義してゆくと、
+煩雑な記述になりがちなので特に気をつけたい点です。
+
+### BEM記法を省略する
 
 ここまで見てみると、BEM記法がいかに冗長な書き方であるかということがわかると思いますが、
 これの対策の一つとして、ブロック及びモディファイア表現を短縮する方法などもよく見かけます。
 
-以下はモディファイアの記述を省略した例です
+以下はモディファイアの記述を省略した例です。
+
 ```
+[ HTML ]
+
 <div class="foo-block --active --top">
   <div class="foo-block__elm"></div>
 </div>
@@ -755,6 +871,8 @@ The following sample inclueds modifier information.
 ```
 
 ```
+[ Stylesheet ]
+
 .foo-block {
   $root: &;
   $active-state: $root + ".--active";
