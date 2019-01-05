@@ -556,7 +556,7 @@ Rule2. Use kebab case for general new class name.
 .foo, .foo-bar
 ```
 
-In terms of legibility (because Bootstrap is so) I am using kebab case.
+In terms of legibility I am using kebab case.
 But if the policies are unified in each project, I think that any writing style is acceptable.
 
 I am use Camel Case, such as React, when Javascript development is the focus.
@@ -564,7 +564,6 @@ I am use Camel Case, such as React, when Javascript development is the focus.
 
 ### Basic BEM
 I use BEM style for styling.
-
 
 Please define the root element of the WEB part as `Block`, and the inner elements as `Element`, and the element state as extended by `Modifier`.
 
@@ -643,7 +642,7 @@ The following sample inclueds modifier information.
 ### Modifier context
 
 もう少しModifierを掘り下げてみましょう。
-Modifierキーは、デザインの割り当て目的を明示的に表現しています。
+Modifierキーは、付加的なデザインを明示的に表現します。
 以下の例では3つのmodifier拡張が行われています。
 
 ```
@@ -686,7 +685,7 @@ Modifierキーは、デザインの割り当て目的を明示的に表現して
 私はModifierにも3種類のコンテクストを使い分けます。
 
 #### 1. Type Modifire
-元となるエレメント（BlockもしくはElement）を基とするが、「個」を尊重したものを定義したい場合に定義されるModifierです。
+エレメント（BlockもしくはElement）の基本デザインをベースとするが、「個」を尊重したデザインを定義したい場合に用いられるModifierです。
 
 「名詞」で例えるなら一般名詞をベースに固有名詞を定義しているイメージです。  
 「人」で例えるなら人をベースにアメリカ人や田中君を定義しているイメージです。
@@ -708,14 +707,8 @@ Modifierキーは、デザインの割り当て目的を明示的に表現して
 .pulldown--state_hide
 ```
 
-これらはJavaScriptによるDOM操作の際に手がかりにするクラスにも最適です。
+これらはJavaScriptによるDOM操作の際、手がかりにするクラスとしても最適です。
 
-またform要素など刻々と状況が変化することが想定されたhtmlエレメントでは既に状態を表現する属性が用意されていることはおなじみです。
-（属性値に応じてブラウザはデフォルトのスタイルを提供します。）
-
-```
-<input type="text" disabled="disabled" />
-```
 
 #### 3. Individual Modifire
 部分的なスタイルを付加定義するためのModifierです。
@@ -747,7 +740,7 @@ Coreコンテクストの `_utilities.scss` 内のスタイルと似た意思を
 ```
 
 ### State Modifire（状態）の考え方
-あるBlockの状態を管理する時、その状態がどこを起点に始まっているのかを考えることは重要です。
+Blockの状態を管理する時、それがどこを起点に起こっていることなのかを考えることは重要です。
 
 以下はBlockにState Modifireを用いた例です。
 
@@ -808,7 +801,7 @@ Coreコンテクストの `_utilities.scss` 内のスタイルと似た意思を
 }
 ```
 
-仮に、blockとelementが個々に依存関係を持たず状態を変化させる存在であるのならばこれは正しい記述の一例と言えます。
+仮に、BlockとElementが個々に依存関係を持たず状態を変化させる存在であるのならばこれは正しい記述の一例と言えます。
 
 ただし、Block自体がactiveか、もしくはinactiveかという事実に追従する形で連動してElementのスタイルが決まるのであれば、
 以下の方がその意図を正しく表現してそうです。
@@ -848,15 +841,14 @@ Coreコンテクストの `_utilities.scss` 内のスタイルと似た意思を
 }
 ```
 
-「状態」をデザインで表現する時は適当に定義してゆくと、
-煩雑な記述になりがちなので特に気をつけたい点です。
+このように「状態」をデザインで表現する際は特に明確に意図を表現することに気を配ります。
 
 ### BEM記法を省略する
 
-ここまで見てみると、BEM記法がいかに冗長な書き方であるかということがわかると思いますが、
-これの対策の一つとして、ブロック及びモディファイア表現を短縮する方法などもよく見かけます。
+ここまで見てみると、BEM記法がいかに冗長な書き方かということが伝わると思いますが、
+これの対策の一つとして、Block及びModifier表現を短縮する方法などが挙げられます。
 
-以下はモディファイアの記述を省略した例です。
+以下はModifierの記述を省略した例です。
 
 ```
 [ HTML ]
@@ -896,9 +888,9 @@ Coreコンテクストの `_utilities.scss` 内のスタイルと似た意思を
 }
 ```
 
-これはモディファイアに与えたスタイルの優先順位がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
+これはModifierに与えたスタイルの優先順位がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
 
-しかし、モディファイア名よる名前空間の重要性を感じるシーンもあります。
+しかし、Modifier名よる名前空間の重要性を感じるシーンもあります。
 例えば以下の例では、先ほどのような省略が通用しません。
 ```
 [ 省略前 ]
@@ -914,14 +906,14 @@ Coreコンテクストの `_utilities.scss` 内のスタイルと似た意思を
 <div class="foo-block --small --small"></div>
 ```
 
-モディファイア名を工夫すれば良い話ですが、
+Modifier名を工夫すれば良い話ですが、
 そもそもの値の衝突を恐るならば、キーの省略を行わない以下の折衷案も魅力的です。
 ```
 <div class="foo-block --width_big --height_small"></div>
 <div class="foo-block --width_small --height_small"></div>
 ```
 
-以上、主にモディファイア中心でしたがBEMの解説でした。
+以上、主にModifier中心でしたがBEMの解説でした。
 
 
 # Layout （and Grid）
