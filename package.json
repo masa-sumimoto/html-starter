@@ -1,6 +1,6 @@
 {
   "name": "html-starter",
-  "author": "Masaaki Sumimoto <masa.sumimoto@gmail> (https://github.com/masa-sumioto)",
+  "author": "Masaaki Sumimoto <masa.sumimoto@gmail> (https://github.com/masa-sumimoto)",
   "private": true,
   "description": "This is my html cording template.",
   "version": "1.0.0",
@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
