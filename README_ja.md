@@ -23,6 +23,7 @@
 
 ## 環境について
 このスターターキットは以下のもので構成されています。
+
 ```
 Package management:
 - Node.js + Yarn
@@ -50,8 +51,7 @@ Cording Libraries:
 # 利用編
 
 ## 環境の取得
-以下の方法でこのキットをお手元のPC内に展開します。
-以下、コマンドラインを利用してください。
+以下の方法でこのキットをお手元のPC内に展開します。コマンドラインを利用してください。
 
 1. このリポジトリをクローンする: `git clone git@github.com:sumi37/html-starter.git` (もしくは、ファイルを直接ダウンロードしてください)
 2. 対象のディレクトリに移動: `cd html-starter`
@@ -66,7 +66,7 @@ Cording Libraries:
 `/public/`以下にファイルを保存してください。
 
 ```
-例:
+[ 例 ]
 
 ./public/index.html => http://localhost:8080/
 ./public/foo.html => http://localhost:8080/foo.html
@@ -78,7 +78,7 @@ Cording Libraries:
 ## SCSSの管理方法
 `/src/scss`以下にファイルを保存してください。
 ```
-例:
+[ 例 ]
 
 /src/scss/_foo.scss
 ```
@@ -89,7 +89,8 @@ Cording Libraries:
 ## Javascriptsの管理方法
 `/src/js`以下にファイルを保存してください。
 ```
-例:
+[ 例 ]
+
 /src/js/hoge.js
 ```
 その上で`/src/js/index.js`内でimport構文を用い、該当のファイルを読み込んでください。
@@ -103,6 +104,8 @@ Cording Libraries:
 またhtmlファイルには以下バンドルファイルを読み込んでおく必要があります。
 
 ```
+[ HTML ]
+
 <link rel="stylesheet" href="/css/bundle.css">
 <script src="/js/bundle.js"></script>
 ```
@@ -122,17 +125,17 @@ Cording Libraries:
 そのためここからはBootstrapの事前知識が必要です。
 
 また、新規に定義するデザインパーツにはBEM設計を用いるようにしています。
-これはOOCSS設計に基づくBootstrap4のスタイル方針とは異なります。そのため、やがてコードは混沌としてゆきます。
+これはOOCSS設計を尊重するBootstrap4のスタイル方針とは異なります。そのため、やがてコードは混沌としてゆきます。
 
 しかしながらBootstrapはデザインそのものでありながらインフラでもあることを強く意識します。(別物と意識する)  
 そして、コンテキスト・コンポーネント単位にデザインを管理する方針を徹底すると意外にこの混沌は些細な事に思えてきます。
 
 では実際にOOCSSとBEMが混在する状況を示します。
 以下は、Boostrapの既存のwebパーツであるボタンコンポーネントの例です。
-BEMを利用して上書きと拡張を試みてみましょう。
+BEMスタイルを利用して上書きと拡張を試みてみましょう。
 
 ```
-[ in bootstrap.css ]
+[ bootstrap.css ]
 
 /* これはboostrap.css内にある_buttons.scssのコンパイル後のコード */
 
@@ -155,7 +158,7 @@ BEMを利用して上書きと拡張を試みてみましょう。
 ```
 [ my-override-button.scss ]
 
-// 別のSCSSファイル内で上書き及びBEMモディファイア拡張
+// 別のSCSSファイル内で上書き及びBEM Modifier拡張
 
 .btn {
   border-radius: 30px; // Override
@@ -172,14 +175,14 @@ BEMを利用して上書きと拡張を試みてみましょう。
 
 親クラスである`.btn`とそれを継承したクラスである`.btn-primary`の双方にBEM拡張を施しました。
 
-両方のクラス定義をBEMブロックとみなし、ここを起点にBEMモディファイアを定義してゆくというこの方法は、
+両方のクラス定義をBEM Blockとみなし、ここを起点にBEM Modifierを定義してゆくというこの方法は、
 BEMでOOCSSを完全にマウントしたいのであれば、確かに筋が通っているようにも見えます。
 しかしこれはややオーバーです。
 
 ボタンコンポーネントはカラーリング（およびアウトライン表現されたカラーデザイン）という観点でのみOOCSS化されたコンポーネントです。
 これを起点にデザインを考えると無駄に拡張性を担保する結果になりかねません。
 
-「カラーリング」というジャンルはBootstrapに一任させ、その他のモディファイアによる拡張は親クラスである`.btn`のみで行うのがほど良いでしょう。
+「カラーリング」というジャンルはBootstrapに一任させ、その他のModifierによる拡張は親クラスである`.btn`のみで行うのがほど良いでしょう。
 
 ```
 [ my-override-button.scss ]
@@ -205,21 +208,20 @@ BEMでOOCSSを完全にマウントしたいのであれば、確かに筋が通
 .btn {
   border-radius: 30px;
 
-  // typeというモディファイア（基礎モディファイア）を新たに定義し、そこに新規ボタンのスタイルを書く
+  // typeというModifier（Type Modifier）を新たに定義し、そこに新規ボタンのスタイルを書く
   &--type_table-style {
     display: table;
     ...
   }
 
-  // その他のモディファイアはベースクラス（.btn）もしくは基礎モディファイアのユーティリティとして働く
+  // その他のModifierはベースクラス（.btn）もしくはType Modifierのユーティリティとして働く
   &--width_small { ... }
   &--width_big { ... }
 }
 ```
 
-typeモディファイアは私の中では特別なモディファイア名です。
-このモディファイアは基礎モディファイアと定義し他のモディファイアと区別します。
-(そのためtypeモディファイアは他のモディファイアより必ず先に記述してください。)
+Type Modifierは私の中では特別なModifier名です。
+このModifierはベースとなるModifierと定義し他のModifierと区別します。（詳しくは後述のBEMの項を参照）
 
 そう考えると、このコードは幾分整頓されたものに見えてきます。
 
@@ -243,7 +245,7 @@ typeモディファイアは私の中では特別なモディファイア名で�
 }
 ```
 
-基クラスである`.btn`にはBEMモディファイアを用いたままですが、概ねOOCSSベースのままのスタイルです。
+基クラスである`.btn`にはBEM Modifierを用いたままですが、概ねOOCSSベースのままのスタイルです。
 
 一例をあげましたが、全てはケースバイケースです。
 これでも混沌とした印象を受けた場合、このデザインアイデアのことはすっかり忘れてください。
@@ -551,12 +553,12 @@ WEBサイトを一つのサービスと捉えたら1〜6のコンテクストは
 .foo, .foo-bar
 ```
 
-読みやすさの点で（またBootstrapがそうであるため）ケバブケースを採用しています。
+読みやすさの点でケバブケースを採用しています。
 しかしプロジェクト単位に方針が統一されていたら、どんな書き方でも良いと思っています。
 私はReactなど、Javascriptでの開発が開発になる場合はキャメルケースを使うようにしています。
 
 
-### BEMについて
+### BEMの基本
 CSSによるスタイリングにはBEM記法を用います。
 WEBパーツのルートとなる要素をBlockとし、
 内包する子要素をElement、そしてエレメントの状態をModifierにより拡張定義します。
@@ -567,17 +569,23 @@ BEMはこの基本理念を守れば、とりあえずOKだと考えています
 
 それでは、私の記述方法を要点だけをステップバイステップで説明してゆきます。
 
-下記はmodifierを用いないシンプルな例です。
+下記はBlockとElementを利用したシンプルな例です。
+
 ```
+[ HTML ]
+
 <div class="foo-block">
   <div class="foo-block__elm"></div>
 </div>
 ```
 
-ブロック要素の子要素として用意されたelmはアンダースコア2つを用い連結させます。
+Elementにはアンダースコア2つを用いてBlockの子要素であることを示したクラス名をつけます。
 
-スタイルシートでは以下のように、SCSSが提供する入れ子構造を利用し、Block単位に記述します。
+スタイルシートにはBlock単位に入れ子構造でスタイリングします。
+
 ```
+[ Stylesheet ]
+
 .foo-block {
   font-size: 16px;
   backraund-color: blue;
@@ -589,8 +597,11 @@ BEMはこの基本理念を守れば、とりあえずOKだと考えています
 &はブロック名を参照します。そのため`&__elm`は`.foo-block__elm`となります。
 &記法は賛否が分かれるところですが、ブロック単位にコードを管理する際には非常に有効な方法だと考えています。
 
-さらに以下はfoo-blockの、ある状態をモディファイアにより表現したものです。
+以下はModifierを追加した例です。
+
 ```
+[ HTML ]
+
 <div class="foo-block foo-block--state_active">
   <div class="foo-block__elm"></div>
 </div>
@@ -600,147 +611,246 @@ BEMはこの基本理念を守れば、とりあえずOKだと考えています
 </div>
 ```
 
-この2つのfoo-blockはSCSSを用いることにより以下のように表現ができるでしょう。
-
 ```
+[ Stylesheet ]
+
 .foo-block {
+  // Block style
   font-size: 16px;
   backraund-color: blue;
 
+  // Block Modifier style
   &--state_active { background-color: red; }
   &--state_inactive { background-color: gray; }
+
+  // Element style
+  &__elm { color: white; }
+}
+```
+
+これで、
+- Blockのためのスタイル。
+- （Blockの子要素として定義される）Elementのためのスタイル。
+- Block（もしくはElement）の拡張のために定義されるModifierによるスタイル。
+
+これらを一つのスタイルブロックとして定義することができました。
+
+
+### Modifierのコンテクスト
+
+もう少しModifierを掘り下げてみましょう。
+Modifierキーは、付加的なデザインを明示的に表現します。
+以下の例では3つのmodifier拡張が行われています。
+
+```
+[ HTML ]
+
+<div class="foo-block foo-block--type_normal foo-block--radius_shallow foo-block--state_active">
+  <div class="foo-block__elm"></div>
+</div>
+
+<div class="foo-block foo-block--type_irregular foo-block--radius_deep foo-block--state_inactive">
+  <div class="foo-block__elm"></div>
+</div>
+```
+
+```
+[ Stylesheet ]
+
+.foo-block {
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+
+  // 1.Type Modifire
+  &--type_wide { padding: 100px; }
+  &--type_ { padding: 50px; }
+
+  // 2. State Modifire
+  &--state_active { background-color: red; }
+  &--state_inactive { background-color: gray; }
+
+  // 3. Individual Modifire
+  &--radius_shallow { border-radius: 8px; }
+  &--radius_deep { border-radius: 18px; }
 
   &__elm { color: white; }
 }
 ```
 
-さらに、以下はモディファイアで「状態」を表現することに加え、用いられる場所をcaseという言葉で表現してみました。
+私はModifierにも3種類のコンテクストを使い分けます。
+
+#### 1. Type Modifire
+エレメント（BlockもしくはElement）の基本デザインをベースとするが、「個」を尊重したデザインを定義したい場合に用いられるModifierです。
+
+「名詞」で例えるなら一般名詞をベースに固有名詞を定義しているイメージです。  
+「人」で例えるなら人をベースにアメリカ人や田中君を定義しているイメージです。
+
+#### 2. State Modifire
+状態を表現するために定義されるModifierです。
+
+例えばプルダウンするパーツのデザインを例にとります。
+
+- プルダウンされている状態を「active」な状態と定義する。
+- プルダウンが選択できない状態は「disabled」な状態と定義する。
+- プルダウンが一時的に非表示になった状態を「hide」な状態と定義する。
+
+これに対応するクラスは以下です。
 
 ```
-<div class="foo-block foo-block--state_active foo-block--case_top">
+.pulldown--state_active
+.pulldown--state_disabled
+.pulldown--state_hide
+```
+
+これらはJavaScriptによるDOM操作の際、手がかりにするクラスとしても最適です。
+
+
+#### 3. Individual Modifire
+部分的なスタイルを付加定義するためのModifierです。
+
+Coreコンテクストの `_utilities.scss` 内のスタイルと似た意思を感じますが、
+コンテクストの違い（書く場所）によって異なった意図や見え方になるはずです。
+
+```
+[ Stylesheet ]
+
+// サイズにフォーカスしたModifier
+.foo--size_big {
+  width: 100%;
+  height: 800px;
+}
+
+.foo--size_small {
+  width: 50%;
+  height: 200px;
+}
+
+// widthにフォーカスしたModifier
+.foo--width_big { width: 100%; }
+.foo--width_small { width: 50%; }
+
+// 角丸のみにフォーカスしたModifier
+.foo--radius_shallow { border-radius: 18px; }
+.foo--radius_deep { border-radius: 8px; }
+```
+
+### State Modifire（状態）の考え方
+Blockの状態を管理する時、それがどこを起点に起こっていることなのかを考えることは重要です。
+
+以下はBlockにState Modifireを用いた例です。
+
+```
+[ HTML ]
+
+<div class="foo-block foo-block--state_active">
   <div class="foo-block__elm"></div>
 </div>
 
-<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
+<div class="foo-block foo-block--state_inactive">
   <div class="foo-block__elm"></div>
 </div>
 ```
 
 ```
+[ Stylesheet ]
+
 .foo-block {
-  font-size: 16px;
-  backraund-color: blue;
+  backraund-color: black;
 
   &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
+  &--state_inactive { background-color: blue; }
 
   &__elm { color: white; }
 }
 ```
 
-このように、font-sizeが16pxであること、そしてbackground-colorがblueであることを基とし、
-その時々で、形態の違うfoo-blockを作ることができました。
-
-そしてさらに以下は、エレメントに対してもモディファイアを用いた例です。
+ここでactive, inactiveという状態表現をElementでも行う必要があったとしましょう。
 
 ```
-<div class="foo-block foo-block--state_active foo-block--case_top">
-  <div class="foo-block__elm foo-block__elm--radius_normal"></div>
-</div>
+[ HTML ]
 
-<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
-  <div class="foo-block__elm foo-block__elm--radius_deep"></div>
-</div>
-```
-
-```
-.foo-block {
-  font-size: 16px;
-  backraund-color: blue;
-
-  &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
-
-  &__elm {
-    color: white;
-
-    &--radius_normal { border-radius: 3px; }
-    &--radius_deep { border-radius: 30px; }
-  }
-}
-```
-
-さらに、以下はエレメントにもactiveかもしくはinactiveかという状態を表現したクラスを付加しました。
-
-```
-<div class="foo-block foo-block--state_active foo-block--case_top">
+<div class="foo-block foo-block--state_active">
   <div class="foo-block__elm foo-block__elm--state_active"></div>
 </div>
 
-<div class="foo-block foo-block--state_inactive foo-block--case_side-bar">
+<div class="foo-block foo-block--state_inactive">
   <div class="foo-block__elm foo-block__elm--state_inactive"></div>
 </div>
 ```
 
 ```
+[ Stylesheet ]
+
 .foo-block {
-  font-size: 16px;
-  backraund-color: blue;
+  backraund-color: black;
 
   &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
+  &--state_inactive { background-color: blue; }
 
   &__elm {
     color: white;
 
-    &--state_active { background-color: green; }
-    &--state_inactive { background-color: black; }
+    &--state_active { color: green; }
+    &--state_inactive { color: gray; }
   }
 }
 ```
 
-ただし、単にblock自体がactiveかもしくはinactiveかという事実に追従する形で、エレメントにもモディファイアを付加していたという理由なのであれば、それを明確にした以下のスタイルの方が意味が通りそうです。
+仮に、BlockとElementが個々に依存関係を持たず状態を変化させる存在であるのならばこれは正しい記述の一例と言えます。
+
+ただし、Block自体がactiveか、もしくはinactiveかという事実に追従する形で連動してElementのスタイルが決まるのであれば、
+以下の方がその意図を正しく表現してそうです。
 
 ```
+[ HTML ]
+
+<div class="foo-block foo-block--state_active">
+  <div class="foo-block__elm"></div>
+</div>
+
+<div class="foo-block foo-block--state_inactive">
+  <div class="foo-block__elm"></div>
+</div>
+```
+
+```
+[ Stylesheet ]
+
 .foo-block {
+  // alias
   $root: &;
   $active-state: $root + "--state_active";
-  $inactive-state: $root + "--state_inactive";  
+  $inactive-state: $root + "--state_inactive";
 
-  font-size: 16px;
-  backraund-color: blue;
+  backraund-color: black;
 
   &--state_active { background-color: red; }
-  &--state_inactive { background-color: gray; }
-
-  &--case_top { width: 100%; }
-  &--case_side-bar { width: 50%; }
+  &--state_inactive { background-color: blue; }
 
   &__elm {
     color: white;
 
     $ative-state & { color: green; }
-    $inactive-state & { color: black; }
+    $inactive-state & { color: gray; }
   }
 }
 ```
 
-その上でHTML上からfoo-block__elmに付加していた、stateモディファイアを削除しましょう。
+このように「状態」をデザインで表現する際は特に明確に意図を表現することに気を配ります。
 
-ここまで見てみると、BEM記法がいかに冗長な書き方であるかということがわかると思いますが、
-これの対策の一つとして、ブロック及びモディファイア表現を短縮する方法などもよく見かけます。
 
-以下はモディファイアの記述を省略した例です
+### BEM記法を省略する
+
+ここまで見てみると、BEM記法がいかに冗長な書き方かということが伝わると思いますが、
+これの対策の一つとして、Block及びModifier表現を短縮する方法などが挙げられます。
+
+以下はModifierの記述を省略した例です。
+
 ```
+[ HTML ]
+
 <div class="foo-block --active --top">
   <div class="foo-block__elm"></div>
 </div>
@@ -751,6 +861,8 @@ BEMはこの基本理念を守れば、とりあえずOKだと考えています
 ```
 
 ```
+[ Stylesheet ]
+
 .foo-block {
   $root: &;
   $active-state: $root + ".--active";
@@ -774,9 +886,9 @@ BEMはこの基本理念を守れば、とりあえずOKだと考えています
 }
 ```
 
-これはモディファイアに与えたスタイルの優先順位がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
+これはModifierに与えたスタイルの優先順位がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
 
-しかし、モディファイア名よる名前空間の重要性を感じるシーンもあります。
+しかし、Modifier名よる名前空間の重要性を感じるシーンもあります。
 例えば以下の例では、先ほどのような省略が通用しません。
 ```
 [ 省略前 ]
@@ -792,14 +904,15 @@ BEMはこの基本理念を守れば、とりあえずOKだと考えています
 <div class="foo-block --small --small"></div>
 ```
 
-モディファイア名を工夫すれば良い話ですが、
+Modifier名を工夫すれば良い話ですが、
 そもそもの値の衝突を恐るならば、キーの省略を行わない以下の折衷案も魅力的です。
+
 ```
 <div class="foo-block --width_big --height_small"></div>
 <div class="foo-block --width_small --height_small"></div>
 ```
 
-以上、主にモディファイア中心でしたがBEMの解説でした。
+以上、主にModifier中心でしたがBEMの解説でした。
 
 
 # レイアウト （及びグリッド）
@@ -858,7 +971,7 @@ BEMはこの基本理念を守れば、とりあえずOKだと考えています
 `.row`は`.container`のinner要素であり、その名の通り、行のようにコンテンツを輪切りにします。
 縦方向にコンテンツを分割するという用途では`.Sep`、`.container`と同じですが、これらの最小単位のラッパーとして活躍します。
 また、内包する`.col-xx`を制御しグリッドシステムを構築します。
-`.container`内には複数存在することができ、BEMブロックとして活用することも頻繁にあります。
+`.container`内には複数存在することができ、BEM Blockとして活用することも頻繁にあります。
 
 
 ### col-xx
