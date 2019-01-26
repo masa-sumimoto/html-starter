@@ -7,8 +7,8 @@
 // ---------------------------------
 .Header {
   height: $header-height;
-  background-color: $black-900;
-  color: $white;
+  background-color: colors("black-800");
+  color: colors("white");
 }
 
 

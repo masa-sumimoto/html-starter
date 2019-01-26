@@ -10,11 +10,11 @@
 // text
 // ------------------------------
 // *** global
-.color-white { color: $white !important; }
-.color-black { color: $black !important; }
-.color-gray { color: $gray !important; }
-.color-orange { color: $orange !important; }
-.color-green { color: $green !important; }
+.color-white { color: colors("white") !important; }
+.color-black { color: colors("black")  !important; }
+.color-gray { color: colors("gray") !important; }
+.color-mimosa { color: colors("mimosa") !important; }
+.color-green { color: colors("green") !important; }
 // *** role
 .color-body { color: $body-color !important; }
 .color-body-bg { color: $body-bg !important; }
@@ -24,11 +24,11 @@
 // bg
 // ------------------------------
 // *** global
-.bg-green { background: $green !important; }
-.bg-orange { background: $orange !important; }
-.bg-white { background: $white !important; }
-.bg-black { background: $black !important; }
-.bg-gray { background: $gray !important; }
+.bg-white { background: colors("white") !important; }
+.bg-black { background: colors("black") !important; }
+.bg-gray { background: colors("gray") !important; }
+.bg-mimosa { background: colors("mimosa") !important; }
+.bg-green { background: colors("green") !important; }
 
 // *** role
 .bg-accent1 { background: $color-accent-bg1 !important; }
