@@ -9,10 +9,10 @@
 // media-query-test
 // ------------------------------
 .media-query-test {
-  $_xs-size-color: colors("gray-700");
-  $_sm-size-color: colors("aqua-sky-700");
-  $_md-size-color: colors("green-500");
-  $_lg-size-color: colors("living-coral-800");
+  $_xs-size-color: colors("gray-800");
+  $_sm-size-color: colors("aqua-sky-800");
+  $_md-size-color: colors("living-coral-800");
+  $_lg-size-color: colors("turtle-green-800");
   $_xl-size-color: colors("mimosa-800");
 
   &__item {

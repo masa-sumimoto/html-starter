@@ -48,7 +48,6 @@ $colors: ();
   @return map-get($colors, $key);
 }
 
-
 // Mono
 // ------------------------------
 $white: #fff;
@@ -185,6 +184,62 @@ $colors: map-merge(
   $colors
 );
 
+// Turtle Green
+// ------------------------------
+$color-turtle-green: #81894e;
+$color-turtle-green-900: #8d945f;
+$color-turtle-green-800: #9aa071;
+$color-turtle-green-700: #a6ac82;
+$color-turtle-green-600: #b3b894;
+$color-turtle-green-500: #bfc3a5;
+$color-turtle-green-400: #cccfb7;
+$color-turtle-green-300: #d8dbc9;
+$color-turtle-green-200: #e5e7db;
+$color-turtle-green-100: #f1f2ec;
+$colors: map-merge(
+  (
+    "turtle-green": $color-turtle-green,
+    "turtle-green-900": $color-turtle-green-900,
+    "turtle-green-800": $color-turtle-green-800,
+    "turtle-green-700": $color-turtle-green-700,
+    "turtle-green-600": $color-turtle-green-600,
+    "turtle-green-500": $color-turtle-green-500,
+    "turtle-green-400": $color-turtle-green-400,
+    "turtle-green-300": $color-turtle-green-300,
+    "turtle-green-200": $color-turtle-green-200,
+    "turtle-green-100": $color-turtle-green-100
+  ),
+  $colors
+);
+
+// Ultra Violet
+// ------------------------------
+$color-ultra-violet: #5f4b8b;
+$color-ultra-violet-900: #6e5c96;
+$color-ultra-violet-800: #7e6ea2;
+$color-ultra-violet-700: #8e80ad;
+$color-ultra-violet-600: #9e92b9;
+$color-ultra-violet-500: #aea4c4;
+$color-ultra-violet-400: #beb6d0;
+$color-ultra-violet-300: #cec8db;
+$color-ultra-violet-200: #dedae7;
+$color-ultra-violet-100: #eeecf2;
+$colors: map-merge(
+  (
+    "ultra-violet": $color-ultra-violet,
+    "ultra-violet-900": $color-ultra-violet-900,
+    "ultra-violet-800": $color-ultra-violet-800,
+    "ultra-violet-700": $color-ultra-violet-700,
+    "ultra-violet-600": $color-ultra-violet-600,
+    "ultra-violet-500": $color-ultra-violet-500,
+    "ultra-violet-400": $color-ultra-violet-400,
+    "ultra-violet-300": $color-ultra-violet-300,
+    "ultra-violet-200": $color-ultra-violet-200,
+    "ultra-violet-100": $color-ultra-violet-100
+  ),
+  $colors
+);
+
 // Red
 // ------------------------------
 $color-red: #f00;
@@ -269,63 +324,6 @@ $colors: map-merge(
   $colors
 );
 
-// Green
-// ------------------------------
-$color-green: #008000;
-$color-green-100: #e4f1e4;
-$color-green-200: #cbe5cb;
-$color-green-300: #b1d8b1;
-$color-green-400: #98cb98;
-$color-green-500: #7ebf7e;
-$color-green-600: #65b265;
-$color-green-700: #4ba54b;
-$color-green-800: #329932;
-$color-green-900: #188c18;
-$colors: map-merge(
-  (
-    "green": $color-green,
-    "green-900": $color-green-900,
-    "green-800": $color-green-800,
-    "green-700": $color-green-700,
-    "green-600": $color-green-600,
-    "green-500": $color-green-500,
-    "green-400": $color-green-400,
-    "green-300": $color-green-300,
-    "green-200": $color-green-200,
-    "green-100": $color-green-100
-  ),
-  $colors
-);
-
-// Olive
-// ------------------------------
-$color-olive: #808000;
-$color-olive-100: #f1f1e4;
-$color-olive-200: #e5e5cb;
-$color-olive-300: #d8d8b1;
-$color-olive-400: #cbcb98;
-$color-olive-500: #bfbf7e;
-$color-olive-600: #b2b265;
-$color-olive-700: #a5a54b;
-$color-olive-800: #999932;
-$color-olive-900: #8c8c18;
-$colors: map-merge(
-  (
-    "olive": $color-olive,
-    "olive-900": $color-olive-900,
-    "olive-800": $color-olive-800,
-    "olive-700": $color-olive-700,
-    "olive-600": $color-olive-600,
-    "olive-500": $color-olive-500,
-    "olive-400": $color-olive-400,
-    "olive-300": $color-olive-300,
-    "olive-200": $color-olive-200,
-    "olive-100": $color-olive-100
-  ),
-  $colors
-);
-
-
 // Alpha
 // ------------------------------
 $color-alpha-black-10: rgba(0, 0, 0, 0.1);
@@ -378,14 +376,13 @@ $colors: map-merge(
 // Bootstrap
 // ------------------------------
 $primary: colors("blue");
-$secondary: colors("olive");
+$secondary: colors("turtle-green");
 $success: colors("mimosa");
-$info: colors("dark-cyan");
+$info: colors("ultra-violet");
 $warning: colors("mimosa");
 $danger: colors("red-900");
 $light: colors("gray-200");
 $dark: colors("black-800");
-
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
@@ -402,8 +399,8 @@ $theme-colors: (
 $color-accent-bg1: colors("gray-200");
 $color-accent-bg2: colors("aqua-sky-200");
 $color-accent-bg3: colors("living-coral-200");
-$color-accent-bg4: colors("mimosa-200");
-$color-accent-bg5: colors("mimosa-200");
+$color-accent-bg4: colors("turtle-green-200");
+$color-accent-bg5: colors("ultra-violet-200");
 $color-accent-bg6: colors("mimosa-200");
 $color-accent-bg7: colors("mimosa-200");
 $color-accent-bg8: colors("mimosa-200");
