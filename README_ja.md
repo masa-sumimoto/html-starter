@@ -148,11 +148,6 @@ BEMスタイルを利用して上書きと拡張を試みてみましょう。
   color: #fff;
   ...
 }
-
-.btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
-}
 ```
 
 ```
@@ -176,11 +171,10 @@ BEMスタイルを利用して上書きと拡張を試みてみましょう。
 親クラスである`.btn`とそれを継承したクラスである`.btn-primary`の双方にBEM拡張を施しました。
 
 両方のクラス定義をBEM Blockとみなし、ここを起点にBEM Modifierを定義してゆくというこの方法は、
-BEMでOOCSSを完全にマウントしたいのであれば、確かに筋が通っているようにも見えます。
+BEMでOOCSSを完全にマウントしたいのであれば、確かに筋が通っているようにも感じます。
 しかしこれはややオーバーです。
 
-ボタンコンポーネントはカラーリング（およびアウトライン表現されたカラーデザイン）という観点でのみOOCSS化されたコンポーネントです。
-これを起点にデザインを考えると無駄に拡張性を担保する結果になりかねません。
+ボタンコンポーネントはカラーリング（color, background-color, border-color）という観点でのみOOCSS化（.btn-primary, .btn-secondary...）されたコンポーネントです。これら全てを起点にデザインを考えると無駄に拡張性を担保する結果になりかねません。
 
 「カラーリング」というジャンルはBootstrapに一任させ、その他のModifierによる拡張は親クラスである`.btn`のみで行うのがほど良いでしょう。
 
@@ -195,7 +189,7 @@ BEMでOOCSSを完全にマウントしたいのであれば、確かに筋が通
 }
 
 .btn-primary {
-  ...
+  // 拡張しない
 }
 ```
 
@@ -209,43 +203,37 @@ BEMでOOCSSを完全にマウントしたいのであれば、確かに筋が通
   border-radius: 30px;
 
   // typeというModifier（Type Modifier）を新たに定義し、そこに新規ボタンのスタイルを書く
-  &--type_table-style {
+  &--type_special {
     display: table;
+    width: 100%;
+    border-size: 10px;
     ...
   }
-
-  // その他のModifierはベースクラス（.btn）もしくはType Modifierのユーティリティとして働く
-  &--width_small { ... }
-  &--width_big { ... }
 }
 ```
 
 Type Modifierは私の中では特別なModifier名です。
-このModifierはベースとなるModifierと定義し他のModifierと区別します。（詳しくは後述のBEMの項を参照）
-
+このModifierはOOCSSで親クラスを継承したスタイル指定（`.btn-primary`, `.btn-secondary`）と同じ意味合いとして定義しています。
 そう考えると、このコードは幾分整頓されたものに見えてきます。
 
 それでも心が落ち着かない方は、
-以下のように従来通り継承を用いOOCSSで拡張し`.btn-primary`や`.btn-secondary`と同列のものとして扱いましょう。
+やはり以下のように従来通り継承を用いOOCSSで拡張し`.btn-primary`や`.btn-secondary`と同列のものとして扱いましょう。
 
 ```
 [ my-override-button.scss ]
 
 .btn {
   border-radius: 30px;
-
-  &--width_small { ... }
-  &--width_big { ... }
 }
 
 // 継承を用いた新規クラス
-.btn-table {
+.btn-special {
   display: table;
+  width: 100%;
+  border-size: 10px;
   ...
 }
 ```
-
-基クラスである`.btn`にはBEM Modifierを用いたままですが、概ねOOCSSベースのままのスタイルです。
 
 一例をあげましたが、全てはケースバイケースです。
 これでも混沌とした印象を受けた場合、このデザインアイデアのことはすっかり忘れてください。
@@ -311,61 +299,6 @@ Librariesコンテクストに属するscssは外部のライブラリサービ�
 WEBサイトの軸となるグローバルな変数を保管します。
 Bootstrapの_variables.scssで定義されている変数を数多くオーバーライドして利用します。
 Bootstrapの変数定義には、defaultフラグが利用されています。そのためこのファイルは先読みすることにより各変数を再定義します。
-
-以下は`$spacers`の定義の拡張例です。
-
-```
-[ core/_variable.scss ]
-
-$spacer: 1rem;
-$grid-gutter-width: 30px;
-$grid-gutter-half-width: $grid-gutter-width / 2;
-$spacer-cmn: $grid-gutter-half-width;// Alias
-
-$spacers: ();
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * 0.25),
-    2: ($spacer * 0.5),
-    3: $spacer,
-    4: ($spacer * 2), // Override
-    5: ($spacer * 3),
-    6: ($spacer * 4),
-    7: ($spacer * 5.5),
-    8: ($spacer * 7),
-    9: ($spacer * 9),
-    5px: 5px, // Extend
-    10px: 10px, // Extend
-    15px: 15px, // Extend
-    20px: 20px, // Extend
-    25px: 25px, // Extend
-    30px: 30px, // Extend
-    35px: 35px, // Extend
-    cmn: $spacer-cmn, // Extend
-  ),
-  $spacers
-);
-
-```
-これは本来Bootstrapの `_variable.scss`で定義されているものですが、
-map-merge()内では多くの値を新たにmapしています。
-
-この$spacersで定義したものはBootstrapの`_spacing.scss`内でmarginとpaddingのためのユーティリティクラスを生成するのに利用されます。
-そのため以下のようなユーティリティクラスが使用可能です。
-
-```
-<div class="m-2 pb-20px"><!--  margin: 0.5rem; padding-bottom: 20px;  --></div>
-```
-
-この余白調整はBootstrapではおなじみのもので、メディアクエリとの合わせ技が一般的です。
-
-```
-<div class="px-0 px-md-cmn"></div>
-```
-このdivエレメントは通常左右に15pxの余白を持ちますが、mdサイズ（width 991.98px）を切ると左右余白が0になります。
-私はよく、背景色の領域を調整するために`.container`に対しこの手段を用います。
-
 
 #### `_utilities.scss`
 ユーティリティクラスを保管します。これらは基本的には!importantフラグと共に用いられています。
@@ -832,8 +765,8 @@ Blockの状態を管理する時、それがどこを起点に起こっている
   &__elm {
     color: white;
 
-    $ative-state & { color: green; }
-    $inactive-state & { color: gray; }
+    #{$ative-state} & { color: green; }
+    #{$inactive-state} & { color: gray; }
   }
 }
 ```
@@ -844,52 +777,30 @@ Blockの状態を管理する時、それがどこを起点に起こっている
 ### BEM記法を省略する
 
 ここまで見てみると、BEM記法がいかに冗長な書き方かということが伝わると思いますが、
-これの対策の一つとして、Block及びModifier表現を短縮する方法などが挙げられます。
+これの対策の一つとして、Modifier表現を短縮する方法などが挙げられます。
 
 以下はModifierの記述を省略した例です。
 
 ```
 [ HTML ]
 
-<div class="foo-block --active --top">
-  <div class="foo-block__elm"></div>
-</div>
+<div class="foo-block --active --top"></div>
 
-<div class="foo-block --inactive --side-bar">
-  <div class="foo-block__elm"></div>
-</div>
 ```
 
 ```
 [ Stylesheet ]
 
 .foo-block {
-  $root: &;
-  $active-state: $root + ".--active";
-  $inactive-state: $root + ".--inactive";  
-
-  font-size: 16px;
-  backraund-color: blue;
-
   &.--active { background-color: red; }
-  &.--inactive { background-color: gray; }
-
   &.--top { width: 100%; }
-  &.--side-bar { width: 50%; }
-
-  &__elm {
-    color: white;
-
-    $ative-state & { color: green; }
-    $inactive-state & { color: black; }
-  }
 }
 ```
 
-これはModifierに与えたスタイルの優先順位がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
+これはModifierに与えたスタイルの強制力がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
 
 しかし、Modifier名よる名前空間の重要性を感じるシーンもあります。
-例えば以下の例では、先ほどのような省略が通用しません。
+例えば以下の例では、先ほどのような省略が不可能です。
 ```
 [ 省略前 ]
 
@@ -905,7 +816,7 @@ Blockの状態を管理する時、それがどこを起点に起こっている
 ```
 
 Modifier名を工夫すれば良い話ですが、
-そもそもの値の衝突を恐るならば、キーの省略を行わない以下の折衷案も魅力的です。
+そもそものModifireの値の衝突を恐るならば、キーの省略を行わない以下の折衷案も魅力的です。
 
 ```
 <div class="foo-block --width_big --height_small"></div>

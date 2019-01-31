@@ -147,11 +147,6 @@ Below, I overwrite and expand the design of the button component which is the ex
   color: #fff;
   ...
 }
-
-.btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
-}
 ```
 
 ```
@@ -176,7 +171,7 @@ I applied BEM extension to both parent class `.btn` and inheritance class `.btn-
 However, this is a bit extreme.
 
 If we consider these as BEM blocks, to mount OOCSS completely with BEM modifier should be seems like to be correct.
-But `Button` is a component that OOCSS was used only in terms of coloring.
+But `Button` is a component that OOCSS was used only in terms of coloring(color, background-color, border-color).
 Thinking design from the point can be a guarantee of wasteful extensibility.
 
 It is better to depend on Bootstrap to extend the design of the genre "coloring", 
@@ -191,7 +186,7 @@ and extend it by modifier only to the parent class `.btn`.
 }
 
 .btn-primary {
-  ...
+  // No extend
 }
 ```
 
@@ -203,20 +198,18 @@ Although it seems good to define another component, try BEM extension within the
 
 .btn {
   // Define 'type' modifier as base modifier
-  &--type_table-style {
+  &--type_special {
     display: table;
+    width: 100%;
+    border-size: 10px;
     ...
   }
-
-  // Other modifiers work as utilities for .btn class or type modifire class
-  &--width_small { ... }
-  &--width_big { ... }
 }
 ```
 
 `type` modifier is a special modifier key for me.
-This modifier distinguishes it from other modifiers.
-(so Please be sure to mention this before other modifiers.)
+
+I have defined it as the same meaning as children classes（`.btn-primary`, `.btn-secondary`）.
 
 Based on this idea, this code appears to be in order.
 
@@ -226,18 +219,17 @@ but, If you are uncomfortable with this concept, please use OOCSS as inheritance
 [ my-override-button.scss ]
 
 .btn {
-  &--foo_bar { ... }
-  &--foo_hoge { ... }
+  border-radius: 30px;
 }
 
 // Inherited class
-.btn-table {
+.btn-special {
   display: table;
+  width: 100%;
+  border-size: 10px;
   ...
 }
 ```
-
-The base class `.btn` still uses the BEM modifier, but this code is basically based on OOCSS.
 
 I think that everything is good on a case by case basis.
 If you see the code until the end, if you can not accept it, please completely forget about this design idea.
@@ -305,73 +297,14 @@ The file defines global variables. Also, the file includes overrides of Bootstra
 Definitions of Bootstrap almost use default flag.
 Therefore, this file will be prefetched form.
 
-The following example is an extension of `$spacers`.
-
-```
-[ core/_variable.scss ]
-
-$spacer: 1rem;
-$grid-gutter-width: 30px;
-$grid-gutter-half-width: $grid-gutter-width / 2;
-$spacer-cmn: $grid-gutter-half-width;// Alias
-
-$spacers: ();
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * 0.25),
-    2: ($spacer * 0.5),
-    3: $spacer,
-    4: ($spacer * 2), // Override
-    5: ($spacer * 3),
-    6: ($spacer * 4),
-    7: ($spacer * 5.5),
-    8: ($spacer * 7),
-    9: ($spacer * 9),
-    5px: 5px, // Extend
-    10px: 10px, // Extend
-    15px: 15px, // Extend
-    20px: 20px, // Extend
-    25px: 25px, // Extend
-    30px: 30px, // Extend
-    35px: 35px, // Extend
-    cmn: $spacer-cmn, // Extend
-  ),
-  $spacers
-);
-
-```
-This is originally defined in `_variable.scss` of Bootstrap.
-I added some defines using `map-merge()`.
-
-margin and padding utility classes are generated using $spacers in `_spacing.scss` of Bootstrap.
-
-So, we can use its the following.
-
-```
-<div class="m-2 pb-20px"><!--  margin: 0.5rem; padding-bottom: 20px;  --></div>
-```
-
-This gutter adjustment is familiar to Bootstrap, 
-and it is used with media queries are common.
-
-```
-<div class="px-0 px-md-cmn"></div>
-```
-The div element has x-padding 15px generally,
-and It has no x-padding with less than md size width (991.98px). 
-
-
 #### `_mixins.scss`
 mixins is useful if you think you want to modularize overlapping styles.
 The file inclueds global mixins.
-
 
 #### `_utilities.scss`
 The file includes global utility classes. The classes usually have `!important` flag.
 Bootstrap has many utility classes.
 I added something not included in Bootstrap utilities file to here.
-
 
 ### 3.Layouts
 Please define the most basic layout container.
@@ -836,8 +769,8 @@ Blockの状態を管理する時、それがどこを起点に起こっている
   &__elm {
     color: white;
 
-    $ative-state & { color: green; }
-    $inactive-state & { color: gray; }
+    #{$ative-state} & { color: green; }
+    #{$inactive-state} & { color: gray; }
   }
 }
 ```
@@ -847,52 +780,31 @@ Blockの状態を管理する時、それがどこを起点に起こっている
 ### BEM記法を省略する
 
 ここまで見てみると、BEM記法がいかに冗長な書き方かということが伝わると思いますが、
-これの対策の一つとして、Block及びModifier表現を短縮する方法などが挙げられます。
+これの対策の一つとして、Modifierを短縮する方法などが挙げられます。
 
 以下はModifierの記述を省略した例です。
 
 ```
 [ HTML ]
 
-<div class="foo-block --active --top">
-  <div class="foo-block__elm"></div>
-</div>
+<div class="foo-block --active --top"></div>
 
-<div class="foo-block --inactive --side-bar">
-  <div class="foo-block__elm"></div>
-</div>
 ```
 
 ```
 [ Stylesheet ]
 
 .foo-block {
-  $root: &;
-  $active-state: $root + ".--active";
-  $inactive-state: $root + ".--inactive";  
-
-  font-size: 16px;
-  backraund-color: blue;
-
   &.--active { background-color: red; }
-  &.--inactive { background-color: gray; }
-
   &.--top { width: 100%; }
-  &.--side-bar { width: 50%; }
-
-  &__elm {
-    color: white;
-
-    $ative-state & { color: green; }
-    $inactive-state & { color: black; }
-  }
 }
 ```
 
-これはModifierに与えたスタイルの優先順位がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
+これはModifierに与えたスタイルの強制力がやや強くなりますが、HTMLに記載するクラスがグッとスッキリしました。
 
 しかし、Modifier名よる名前空間の重要性を感じるシーンもあります。
-例えば以下の例では、先ほどのような省略が通用しません。
+例えば以下の例では、先ほどのような省略が不可能です。
+
 ```
 [ 省略前 ]
 
@@ -908,7 +820,7 @@ Blockの状態を管理する時、それがどこを起点に起こっている
 ```
 
 Modifier名を工夫すれば良い話ですが、
-そもそもの値の衝突を恐るならば、キーの省略を行わない以下の折衷案も魅力的です。
+そもそものModifireの値の衝突を恐るならば、キーの省略を行わない以下の折衷案も魅力的です。
 ```
 <div class="foo-block --width_big --height_small"></div>
 <div class="foo-block --width_small --height_small"></div>
