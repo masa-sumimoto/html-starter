@@ -40,7 +40,7 @@ $h6-font-size: $font-size-base; // 16px
 
 
 // ---------------------------------
-// Color System
+// Color System: Define Function
 // ---------------------------------
 $colors: ();
 
@@ -48,11 +48,22 @@ $colors: ();
   @return map-get($colors, $key);
 }
 
+$theme-colors: ();
+
+@function brand-colors($key) {
+  @return map-get($theme-colors, $key);
+}
+
 $brand-colors: ();
 
 @function brand-colors($key) {
   @return map-get($brand-colors, $key);
 }
+
+
+// ---------------------------------
+// Color System: Define Colors
+// ---------------------------------
 
 // Mono
 // ------------------------------
@@ -374,6 +385,58 @@ $colors: map-merge(
   $colors
 );
 
+
+// ---------------------------------
+// Color System: Define Theme Colors
+// ---------------------------------
+
+// Bootstrap
+// ------------------------------
+$primary: colors("blue");
+$secondary: colors("turtle-green");
+$success: colors("mimosa");
+$info: colors("ultra-violet");
+$warning: colors("mimosa");
+$danger: colors("red-900");
+$light: colors("gray-200");
+$dark: colors("black-800");
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
+
+// Web Site Theme
+// ------------------------------
+$color-theme-1: colors("gray");
+$color-theme-2: colors("gray");
+$color-theme-3: colors("gray");
+$color-theme-4: colors("gray");
+$color-theme-1-weak: colors("gray-200");
+$color-theme-2-weak: colors("gray-200");
+$color-theme-3-weak: colors("gray-200");
+$color-theme-4-weak: colors("gray-200");
+$theme-colors: (
+  "theme-1": $color-theme-1,
+  "theme-2": $color-theme-2,
+  "theme-3": $color-theme-3,
+  "theme-4": $color-theme-4,
+  "theme-1-weak": $color-theme-1-weak,
+  "theme-2-weak": $color-theme-2-weak,
+  "theme-3-weak": $color-theme-3-weak,
+  "theme-4-weak": $color-theme-4-weak
+);
+
+
+// ---------------------------------
+// Color System: Define Brand Colors
+// ---------------------------------
+
 // Brand colors
 // ------------------------------
 $color-dropbox: #1f8ce6;
@@ -408,29 +471,31 @@ $brand-colors: map-merge(
 
 
 // ---------------------------------
-// Colors
+// Element Style
 // ---------------------------------
 
-// Bootstrap
-// ------------------------------
-$primary: colors("blue");
-$secondary: colors("turtle-green");
-$success: colors("mimosa");
-$info: colors("ultra-violet");
-$warning: colors("mimosa");
-$danger: colors("red-900");
-$light: colors("gray-200");
-$dark: colors("black-800");
-$theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-  "light": $light,
-  "dark": $dark
-);
+// Element - Base
+// ---------------------------------
+$body-bg: colors("white");
+$body-color: colors("black-900");
+$body-rvs-bg: $body-color;
+$body-rvs-color: $body-bg;
+$link-color: colors("blue");
+$link-hover-color: darken($link-color, 15%);
+$link-decoration: underline;
+$link-hover-decoration: underline;
+$color-border-cmn: $color-gray-400;
+
+// Element - Layout
+// ---------------------------------
+$header-bg-color: colors("black");
+$header-color: colors("white");
+$header-link-color: colors("white");
+$header-link-nvr-color: colors("white");
+$footer-bg-color: colors("black");
+$footer-color: colors("white");
+$footer-link-color: colors("white");
+$footer-link-nvr-color: colors("white");
 
 // Bg
 // ------------------------------
@@ -442,30 +507,6 @@ $color-accent-bg5: colors("ultra-violet-200");
 $color-accent-bg6: colors("mimosa-200");
 $color-accent-bg7: colors("mimosa-200");
 $color-accent-bg8: colors("mimosa-200");
-
-
-// ---------------------------------
-// Element - Body
-// ---------------------------------
-$body-bg: colors("white");
-$body-color: colors("black-900");
-$body-rvs-bg: $body-color;
-$body-rvs-color: $body-bg;
-
-
-// ---------------------------------
-// Element - Links
-// ---------------------------------
-$link-color: colors("blue");
-$link-hover-color: darken($link-color, 15%);
-$link-decoration: underline;
-$link-hover-decoration: underline;
-
-
-// ---------------------------------
-// Element - Border
-// ---------------------------------
-$color-border-cmn: $color-gray-400;
 
 
 // ---------------------------------
