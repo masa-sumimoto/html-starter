@@ -519,6 +519,8 @@ $color-accent-bg8: colors("mimosa-200");
 $spacer: 1rem; // Default: 1rem
 $grid-gutter-width: 30px; // Default: 30px
 $grid-gutter-half-width: $grid-gutter-width / 2;
+$spacer-g: $grid-gutter-width;// Alias
+$spacer-hg: $grid-gutter-half-width;// Alias
 $spacer-cmn: $grid-gutter-half-width;// Alias
 
 $spacers: ();
@@ -541,7 +543,10 @@ $spacers: map-merge(
     25px: 25px,
     30px: 30px,
     35px: 35px,
-    cmn: $spacer-cmn,
+    35px: 35px,
+    g: $grid-gutter-width,
+    hg: $grid-gutter-half-width,
+    cmn: $spacer-cmn
   ),
   $spacers
 );
