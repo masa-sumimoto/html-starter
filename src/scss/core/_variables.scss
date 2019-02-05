@@ -486,12 +486,16 @@ $link-decoration: underline;
 $link-hover-decoration: underline;
 $color-border-cmn: $color-gray-400;
 
-// Element - Layout
+// Element - header
 // ---------------------------------
 $header-bg-color: colors("black");
 $header-color: colors("white");
 $header-link-color: colors("white");
 $header-link-nvr-color: colors("white");
+$header-height: 70px;
+
+// Element - footer
+// ---------------------------------
 $footer-bg-color: colors("black");
 $footer-color: colors("white");
 $footer-link-color: colors("white");
@@ -628,9 +632,3 @@ $sizes: map-merge(
 // $zindex-popover:           1060 !default;
 // $zindex-tooltip:           1070 !default;
 $zindex-header: 10;
-
-
-// ---------------------------------
-// web site globals
-// ---------------------------------
-$header-height: 70px;
