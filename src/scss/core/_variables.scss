@@ -50,7 +50,7 @@ $colors: ();
 
 $theme-colors: ();
 
-@function brand-colors($key) {
+@function theme-colors($key) {
   @return map-get($theme-colors, $key);
 }
 
