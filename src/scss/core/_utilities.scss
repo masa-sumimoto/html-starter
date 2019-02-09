@@ -39,6 +39,19 @@
 
 
 // ---------------------------------
+// Typo
+// ---------------------------------
+.font-size-xl { font-size: $font-size-xl !important; }
+.font-size-lg { font-size: $font-size-lg !important; }
+.font-size-md { font-size: $font-size-md !important; }
+.font-size-sm { font-size: $font-size-sm !important; }
+.font-size-xs { font-size: $font-size-xs !important; }
+.line-height-1 { line-height: 1; }
+.line-height-1point2 { line-height: 1.2; }
+.line-height-1point3 { line-height: 1.3; }
+
+
+// ---------------------------------
 // Sizes
 // ---------------------------------
 
