@@ -128,3 +128,24 @@
 .w-md-auto { @include media-breakpoint-up(md) { width: auto !important; } }
 .w-lg-auto { @include media-breakpoint-up(lg) { width: auto !important; } }
 /* stylelint-enable */
+
+
+// ---------------------------------
+// Gutter
+// ---------------------------------
+
+.col-gutter-75 {
+  @include col-space();
+}
+
+.col-gutter-65 {
+  @include col-space($m:0.65);
+}
+
+.col-gutter-50 {
+  @include col-space($m:0.5);
+}
+
+.col-gutter-40 {
+  @include col-space($m:0.4);
+}
