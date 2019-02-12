@@ -54,12 +54,6 @@ $theme-colors: ();
   @return map-get($theme-colors, $key);
 }
 
-$brand-colors: ();
-
-@function brand-colors($key) {
-  @return map-get($brand-colors, $key);
-}
-
 
 // ---------------------------------
 // Color System: Define Colors
@@ -389,6 +383,10 @@ $colors: map-merge(
 // ---------------------------------
 // Color System: Define Theme Colors
 // ---------------------------------
+// [note]
+// theme-colors() is special function
+// You can use auto utilitiy classes like this.
+// .text-primary, .bg-secondary
 
 // Bootstrap
 // ------------------------------
@@ -411,6 +409,31 @@ $theme-colors: (
   "dark": $dark
 );
 
+
+// Accent Theme
+// ------------------------------
+$color-accent-1: colors("gray-200");
+$color-accent-2: colors("aqua-sky-200");
+$color-accent-3: colors("living-coral-200");
+$color-accent-4: colors("turtle-green-200");
+$color-accent-5: colors("ultra-violet-200");
+$color-accent-6: colors("mimosa-200");
+$color-accent-7: colors("mimosa-200");
+$color-accent-8: colors("mimosa-200");
+$theme-colors: map-merge(
+  (
+    "accent-1": $color-accent-1,
+    "accent-2": $color-accent-2,
+    "accent-3": $color-accent-3,
+    "accent-4": $color-accent-4,
+    "accent-5": $color-accent-5,
+    "accent-6": $color-accent-6,
+    "accent-7": $color-accent-7,
+    "accent-8": $color-accent-8
+  ),
+  $theme-colors
+);
+
 // Web Site Theme
 // ------------------------------
 $color-theme-1: colors("gray");
@@ -421,23 +444,22 @@ $color-theme-1-weak: colors("gray-200");
 $color-theme-2-weak: colors("gray-200");
 $color-theme-3-weak: colors("gray-200");
 $color-theme-4-weak: colors("gray-200");
-$theme-colors: (
-  "theme-1": $color-theme-1,
-  "theme-2": $color-theme-2,
-  "theme-3": $color-theme-3,
-  "theme-4": $color-theme-4,
-  "theme-1-weak": $color-theme-1-weak,
-  "theme-2-weak": $color-theme-2-weak,
-  "theme-3-weak": $color-theme-3-weak,
-  "theme-4-weak": $color-theme-4-weak
+$theme-colors: map-merge(
+  (
+    "theme-1": $color-theme-1,
+    "theme-2": $color-theme-2,
+    "theme-3": $color-theme-3,
+    "theme-4": $color-theme-4,
+    "theme-1-weak": $color-theme-1-weak,
+    "theme-2-weak": $color-theme-2-weak,
+    "theme-3-weak": $color-theme-3-weak,
+    "theme-4-weak": $color-theme-4-weak
+  ),
+  $theme-colors
 );
 
 
-// ---------------------------------
-// Color System: Define Brand Colors
-// ---------------------------------
-
-// Brand colors
+// Brand theme
 // ------------------------------
 $color-dropbox: #1f8ce6;
 $color-facebook: #3b5998;
@@ -451,7 +473,7 @@ $color-pinterest: #cb2027;
 $color-tumblr: #2c4762;
 $color-twitter: #55acee;
 $color-youtube: #cd201f;
-$brand-colors: map-merge(
+$theme-colors: map-merge(
   (
     "dropbox": $color-dropbox,
     "facebook": $color-facebook,
@@ -466,7 +488,7 @@ $brand-colors: map-merge(
     "twitter": $color-twitter,
     "youtube": $color-youtube
   ),
-  $brand-colors
+  $theme-colors
 );
 
 
@@ -506,17 +528,6 @@ $footer-link-nvr-color: colors("white");
 $breadcrumb-wrap-bg-color: colors("gray-400");
 $breadcrumb-bg: colors("gray-400");
 $breadcrumb-divider: ">";
-
-// Bg
-// ------------------------------
-$color-accent-bg1: colors("gray-200");
-$color-accent-bg2: colors("aqua-sky-200");
-$color-accent-bg3: colors("living-coral-200");
-$color-accent-bg4: colors("turtle-green-200");
-$color-accent-bg5: colors("ultra-violet-200");
-$color-accent-bg6: colors("mimosa-200");
-$color-accent-bg7: colors("mimosa-200");
-$color-accent-bg8: colors("mimosa-200");
 
 
 // ---------------------------------
