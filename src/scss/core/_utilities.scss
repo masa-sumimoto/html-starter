@@ -10,14 +10,14 @@
 // text
 // ------------------------------
 // *** global
-.color-white { color: colors("white") !important; }
-.color-black { color: colors("black")  !important; }
-.color-gray { color: colors("gray") !important; }
+.text-white { color: colors("white") !important; }
+.text-black { color: colors("black")  !important; }
+.text-gray { color: colors("gray") !important; }
 // *** role
-.color-body { color: $body-color !important; }
-.color-body-bg { color: $body-bg !important; }
-.color-body-rvs { color: $body-rvs-color !important; }
-.color-body-rvs-bg { color: $body-rvs-bg !important; }
+.text-body { color: $body-color !important; }
+.text-body-bg { color: $body-bg !important; }
+.text-body-rvs { color: $body-rvs-color !important; }
+.text-body-rvs-bg { color: $body-rvs-bg !important; }
 
 // bg
 // ------------------------------
@@ -26,16 +26,6 @@
 .bg-white { background-color: colors("white") !important; }
 .bg-black { background-color: colors("black") !important; }
 .bg-gray { background-color: colors("gray") !important; }
-
-// *** role
-.bg-accent1 { background-color: $color-accent-bg1 !important; }
-.bg-accent2 { background-color: $color-accent-bg2 !important; }
-.bg-accent3 { background-color: $color-accent-bg3 !important; }
-.bg-accent4 { background-color: $color-accent-bg4 !important; }
-.bg-accent5 { background-color: $color-accent-bg5 !important; }
-.bg-accent6 { background-color: $color-accent-bg6 !important; }
-.bg-accent7 { background-color: $color-accent-bg7 !important; }
-.bg-accent8 { background-color: $color-accent-bg8 !important; }
 
 
 // ---------------------------------
