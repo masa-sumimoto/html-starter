@@ -34,6 +34,7 @@ body {
   font-size: $font-size-base;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
   margin: 0;
   overflow-wrap: break-word;
   overflow-x: hidden;
