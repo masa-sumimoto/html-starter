@@ -94,7 +94,7 @@ You can use both es5 style and es6 style on javascript files.
 
 
 ## Build and Reading files
-If you get bundle files, There is `yarn run build`.
+If you get bundle files, There is `yarn run dev-build` or `yarn run build`.
 Please stop server once and enter the command.
 `public/css` and `public/js` folder will get bundle files.
 
