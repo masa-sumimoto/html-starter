@@ -22,6 +22,7 @@ $headings-font-family: $font-family-sans-serif;
 // ---------------------------------
 $font-size-base: 1.6rem;
 $font-weight-base: 400;
+$font-size-xl: ($font-size-base * 1.5); // 24px
 $font-size-lg: ($font-size-base * 1.25);  // 20px
 $font-size-md: ($font-size-base * 1.125); // 18px
 $font-size-sm: ($font-size-base * 0.875); // 14px
@@ -553,6 +554,7 @@ $spacers: map-merge(
     7: ($spacer * 5.5),
     8: ($spacer * 7),
     9: ($spacer * 9),
+    1px: 1px,
     5px: 5px,
     10px: 10px,
     15px: 15px,
