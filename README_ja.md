@@ -50,6 +50,12 @@ Cording Libraries:
 
 # 利用編
 
+## 前提条件
+- コマンドラインを利用したシェル操作
+- node.jsをPCにインストールしていること
+- yarnをPCにインストールしていること
+
+
 ## 環境の取得
 以下の方法でこのキットをお手元のPC内に展開します。コマンドラインを利用してください。
 
@@ -58,8 +64,7 @@ Cording Libraries:
 3. node moduleをインストール: `yarn install`
 4. サーバを起動: `yarn start`
 5. ページを確認: `http://localhost:8080/` にブラウザでアクセスする。
-
-※ PCにnode.jsとyarnを導入していない場合は事前にインストールをしてください。  
+ 
 ※ サーバ（webpack-dev-server）をストップする際は、`ctrl + c` を利用します。
 
 ## HTMLの管理方法

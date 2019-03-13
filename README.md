@@ -48,6 +48,11 @@ Cording Libraries:
 
 # How to Use the environment
 
+## Prerequisites
+- Command line operation.
+- To be installed node.js on your PC.
+- To be installed yarn on your PC.
+
 ## Installation
 You can start coding immediately in the following way.
 1. Clone this repository: `git clone git@github.com:sumi37/html-starter.git` (or download)
@@ -56,7 +61,6 @@ You can start coding immediately in the following way.
 4. Start server: `yarn start`
 5. View the site at `http://localhost:8080/`
 
-※ If you don't have node.js and yarn, Please install on your PC in advance.
 ※ If you want to stop server, Please use `ctrl+c` on your shell.
 
 ## How to add HTML files
