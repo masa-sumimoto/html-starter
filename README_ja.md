@@ -3,25 +3,8 @@
 [English](README.md) | 日本語  
 
 # 概要編
+これは私が普段HTMLコーディングのために用いるwebpackを用いたスターターキッドです。　:whale2:
 
-## はじめに
-:smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
-
-こんにちは。これは私が普段HTMLコーディングのために用いるスターターキッドです。
-以下の条件に該当する場合、もしかしたらこのキッドをご活用いただけるかもしれません。
-
-- cssライブラリにBootstrapを利用する
-- JavascriptライブラリにjQueryを利用する
-- cssマークアップにはSCSSを利用する
-- cssマークアップにはBEM記法を利用する
-- デザインをページ・レイアウト・パーツといった単位で管理したい
-
-また、併せてhtmlコーディングの考え方も後半に少し書いています。
-
-※ 一般的で優れたスターターキットをお探しならば [web starter kid of google](https://github.com/google/web-starter-kit) をオススメします。  
-※ 少しづつ書き進めているため内容が完全でない箇所があります。
-
-:smile: :goat: :rabbit2: :leopard: :octopus: :dog2: :panda_face: :cow2: :smile:  
 
 ## 環境について
 このスターターキットは以下のもので構成されています。
@@ -41,7 +24,7 @@ Style regulation / utilities:
 - Autprefixer
 
 Linter:
-- eslint
+- ESLint
 - stylelint
 
 Cording Libraries:
@@ -50,7 +33,14 @@ Cording Libraries:
 ```
 
 
-# 利用編
+## この環境で何ができるか？
+- 即座にhtmlコーディングの環境が得れます。
+- JavaScriptをES6のスタイルでコーディングできます。
+- メタスタイル言語としてSCSSを利用できます。
+- ES5にトランスパイルしたJavaScriptミニファイコードを得ることができます。
+- 下位互換性を考慮したCSSミニファイコードを得るとができます。
+
+## 利用編
 
 ## 前提条件
 - コマンドラインを利用したシェル操作
@@ -58,7 +48,7 @@ Cording Libraries:
 - yarnをPCにインストールしていること
 
 
-## 環境の取得
+### 環境の取得
 以下の方法でこのキットをお手元のPC内に展開します。コマンドラインを利用してください。
 
 1. このリポジトリをクローンする: `git clone git@github.com:sumi37/my-webpack-web-starter.git` (もしくは、ファイルを直接ダウンロードしてください)
@@ -69,7 +59,7 @@ Cording Libraries:
  
 ※ サーバ（webpack-dev-server）をストップする際は、`ctrl + c` を利用します。
 
-## HTMLの管理方法
+### HTMLの管理方法
 `/public/`以下にファイルを保存してください。
 
 ```
@@ -82,7 +72,7 @@ Cording Libraries:
 例えば私は画像ファイルは`/public/assets/images/*`などに保存します。
 
 
-## SCSSの管理方法
+### SCSSの管理方法
 `/src/scss`以下にファイルを保存してください。
 ```
 [ 例 ]
@@ -93,7 +83,7 @@ Cording Libraries:
 スタイルにはscss, cssのどちらのスタイルを記述しても最終的にモジュールがcssにコンパイルします。
 
 
-## Javascriptsの管理方法
+### Javascriptsの管理方法
 `/src/js`以下にファイルを保存してください。
 ```
 [ 例 ]
@@ -104,7 +94,7 @@ Cording Libraries:
 スクリプトはes5, es6のどちらのスタイルで記述しても最終的にモジュールがes5にコンパイルします。
 
 
-## ビルドとファイル読み込み
+### ビルドとファイル読み込み
 記述したcssおよびjsのバンドルファイルを入手したい場合はサーバを一度ストップし、`yarn run dev-build`もしくは`yarn run build`コマンドを利用します。
 その際、`public/css` と `public/js` フォルダにバンドルファイルが生成されます。
 

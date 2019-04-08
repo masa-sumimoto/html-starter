@@ -4,27 +4,11 @@
 English | [日本語](README_ja.md)  
 
 # My Webpack Web Starter
-This is my starter kid for creating website with Webpack.
+This is my starter kid for creating website with Webpack. :whale2:
 
-## Overview
-:smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
+## About This Environment
+The following list is an introduction to the modules in this environment.
 
-Hi. This is my html cording starter kid.
-If your case includes the following, Please use the kid.
-
-- Use Bootstrap as css library.
-- Use jQuery
-- Use SCSS
-- Use BEM style
-- Want to manage the design in units such as page layout, parts.
-
-※ If you get good starter kid, I suggest [web starter kid of google](https://github.com/google/web-starter-kit).  
-※ It is under construction in some places.
-
-:smile: :goat: :rabbit2: :leopard: :octopus: :dog2: :panda_face: :cow2: :smile:  
-
-## Environment Information
-This starter has the following structure.
 ```
 Package management:
 - Node.js + Yarn
@@ -40,7 +24,7 @@ Style regulation / utilities:
 - Autprefixer
 
 Linter:
-- eslint
+- ESLint
 - stylelint
 
 Cording Libraries:
@@ -48,14 +32,21 @@ Cording Libraries:
 - Bootstrap4
 ```
 
-# How to Use the environment
+## What Can You do with this Kid?
+- You can start html cording quickly.
+- You can use JavaScript ES6 Way.
+- You can use SCSS as style meta language.
+- You can get compiled ES5 JavaScript sources.
+- You can get compiled styles that contains styles with backward compatibility.
 
-## Prerequisites
+## How to Use the environment
+
+### Prerequisites
 - Command line operation.
 - To be installed node.js on your PC.
 - To be installed yarn on your PC.
 
-## Installation
+### Installation
 You can start coding immediately in the following way.
 1. Clone this repository: `git clone git@github.com:sumi37/my-webpack-web-starter.git` (or download)
 2. Move directory: `cd my-webpack-web-starter`
@@ -65,7 +56,7 @@ You can start coding immediately in the following way.
 
 ※ If you want to stop server, Please use `ctrl+c` on your shell.
 
-## How to add HTML files
+### How to add HTML files
 Please add html files to under `/public/`.
 ```
 [ Example ]
@@ -77,7 +68,7 @@ And this directory can be used as an area for saving static files.
 so For example, it is recommended to save image files like `/public/images/*`
 
 
-## How to manage Stylesheets
+### How to manage Stylesheets
 Please add css files as scss to under `/src/scss`.
 ```
 [ Example ]
@@ -88,7 +79,7 @@ And import the file to `/src/scss/index.scss`.
 You can use both css style and scss style on scss files.
 
 
-## How to manage Javascripts
+### How to manage Javascripts
 Please add css files to under `/src/js`.
 ```
 [ Example ]
