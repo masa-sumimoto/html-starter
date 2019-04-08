@@ -64,7 +64,7 @@ Cording Libraries:
 1. このリポジトリをクローンする: `git clone git@github.com:sumi37/my-webpack-web-starter.git` (もしくは、ファイルを直接ダウンロードしてください)
 2. 対象のディレクトリに移動: `cd my-webpack-web-starter`
 3. node moduleをインストール: `yarn install`
-4. サーバを起動: `yarn start`
+4. サーバを起動: `yarn run serve`
 5. ページを確認: `http://localhost:8080/` にブラウザでアクセスする。
  
 ※ サーバ（webpack-dev-server）をストップする際は、`ctrl + c` を利用します。

@@ -60,7 +60,7 @@ You can start coding immediately in the following way.
 1. Clone this repository: `git clone git@github.com:sumi37/my-webpack-web-starter.git` (or download)
 2. Move directory: `cd my-webpack-web-starter`
 3. Install node modules with yarn: `yarn install`
-4. Start server: `yarn start`
+4. Start server: `yarn run serve`
 5. View the site at `http://localhost:8080/`
 
 ※ If you want to stop server, Please use `ctrl+c` on your shell.

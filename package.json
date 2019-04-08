@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
+    "serve": "webpack-dev-server",
     "watch": "webpack --watch",
     "dev-build": "webpack --mode development",
     "build": "webpack --mode production"
