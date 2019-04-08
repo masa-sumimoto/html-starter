@@ -1,8 +1,10 @@
-※ このドキュメントは日本語から作成しています。より正確な内容は日本語ドキュメントを参照ください。
+※ このドキュメントは日本語から作成しています。より正確な内容は日本語ドキュメントを参照ください。  
+※ There is a more sophisticated environment [My Gulp Web Starter](https://github.com/masa-sumimoto/my-gulp-web-starter). Please see also this.  
 
 English | [日本語](README_ja.md)  
 
-# About this repository
+# My Webpack Web Starter
+This is my starter kid for creating website with Webpack.
 
 ## Overview
 :smile: :fish: :rooster: :tropical_fish: :cat2: :ox: :pig2: :whale2: :smile:  
@@ -55,8 +57,8 @@ Cording Libraries:
 
 ## Installation
 You can start coding immediately in the following way.
-1. Clone this repository: `git clone git@github.com:sumi37/html-starter.git` (or download)
-2. Move directory: `cd cd html-starter`
+1. Clone this repository: `git clone git@github.com:sumi37/my-webpack-web-starter.git` (or download)
+2. Move directory: `cd my-webpack-web-starter`
 3. Install node modules with yarn: `yarn install`
 4. Start server: `yarn start`
 5. View the site at `http://localhost:8080/`

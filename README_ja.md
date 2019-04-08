@@ -1,3 +1,5 @@
+※ より高機能なGulpを用いた環境 [My Gulp Web Starter](https://github.com/masa-sumimoto/my-gulp-web-starter)があります。こちらも是非ご覧ください。
+
 [English](README.md) | 日本語  
 
 # 概要編
@@ -59,8 +61,8 @@ Cording Libraries:
 ## 環境の取得
 以下の方法でこのキットをお手元のPC内に展開します。コマンドラインを利用してください。
 
-1. このリポジトリをクローンする: `git clone git@github.com:sumi37/html-starter.git` (もしくは、ファイルを直接ダウンロードしてください)
-2. 対象のディレクトリに移動: `cd html-starter`
+1. このリポジトリをクローンする: `git clone git@github.com:sumi37/my-webpack-web-starter.git` (もしくは、ファイルを直接ダウンロードしてください)
+2. 対象のディレクトリに移動: `cd my-webpack-web-starter`
 3. node moduleをインストール: `yarn install`
 4. サーバを起動: `yarn start`
 5. ページを確認: `http://localhost:8080/` にブラウザでアクセスする。
