@@ -4,7 +4,7 @@
 English | [日本語](README_ja.md)  
 
 # My Webpack Web Starter
-This is my starter kid for creating website with Webpack. :whale2:
+This is my starter kit for creating website with Webpack. :whale2:
 
 ## About This Environment
 The following list is an introduction to the modules in this environment.
@@ -32,7 +32,7 @@ Cording Libraries:
 - Bootstrap4
 ```
 
-## What Can You do with this Kid?
+## What Can You do with this Kit?
 - You can start html cording quickly.
 - You can use JavaScript ES6 Way.
 - You can use SCSS as style meta language.
