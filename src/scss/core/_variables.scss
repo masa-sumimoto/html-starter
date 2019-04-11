@@ -55,327 +55,157 @@ $theme-colors: ();
   @return map-get($theme-colors, $key);
 }
 
+@function get-scale-color($color-info, $scaleLength, $percent) {
+  $r: map-get($color-info, r);
+  $g: map-get($color-info, g);
+  $b: map-get($color-info, b);
+  $ratio: $scaleLength - ($percent / 10);
+  $result-r: $r + ((255 - $r) / $scaleLength) * $ratio;
+  $result-g: $g + ((255 - $g) / $scaleLength) * $ratio;
+  $result-b: $b + ((255 - $b) / $scaleLength) * $ratio;
+
+  @return rgb($result-r, $result-g, $result-b);
+}
+
 
 // ---------------------------------
 // Color System: Define Colors
 // ---------------------------------
-
-// Mono
-// ------------------------------
 $white: #fff;
 $black: #000;
-$color-white: #fff;
-$color-black: #000;
-$color-black-900: #121212;
-$color-black-800: #323232;
-$color-black-700: #4b4b4b;
-$color-black-600: #656565;
-$color-black-500: #7e7e7e;
-$color-black-400: #989898;
-$color-black-300: #b1b1b1;
-$color-black-200: #cbcbcb;
-$color-black-100: #e4e4e4;
-$color-gray: #656565;
-$color-gray-900: #747474;
-$color-gray-800: #838383;
-$color-gray-700: #929292;
-$color-gray-600: #a2a2a2;
-$color-gray-500: #b1b1b1;
-$color-gray-400: #c1c1c1;
-$color-gray-300: #d0d0d0;
-$color-gray-200: #dfdfdf;
-$color-gray-100: #efefef;
-$colors: map-merge(
-  (
-    "white": $color-white,
-    "black": $color-black,
-    "black-900": $color-black-900,
-    "black-800": $color-black-800,
-    "black-700": $color-black-700,
-    "black-600": $color-black-600,
-    "black-500": $color-black-500,
-    "black-400": $color-black-400,
-    "black-300": $color-black-300,
-    "black-200": $color-black-200,
-    "black-100": $color-black-100,
-    "gray": $color-gray,
-    "gray-900": $color-gray-900,
-    "gray-800": $color-gray-800,
-    "gray-700": $color-gray-700,
-    "gray-600": $color-gray-600,
-    "gray-500": $color-gray-500,
-    "gray-400": $color-gray-400,
-    "gray-300": $color-gray-300,
-    "gray-200": $color-gray-200,
-    "gray-100": $color-gray-100
-  ),
-  $colors
-);
+$color-white: (hex: #fff, r: 255, g: 255, b: 255);
+$color-black: (hex: #000, r: 0, g: 0, b: 0);
+$color-gray: (hex: #656565, r: 101, g: 101, b: 101);
+$color-living-coral: (hex: #ff6f61, r: 255, g: 111, b: 97);
+$color-aqua-sky: (hex: #7ac5c5, r: 122, g: 197, b: 197);
+$color-mimosa: (hex: #f0bf59, r: 240, g: 191, b: 89);
+$color-turtle-green: (hex: #81894e, r: 129, g: 137, b: 78);
+$color-ultra-violet: (hex: #5f4b8b, r: 95, g: 75, b: 139);
+$color-red: (hex: #f00, r: 255, g: 0, b: 0);
+$color-blue: (hex: #165e83, r: 22, g: 94, b: 131);
+$color-dark-cyan: (hex: #008b8b, r: 0, g: 139, b: 139);
 
-// Living Coral
-// ------------------------------
-$color-living-coral: #ff6f61;
-$color-living-coral-900: #ff7d70;
-$color-living-coral-800: #ff8b80;
-$color-living-coral-700: #ff998f;
-$color-living-coral-600: #ffa89f;
-$color-living-coral-500: #ffb6af;
-$color-living-coral-400: #ffc5bf;
-$color-living-coral-300: #ffd3ce;
-$color-living-coral-200: #ffe1de;
-$color-living-coral-100: #ffefee;
 $colors: map-merge(
   (
-    "living-coral": $color-living-coral,
-    "living-coral-900": $color-living-coral-900,
-    "living-coral-800": $color-living-coral-800,
-    "living-coral-700": $color-living-coral-700,
-    "living-coral-600": $color-living-coral-600,
-    "living-coral-500": $color-living-coral-500,
-    "living-coral-400": $color-living-coral-400,
-    "living-coral-300": $color-living-coral-300,
-    "living-coral-200": $color-living-coral-200,
-    "living-coral-100": $color-living-coral-100
-  ),
-  $colors
-);
-
-// Aqua Sky
-// ------------------------------
-$color-aqua-sky: #7ac5c5;
-$color-aqua-sky-900: #86caca;
-$color-aqua-sky-800: #94d0d0;
-$color-aqua-sky-700: #a1d6d6;
-$color-aqua-sky-600: #aedcdc;
-$color-aqua-sky-500: #bbe1e1;
-$color-aqua-sky-400: #c9e7e7;
-$color-aqua-sky-300: #d6eded;
-$color-aqua-sky-200: #e3f3f3;
-$color-aqua-sky-100: #f0f8f8;
-$colors: map-merge(
-  (
-    "aqua-sky": $color-aqua-sky,
-    "aqua-sky-900": $color-aqua-sky-900,
-    "aqua-sky-800": $color-aqua-sky-800,
-    "aqua-sky-700": $color-aqua-sky-700,
-    "aqua-sky-600": $color-aqua-sky-600,
-    "aqua-sky-500": $color-aqua-sky-500,
-    "aqua-sky-400": $color-aqua-sky-400,
-    "aqua-sky-300": $color-aqua-sky-300,
-    "aqua-sky-200": $color-aqua-sky-200,
-    "aqua-sky-100": $color-aqua-sky-100
-  ),
-  $colors
-);
-
-// Mimosa
-// ------------------------------
-$color-mimosa: #f0bf59;
-$color-mimosa-900: #f1c569;
-$color-mimosa-800: #f2cb7a;
-$color-mimosa-700: #f4d28a;
-$color-mimosa-600: #f5d89b;
-$color-mimosa-500: #f7deab;
-$color-mimosa-400: #f8e5bc;
-$color-mimosa-300: #faebcc;
-$color-mimosa-200: #fbf2dd;
-$color-mimosa-100: #fdf8ed;
-$colors: map-merge(
-  (
-    "mimosa": $color-mimosa,
-    "mimosa-900": $color-mimosa-900,
-    "mimosa-800": $color-mimosa-800,
-    "mimosa-700": $color-mimosa-700,
-    "mimosa-600": $color-mimosa-600,
-    "mimosa-500": $color-mimosa-500,
-    "mimosa-400": $color-mimosa-400,
-    "mimosa-300": $color-mimosa-300,
-    "mimosa-200": $color-mimosa-200,
-    "mimosa-100": $color-mimosa-100
-  ),
-  $colors
-);
-
-// Turtle Green
-// ------------------------------
-$color-turtle-green: #81894e;
-$color-turtle-green-900: #8d945f;
-$color-turtle-green-800: #9aa071;
-$color-turtle-green-700: #a6ac82;
-$color-turtle-green-600: #b3b894;
-$color-turtle-green-500: #bfc3a5;
-$color-turtle-green-400: #cccfb7;
-$color-turtle-green-300: #d8dbc9;
-$color-turtle-green-200: #e5e7db;
-$color-turtle-green-100: #f1f2ec;
-$colors: map-merge(
-  (
-    "turtle-green": $color-turtle-green,
-    "turtle-green-900": $color-turtle-green-900,
-    "turtle-green-800": $color-turtle-green-800,
-    "turtle-green-700": $color-turtle-green-700,
-    "turtle-green-600": $color-turtle-green-600,
-    "turtle-green-500": $color-turtle-green-500,
-    "turtle-green-400": $color-turtle-green-400,
-    "turtle-green-300": $color-turtle-green-300,
-    "turtle-green-200": $color-turtle-green-200,
-    "turtle-green-100": $color-turtle-green-100
-  ),
-  $colors
-);
-
-// Ultra Violet
-// ------------------------------
-$color-ultra-violet: #5f4b8b;
-$color-ultra-violet-900: #6e5c96;
-$color-ultra-violet-800: #7e6ea2;
-$color-ultra-violet-700: #8e80ad;
-$color-ultra-violet-600: #9e92b9;
-$color-ultra-violet-500: #aea4c4;
-$color-ultra-violet-400: #beb6d0;
-$color-ultra-violet-300: #cec8db;
-$color-ultra-violet-200: #dedae7;
-$color-ultra-violet-100: #eeecf2;
-$colors: map-merge(
-  (
-    "ultra-violet": $color-ultra-violet,
-    "ultra-violet-900": $color-ultra-violet-900,
-    "ultra-violet-800": $color-ultra-violet-800,
-    "ultra-violet-700": $color-ultra-violet-700,
-    "ultra-violet-600": $color-ultra-violet-600,
-    "ultra-violet-500": $color-ultra-violet-500,
-    "ultra-violet-400": $color-ultra-violet-400,
-    "ultra-violet-300": $color-ultra-violet-300,
-    "ultra-violet-200": $color-ultra-violet-200,
-    "ultra-violet-100": $color-ultra-violet-100
-  ),
-  $colors
-);
-
-// Red
-// ------------------------------
-$color-red: #f00;
-$color-red-900: #ff1818;
-$color-red-800: #ff3232;
-$color-red-700: #ff4b4b;
-$color-red-600: #ff6565;
-$color-red-500: #ff7e7e;
-$color-red-400: #ff9898;
-$color-red-300: #ffb1b1;
-$color-red-200: #ffcbcb;
-$color-red-100: #ffe4e4;
-$colors: map-merge(
-  (
-    "red": $color-red,
-    "red-900": $color-red-900,
-    "red-800": $color-red-800,
-    "red-700": $color-red-700,
-    "red-600": $color-red-600,
-    "red-500": $color-red-500,
-    "red-400": $color-red-400,
-    "red-300": $color-red-300,
-    "red-200": $color-red-200,
-    "red-100": $color-red-100
-  ),
-  $colors
-);
-
-// Blue
-// ------------------------------
-$color-blue: #165e83;
-$color-blue-900: #2c6d8f;
-$color-blue-800: #447e9b;
-$color-blue-700: #5b8da7;
-$color-blue-600: #729eb4;
-$color-blue-500: #89adc0;
-$color-blue-400: #a1becd;
-$color-blue-300: #b8cdd9;
-$color-blue-200: #cfdee5;
-$color-blue-100: #e6eef1;
-$colors: map-merge(
-  (
-    "blue": $color-blue,
-    "blue-900": $color-blue-900,
-    "blue-800": $color-blue-800,
-    "blue-700": $color-blue-700,
-    "blue-600": $color-blue-600,
-    "blue-500": $color-blue-500,
-    "blue-400": $color-blue-400,
-    "blue-300": $color-blue-300,
-    "blue-200": $color-blue-200,
-    "blue-100": $color-blue-100
-  ),
-  $colors
-);
-
-// Dark Cyan
-// ------------------------------
-$color-dark-cyan: #008b8b;
-$color-dark-cyan-100: #e4f2f2;
-$color-dark-cyan-200: #cbe7e7;
-$color-dark-cyan-300: #b1dbdb;
-$color-dark-cyan-400: #98d0d0;
-$color-dark-cyan-500: #7ec4c4;
-$color-dark-cyan-600: #65b9b9;
-$color-dark-cyan-700: #4badad;
-$color-dark-cyan-800: #4badad;
-$color-dark-cyan-900: #189696;
-$colors: map-merge(
-  (
-    "dark-cyan": $color-dark-cyan,
-    "dark-cyan-900": $color-dark-cyan-900,
-    "dark-cyan-800": $color-dark-cyan-800,
-    "dark-cyan-700": $color-dark-cyan-700,
-    "dark-cyan-600": $color-dark-cyan-600,
-    "dark-cyan-500": $color-dark-cyan-500,
-    "dark-cyan-400": $color-dark-cyan-400,
-    "dark-cyan-300": $color-dark-cyan-300,
-    "dark-cyan-200": $color-dark-cyan-200,
-    "dark-cyan-100": $color-dark-cyan-100
-  ),
-  $colors
-);
-
-// Alpha
-// ------------------------------
-$color-alpha-black-10: rgba(0, 0, 0, 0.1);
-$color-alpha-black-20: rgba(0, 0, 0, 0.2);
-$color-alpha-black-30: rgba(0, 0, 0, 0.3);
-$color-alpha-black-40: rgba(0, 0, 0, 0.4);
-$color-alpha-black-50: rgba(0, 0, 0, 0.5);
-$color-alpha-black-60: rgba(0, 0, 0, 0.6);
-$color-alpha-black-70: rgba(0, 0, 0, 0.7);
-$color-alpha-black-80: rgba(0, 0, 0, 0.8);
-$color-alpha-black-90: rgba(0, 0, 0, 0.9);
-$color-alpha-white-10: rgba(255, 255, 255, 0.1);
-$color-alpha-white-20: rgba(255, 255, 255, 0.2);
-$color-alpha-white-30: rgba(255, 255, 255, 0.3);
-$color-alpha-white-40: rgba(255, 255, 255, 0.4);
-$color-alpha-white-50: rgba(255, 255, 255, 0.5);
-$color-alpha-white-60: rgba(255, 255, 255, 0.6);
-$color-alpha-white-70: rgba(255, 255, 255, 0.7);
-$color-alpha-white-80: rgba(255, 255, 255, 0.8);
-$color-alpha-white-90: rgba(255, 255, 255, 0.9);
-$colors: map-merge(
-  (
-    "alpha-black-10": $color-alpha-black-10,
-    "alpha-black-20": $color-alpha-black-20,
-    "alpha-black-30": $color-alpha-black-30,
-    "alpha-black-40": $color-alpha-black-40,
-    "alpha-black-50": $color-alpha-black-50,
-    "alpha-black-60": $color-alpha-black-60,
-    "alpha-black-70": $color-alpha-black-70,
-    "alpha-black-80": $color-alpha-black-80,
-    "alpha-black-90": $color-alpha-black-90,
-    "alpha-white-10": $color-alpha-white-10,
-    "alpha-white-20": $color-alpha-white-20,
-    "alpha-white-30": $color-alpha-white-30,
-    "alpha-white-40": $color-alpha-white-40,
-    "alpha-white-50": $color-alpha-white-50,
-    "alpha-white-60": $color-alpha-white-60,
-    "alpha-white-70": $color-alpha-white-70,
-    "alpha-white-80": $color-alpha-white-80,
-    "alpha-white-90": $color-alpha-white-90,
+    "white": #fff,
+    "black": map-get($color-black, hex),
+    "black-900": get-scale-color($color-black, 10, 90),
+    "black-800": get-scale-color($color-black, 10, 80),
+    "black-700": get-scale-color($color-black, 10, 70),
+    "black-600": get-scale-color($color-black, 10, 60),
+    "black-500": get-scale-color($color-black, 10, 50),
+    "black-400": get-scale-color($color-black, 10, 40),
+    "black-300": get-scale-color($color-black, 10, 30),
+    "black-200": get-scale-color($color-black, 10, 20),
+    "black-100": get-scale-color($color-black, 10, 10),
+    "gray": map-get($color-gray, hex),
+    "gray-900": get-scale-color($color-gray, 10, 90),
+    "gray-800": get-scale-color($color-gray, 10, 80),
+    "gray-700": get-scale-color($color-gray, 10, 70),
+    "gray-600": get-scale-color($color-gray, 10, 60),
+    "gray-500": get-scale-color($color-gray, 10, 50),
+    "gray-400": get-scale-color($color-gray, 10, 40),
+    "gray-300": get-scale-color($color-gray, 10, 30),
+    "gray-200": get-scale-color($color-gray, 10, 20),
+    "gray-100": get-scale-color($color-gray, 10, 10),
+    "living-coral": map-get($color-living-coral, hex),
+    "living-coral-900": get-scale-color($color-living-coral, 10, 90),
+    "living-coral-800": get-scale-color($color-living-coral, 10, 80),
+    "living-coral-700": get-scale-color($color-living-coral, 10, 70),
+    "living-coral-600": get-scale-color($color-living-coral, 10, 60),
+    "living-coral-500": get-scale-color($color-living-coral, 10, 50),
+    "living-coral-400": get-scale-color($color-living-coral, 10, 40),
+    "living-coral-300": get-scale-color($color-living-coral, 10, 30),
+    "living-coral-200": get-scale-color($color-living-coral, 10, 20),
+    "living-coral-100": get-scale-color($color-living-coral, 10, 10),
+    "aqua-sky": map-get($color-aqua-sky, hex),
+    "aqua-sky-900": get-scale-color($color-aqua-sky, 10, 90),
+    "aqua-sky-800": get-scale-color($color-aqua-sky, 10, 80),
+    "aqua-sky-700": get-scale-color($color-aqua-sky, 10, 70),
+    "aqua-sky-600": get-scale-color($color-aqua-sky, 10, 60),
+    "aqua-sky-500": get-scale-color($color-aqua-sky, 10, 50),
+    "aqua-sky-400": get-scale-color($color-aqua-sky, 10, 40),
+    "aqua-sky-300": get-scale-color($color-aqua-sky, 10, 30),
+    "aqua-sky-200": get-scale-color($color-aqua-sky, 10, 20),
+    "aqua-sky-100": get-scale-color($color-aqua-sky, 10, 10),
+    "mimosa": map-get($color-mimosa, hex),
+    "mimosa-900": get-scale-color($color-mimosa, 10, 90),
+    "mimosa-800": get-scale-color($color-mimosa, 10, 80),
+    "mimosa-700": get-scale-color($color-mimosa, 10, 70),
+    "mimosa-600": get-scale-color($color-mimosa, 10, 60),
+    "mimosa-500": get-scale-color($color-mimosa, 10, 50),
+    "mimosa-400": get-scale-color($color-mimosa, 10, 40),
+    "mimosa-300": get-scale-color($color-mimosa, 10, 30),
+    "mimosa-200": get-scale-color($color-mimosa, 10, 20),
+    "mimosa-100": get-scale-color($color-mimosa, 10, 10),
+    "turtle-green": map-get($color-turtle-green, hex),
+    "turtle-green-900": get-scale-color($color-turtle-green, 10, 90),
+    "turtle-green-800": get-scale-color($color-turtle-green, 10, 80),
+    "turtle-green-700": get-scale-color($color-turtle-green, 10, 70),
+    "turtle-green-600": get-scale-color($color-turtle-green, 10, 60),
+    "turtle-green-500": get-scale-color($color-turtle-green, 10, 50),
+    "turtle-green-400": get-scale-color($color-turtle-green, 10, 40),
+    "turtle-green-300": get-scale-color($color-turtle-green, 10, 30),
+    "turtle-green-200": get-scale-color($color-turtle-green, 10, 20),
+    "turtle-green-100": get-scale-color($color-turtle-green, 10, 10),
+    "ultra-violet": map-get($color-ultra-violet, hex),
+    "ultra-violet-900": get-scale-color($color-ultra-violet, 10, 90),
+    "ultra-violet-800": get-scale-color($color-ultra-violet, 10, 80),
+    "ultra-violet-700": get-scale-color($color-ultra-violet, 10, 70),
+    "ultra-violet-600": get-scale-color($color-ultra-violet, 10, 60),
+    "ultra-violet-500": get-scale-color($color-ultra-violet, 10, 50),
+    "ultra-violet-400": get-scale-color($color-ultra-violet, 10, 40),
+    "ultra-violet-300": get-scale-color($color-ultra-violet, 10, 30),
+    "ultra-violet-200": get-scale-color($color-ultra-violet, 10, 20),
+    "ultra-violet-100": get-scale-color($color-ultra-violet, 10, 10),
+    "red": map-get($color-red, hex),
+    "red-900": get-scale-color($color-red, 10, 90),
+    "red-800": get-scale-color($color-red, 10, 80),
+    "red-700": get-scale-color($color-red, 10, 70),
+    "red-600": get-scale-color($color-red, 10, 60),
+    "red-500": get-scale-color($color-red, 10, 50),
+    "red-400": get-scale-color($color-red, 10, 40),
+    "red-300": get-scale-color($color-red, 10, 30),
+    "red-200": get-scale-color($color-red, 10, 20),
+    "red-100": get-scale-color($color-red, 10, 10),
+    "blue": map-get($color-blue, hex),
+    "blue-900": get-scale-color($color-blue, 10, 90),
+    "blue-800": get-scale-color($color-blue, 10, 80),
+    "blue-700": get-scale-color($color-blue, 10, 70),
+    "blue-600": get-scale-color($color-blue, 10, 60),
+    "blue-500": get-scale-color($color-blue, 10, 50),
+    "blue-400": get-scale-color($color-blue, 10, 40),
+    "blue-300": get-scale-color($color-blue, 10, 30),
+    "blue-200": get-scale-color($color-blue, 10, 20),
+    "blue-100": get-scale-color($color-blue, 10, 10),
+    "dark-cyan": map-get($color-dark-cyan, hex),
+    "dark-cyan-900": get-scale-color($color-dark-cyan, 10, 90),
+    "dark-cyan-800": get-scale-color($color-dark-cyan, 10, 80),
+    "dark-cyan-700": get-scale-color($color-dark-cyan, 10, 70),
+    "dark-cyan-600": get-scale-color($color-dark-cyan, 10, 60),
+    "dark-cyan-500": get-scale-color($color-dark-cyan, 10, 50),
+    "dark-cyan-400": get-scale-color($color-dark-cyan, 10, 40),
+    "dark-cyan-300": get-scale-color($color-dark-cyan, 10, 30),
+    "dark-cyan-200": get-scale-color($color-dark-cyan, 10, 20),
+    "dark-cyan-100": get-scale-color($color-dark-cyan, 10, 10),
+    "alpha-black-10": rgba(map-get($color-black, hex), 0.1),
+    "alpha-black-20": rgba(map-get($color-black, hex), 0.2),
+    "alpha-black-30": rgba(map-get($color-black, hex), 0.3),
+    "alpha-black-40": rgba(map-get($color-black, hex), 0.4),
+    "alpha-black-50": rgba(map-get($color-black, hex), 0.5),
+    "alpha-black-60": rgba(map-get($color-black, hex), 0.6),
+    "alpha-black-70": rgba(map-get($color-black, hex), 0.7),
+    "alpha-black-80": rgba(map-get($color-black, hex), 0.8),
+    "alpha-black-90": rgba(map-get($color-black, hex), 0.9),
+    "alpha-white-10": rgba(map-get($color-white, hex), 0.1),
+    "alpha-white-20": rgba(map-get($color-white, hex), 0.2),
+    "alpha-white-30": rgba(map-get($color-white, hex), 0.3),
+    "alpha-white-40": rgba(map-get($color-white, hex), 0.4),
+    "alpha-white-50": rgba(map-get($color-white, hex), 0.5),
+    "alpha-white-60": rgba(map-get($color-white, hex), 0.6),
+    "alpha-white-70": rgba(map-get($color-white, hex), 0.7),
+    "alpha-white-80": rgba(map-get($color-white, hex), 0.8),
+    "alpha-white-90": rgba(map-get($color-white, hex), 0.9),
   ),
   $colors
 );
@@ -507,7 +337,7 @@ $link-color: colors("blue");
 $link-hover-color: darken($link-color, 15%);
 $link-decoration: underline;
 $link-hover-decoration: underline;
-$color-border-cmn: $color-gray-400;
+$color-border-cmn: colors("gray-300");
 
 // Element - header
 // ---------------------------------
