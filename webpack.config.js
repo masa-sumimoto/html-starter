@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const MODE = 'development';// development or production
-const enabledSourceMap = (MODE === 'development');
-const enableCssMinimize = (MODE === 'production');
+
+const MODE = 'development'; // development or production
+const enabledSourceMap = MODE === 'development';
+const enableCssMinimize = MODE === 'production';
 const publidDir = path.join(__dirname, 'public');
 
 module.exports = {
@@ -37,20 +38,15 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 url: false,
-                minimize: enableCssMinimize,
                 sourceMap: enabledSourceMap,
-                importLoaders: 2,
+                importLoaders: 2, //  2 => postcss-loader, sass-loader
               },
             },
             {
               loader: 'postcss-loader',
               options: {
                 sourceMap: enabledSourceMap,
-                plugins: [
-                  require('autoprefixer')({
-                    browsers: ['last 2 versions'],
-                  }),
-                ],
+                plugins: [require('autoprefixer')()],
               },
             },
             {
@@ -64,9 +60,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ExtractTextPlugin('css/bundle.css'),
-  ],
+  plugins: [new ExtractTextPlugin('css/bundle.css')],
   devServer: {
     contentBase: publidDir,
     port: 8080,
