@@ -10,26 +10,25 @@
 このスターターキットは以下のもので構成されています。
 
 ```
-Package management:
-- Node.js + Yarn
+[ Core Information ]
+The environment use Node.js version 12.3.1
 
-Module bundler / Task runner:
-- Webpack (v4)
+[ About Architecture ]
+Package Manager            : Yarn
+Task Runner                : Webpack4
+Module Bundler             : Webpack4
+JavaScript Transpiler      : Babel
+JavaScript Framework       : jQuery
+JavaScript Base Regulation : airbnb
+JavaScript Linter          : ESLint
+CSS Pre-processer          : SASS (SCSS)
+CSS Framework              : Bootstrap 4
+CSS Architecture           : BEM
+CSS Linter                 : Stylelint
 
-Javascript transpiler:
-- Babel
-
-Style regulation / utilities:
-- SCSS
-- Autprefixer
-
-Linter:
-- ESLint
-- stylelint
-
-Cording Libraries:
-- jQuery
-- Bootstrap4
+[ Optional Modules ]
+- Autoprefixser (as option of postcss-loader)
+- Extract Text Webpack Plugin (for style separation)
 ```
 
 

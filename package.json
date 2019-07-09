@@ -2,7 +2,7 @@
   "name": "html-starter",
   "author": "Masaaki Sumimoto <masa.sumimoto@gmail> (https://github.com/masa-sumimoto)",
   "private": true,
-  "description": "This is my html cording template.",
+  "description": "This is my starter kit for creating website with Webpack4.",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/masa-sumimoto/html-starter"
+    "url": "https://github.com/masa-sumimoto/my-webpack-web-starter"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",
