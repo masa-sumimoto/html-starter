@@ -1,8 +1,3 @@
-※ このドキュメントは日本語から作成しています。より正確な内容は日本語ドキュメントを参照ください。  
-※ There is a more sophisticated environment [My Gulp Web Starter](https://github.com/masa-sumimoto/my-gulp-web-starter). Please see also this.  
-
-English | [日本語](README_ja.md)  
-
 # My Webpack Web Starter
 This is my starter kit for creating website with Webpack. :whale2:
 
@@ -11,7 +6,7 @@ The following list is an introduction to the modules in this environment.
 
 ```
 [ Core Information ]
-The environment use Node.js version 12.3.1
+This environment works with Node.js version 12.3.1 on my Mac.
 
 [ About Architecture ]
 Package Manager            : Yarn
@@ -32,10 +27,10 @@ CSS Linter                 : Stylelint
 ```
 
 ## What Can You do with this Kit?
-- You can start html cording quickly.
+- You can start html cording quickly with localhost.
 - You can use JavaScript ES6 Way.
-- You can use SCSS as style meta language.
 - You can get compiled ES5 JavaScript sources.
+- You can use SCSS as style meta language.
 - You can get compiled styles that contains styles with backward compatibility.
 
 ## How to Use the environment
@@ -56,16 +51,13 @@ You can start coding immediately in the following way.
 ※ If you want to stop server, Please use `ctrl+c` on your shell.
 
 ### How to add HTML files
-Please add html files to under `/public/`.
+Please add HTML files to under `/public/`.
 ```
 [ Example ]
 
 ./public/index.html => http://localhost:8080/
 ./public/foo.html => http://localhost:8080/foo.html
 ```
-And this directory can be used as an area for saving static files.
-so For example, it is recommended to save image files like `/public/images/*`
-
 
 ### How to manage Stylesheets
 Please add css files as scss to under `/src/scss`.
@@ -73,39 +65,50 @@ Please add css files as scss to under `/src/scss`.
 [ Example ]
 
 /src/scss/_foo.scss
+/src/scss/foo/_bar.scss
 ```
-And import the file to `/src/scss/index.scss`.
+And import the file into `/src/scss/index.scss`.
 You can use both css style and scss style on scss files.
 
 
 ### How to manage Javascripts
-Please add css files to under `/src/js`.
+Please add JavaScript files to under `/src/js`.
 ```
 [ Example ]
 
 /src/js/foo.js
+/src/js/foo/bar.js
 ```
-And import the file to `/src/js/index.js`.
+And import the file into `/src/js/index.js`.
 You can use both es5 style and es6 style on javascript files.
+
+### How to add other asseets
+Please add other assets to `/public/**`.
+I often use the following regulation for the assets.
+```
+[ Example ]
+
+// for images
+`/public/assets/images/foo.png`
+`/public/assets/images/foo/bar.png`
+
+// for fonts
+`/public/assets/images/foo.ttf`
+`/public/assets/images/foo/bar.ttf`
+```
 
 
 ## Build and Reading files
-If you get bundle files, There is `yarn run dev-build` or `yarn run build`.
-Please stop server once and enter the command.
-`public/css` and `public/js` folder will get bundle files.
+If you want to get bundle files, There is `yarn run dev-build` or `yarn run build` commands.
+After run the command, `public/css` and `public/js` folder will get bundle files.
 
-You have to load bundle file in HTML.
-
+The following is way of loading assets. You have to load bundle file in HTML like this.
 ```
-[ HTML ]
+[ in HTML ]
 
-<link rel="stylesheet" href="/css/bundle.css">
-<script src="/js/bundle.js"></script>
+<link rel="stylesheet" href="/assets/stylesheets/bundle.css">
+<script src="/assets/javascripts/bundle.js"></script>
 ```
-
-Also, while the server is active, 
-the latest state is automatically reflected in the browser without executing the build.
-
 
 # How to Design
 If you start working with this project template, you will notice that it contains several styles and html tags.

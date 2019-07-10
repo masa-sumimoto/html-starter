@@ -13,7 +13,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: publidDir,
-    filename: 'js/bundle.js',
+    filename: 'assets/javascripts/bundle.js',
   },
   module: {
     rules: [
@@ -60,7 +60,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ExtractTextPlugin('css/bundle.css')],
+  plugins: [new ExtractTextPlugin('assets/stylesheets/bundle.css')],
   devServer: {
     contentBase: publidDir,
     port: 8080,
