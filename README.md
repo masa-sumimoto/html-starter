@@ -104,19 +104,19 @@ After run the command, `public/css` and `public/js` folder will get bundle files
 
 The following is way of loading assets. You have to load bundle file in HTML like this.
 ```
-[ in HTML ]
+[ HTML ]
 
 <link rel="stylesheet" href="/assets/stylesheets/bundle.css">
 <script src="/assets/javascripts/bundle.js"></script>
 ```
 
 # How to Design
-If you start working with this project template, you will notice that it contains several styles and html tags.
+If you start working with this project template, you will notice that it contains several styles and HTML tags.
 I will introduce my coding method from here on.
 If you already have good way, Please delete my codes. and Enjoy cording!!
 
-※ I will show way to create general web pages except for designs assuming Web App.
-
+※ I will show a way for basic web pages.
+※ You may not have to choose the way if you are assuming like PWA. You should use JS in CSS.
 
 ## About Boostrap and BEM
 Based on the Bootstrap component, I proceed with the design by extending / overwriting.
@@ -129,7 +129,7 @@ so Please don't worry.
 
 The policy of managing the design on a context / component basis helps clarify your code.
 
-OK. Let's see the situation where OOCSS and BEM are actually mixed.
+Let's see the situation where OOCSS and BEM are actually mixed.
 Below, I overwrite and expand the design of the button component which is the existing web part of Boostrap using BEM in another SCSS file.
 
 ```
@@ -156,13 +156,13 @@ Below, I overwrite and expand the design of the button component which is the ex
 .btn {
   display: block; // Override
 
-  &--width_small { ... } // Extend
-  &--width_big { ... } // Extend
+  &--foo_1 { ... } // Extend
+  &--foo_2 { ... } // Extend
 }
 
 .btn-primary {
-  &--width_small { ... } // Extend
-  &--width_big { ... } // Extend
+  &--foo_1 { ... } // Extend
+  &--foo_2 { ... } // Extend
 }
 ```
 
@@ -180,8 +180,10 @@ and extend it by modifier only to the parent class `.btn`.
 [ my-override-button.scss ]
 
 .btn {
-  &--width_small { ... } // Extend
-  &--width_big { ... } // Extend
+  display: block; // Override
+
+  &--foo_1 { ... } // Extend
+  &--foo_2 { ... } // Extend
 }
 
 .btn-primary {
@@ -341,31 +343,29 @@ Please look the following.
 * { ... }
 div { ... }
 a { ... }
-```
 
-```
+
 [ _header.scss ]
 
 // Define for only site header container
 .Header { ... }
 .Header * { ... }
-```
 
-```
+
 [ _footer.scss ]
 
 // Define for only site footer container
 .Footer { ... }
 .Footer * { ... }
-```
 
-```
+
 [ _main.scss ]
 
 // Define for only site main wrapper container
 .Main { ... }
 .Main * { ... }
 ```
+
 
 However, with respect to relatively special parts where internal elements such as site header and site footer will not be found duplicates,
 It is possible to define in this Layouts context.
@@ -601,7 +601,7 @@ Modifierキーは、付加的なデザインを明示的に表現します。
 
   // 1.Type Modifire
   &--type_wide { padding: 100px; }
-  &--type_ { padding: 50px; }
+  &--type_small { padding: 50px; }
 
   // 2. State Modifire
   &--state_active { background-color: red; }
