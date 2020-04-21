@@ -9,17 +9,17 @@ The following list is an introduction to the modules in this environment.
 This environment works with Node.js version 12.3.1 on my Mac.
 
 [ About Architecture ]
-Package Manager            : Yarn
-Task Runner                : Webpack4
-Module Bundler             : Webpack4
-JavaScript Transpiler      : Babel
-JavaScript Framework       : jQuery
-JavaScript Base Regulation : airbnb
-JavaScript Linter          : ESLint
-CSS Pre-processer          : SASS (SCSS)
-CSS Framework              : Bootstrap 4
-CSS Architecture           : BEM
-CSS Linter                 : Stylelint
+Package Manager               : Yarn
+Module Bundler                : Webpack4
+JavaScript Transpiler         : Babel
+JavaScript Framework          : jQuery
+JavaScript Linter             : ESLint
+JavaScript Linting Regulation : slint:recommended & prettier with my custom option
+CSS Pre-processer             : SASS (SCSS)
+CSS Framework                 : Bootstrap 4
+CSS Architecture              : BEM
+CSS Linter                    : Stylelint
+CSS Linting Regulation        : stylelint-config-standard & my custom option
 
 [ Optional Modules ]
 - Autoprefixser (as option of postcss-loader)
