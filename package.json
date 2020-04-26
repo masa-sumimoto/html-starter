@@ -18,11 +18,11 @@
     "url": "https://github.com/masa-sumimoto/my-webpack-web-starter"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.5.0",
     "@babel/preset-env": "^7.5.2",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.6.1",
-    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
