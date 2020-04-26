@@ -10,7 +10,8 @@ const publidDir = path.join(__dirname, 'public');
 module.exports = {
   watch: true,
   mode: MODE,
-  entry: './src/index.js',
+  // entry: './src/index.js',
+  entry: ['@babel/polyfill', './src/index.js'], // for async
   output: {
     path: publidDir,
     filename: 'assets/javascripts/bundle.js',
