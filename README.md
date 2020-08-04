@@ -42,7 +42,7 @@ CSS Linting Regulation        : stylelint-config-standard & my custom option
 
 ### Installation
 You can start coding immediately in the following way.
-1. Clone this repository: `git clone git@github.com:sumi37/my-webpack-web-starter.git` (or download)
+1. Clone this repository: `git clone git@github.com:masa-sumimoto/my-webpack-web-starter.git` (or download)
 2. Move directory: `cd my-webpack-web-starter`
 3. Install node modules with yarn: `yarn install`
 4. Start server: `yarn run serve`
