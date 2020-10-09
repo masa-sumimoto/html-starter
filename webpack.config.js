@@ -1,24 +1,17 @@
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const MODE = 'development'; // development or production
+// cssをwebpackから分離する
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MODE = 'production';
 const enabledSourceMap = MODE === 'development';
-const enableCssMinimize = MODE === 'production';
-const publidDir = path.join(__dirname, 'public');
 
 module.exports = {
-  watch: true,
   mode: MODE,
-  // entry: './src/index.js',
-  entry: ['@babel/polyfill', './src/index.js'], // for async
+  entry: './src/index.js',
   output: {
-    path: publidDir,
+    path: `${__dirname}/dist`,
     filename: 'assets/javascripts/bundle.js',
   },
   module: {
     rules: [
-      // js
       {
         test: /\.js$/,
         use: {
@@ -29,41 +22,46 @@ module.exports = {
         },
         exclude: /node_modules/,
       },
-      // CSS
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                url: false,
-                sourceMap: enabledSourceMap,
-                importLoaders: 2, //  2 => postcss-loader, sass-loader
-              },
+        test: /\.scss/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader', // Bundling CSS
+            options: {
+              url: false, // disallow url() in CSS
+              sourceMap: enabledSourceMap,
+              // 0 => no loaders (default);
+              // 1 => postcss-loader;
+              // 2 => postcss-loader, sass-loader
+              importLoaders: 2,
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: enabledSourceMap,
-                plugins: [require('autoprefixer')()],
-              },
+          },
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     sourceMap: enabledSourceMap,
+          //   },
+          // },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: enabledSourceMap,
             },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: enabledSourceMap,
-              },
-            },
-          ],
-        }),
+          },
+        ],
       },
     ],
   },
-  plugins: [new ExtractTextPlugin('assets/stylesheets/bundle.css')],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'assets/stylesheets/bundle.css',
+    }),
+  ],
   devServer: {
-    contentBase: publidDir,
+    contentBase: `${__dirname}/public`,
     port: 8080,
   },
 };
