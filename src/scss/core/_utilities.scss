@@ -10,9 +10,9 @@
 // text
 // ------------------------------
 // *** global
-.text-white { color: colors("white") !important; }
-.text-black { color: colors("black")  !important; }
-.text-gray { color: colors("gray") !important; }
+.text-white { color: $white !important; }
+.text-black { color: $gray-900 !important; }
+.text-gray { color: $gray-500 !important; }
 // *** role
 .text-body { color: $body-color !important; }
 .text-body-bg { color: $body-bg !important; }
@@ -22,10 +22,10 @@
 // bg
 // ------------------------------
 // *** global
-.bg-body { background-color: $body-bg !important; }
-.bg-white { background-color: colors("white") !important; }
-.bg-black { background-color: colors("black") !important; }
-.bg-gray { background-color: colors("gray") !important; }
+.bg-body { background-color: $body-bg !important}
+.bg-white { background-color: $white !important; }
+.bg-black { background-color: $black !important;}
+.bg-gray { background-color: $gray-500 !important;}
 
 
 // ---------------------------------

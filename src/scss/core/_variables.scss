@@ -69,225 +69,191 @@ $theme-colors: ();
 
 
 // ---------------------------------
-// Color System: Define Colors
+// Color System
+//
+// [note] Use Bootstrap5 Color System Regulation
+// [note] Use Tailwind Colors
 // ---------------------------------
-$white: #fff;
-$black: #000;
-$color-white: (hex: #fff, r: 255, g: 255, b: 255);
-$color-black: (hex: #000, r: 0, g: 0, b: 0);
-$color-gray: (hex: #656565, r: 101, g: 101, b: 101);
-$color-living-coral: (hex: #ff6f61, r: 255, g: 111, b: 97);
-$color-aqua-sky: (hex: #7ac5c5, r: 122, g: 197, b: 197);
-$color-mimosa: (hex: #f0bf59, r: 240, g: 191, b: 89);
-$color-turtle-green: (hex: #81894e, r: 129, g: 137, b: 78);
-$color-ultra-violet: (hex: #5f4b8b, r: 95, g: 75, b: 139);
-$color-red: (hex: #f00, r: 255, g: 0, b: 0);
-$color-blue: (hex: #165e83, r: 22, g: 94, b: 131);
-$color-dark-cyan: (hex: #008b8b, r: 0, g: 139, b: 139);
 
-$colors: map-merge(
-  (
-    "white": #fff,
-    "black": map-get($color-black, hex),
-    "black-900": get-scale-color($color-black, 10, 90),
-    "black-800": get-scale-color($color-black, 10, 80),
-    "black-700": get-scale-color($color-black, 10, 70),
-    "black-600": get-scale-color($color-black, 10, 60),
-    "black-500": get-scale-color($color-black, 10, 50),
-    "black-400": get-scale-color($color-black, 10, 40),
-    "black-300": get-scale-color($color-black, 10, 30),
-    "black-200": get-scale-color($color-black, 10, 20),
-    "black-100": get-scale-color($color-black, 10, 10),
-    "gray": map-get($color-gray, hex),
-    "gray-900": get-scale-color($color-gray, 10, 90),
-    "gray-800": get-scale-color($color-gray, 10, 80),
-    "gray-700": get-scale-color($color-gray, 10, 70),
-    "gray-600": get-scale-color($color-gray, 10, 60),
-    "gray-500": get-scale-color($color-gray, 10, 50),
-    "gray-400": get-scale-color($color-gray, 10, 40),
-    "gray-300": get-scale-color($color-gray, 10, 30),
-    "gray-200": get-scale-color($color-gray, 10, 20),
-    "gray-100": get-scale-color($color-gray, 10, 10),
-    "living-coral": map-get($color-living-coral, hex),
-    "living-coral-900": get-scale-color($color-living-coral, 10, 90),
-    "living-coral-800": get-scale-color($color-living-coral, 10, 80),
-    "living-coral-700": get-scale-color($color-living-coral, 10, 70),
-    "living-coral-600": get-scale-color($color-living-coral, 10, 60),
-    "living-coral-500": get-scale-color($color-living-coral, 10, 50),
-    "living-coral-400": get-scale-color($color-living-coral, 10, 40),
-    "living-coral-300": get-scale-color($color-living-coral, 10, 30),
-    "living-coral-200": get-scale-color($color-living-coral, 10, 20),
-    "living-coral-100": get-scale-color($color-living-coral, 10, 10),
-    "aqua-sky": map-get($color-aqua-sky, hex),
-    "aqua-sky-900": get-scale-color($color-aqua-sky, 10, 90),
-    "aqua-sky-800": get-scale-color($color-aqua-sky, 10, 80),
-    "aqua-sky-700": get-scale-color($color-aqua-sky, 10, 70),
-    "aqua-sky-600": get-scale-color($color-aqua-sky, 10, 60),
-    "aqua-sky-500": get-scale-color($color-aqua-sky, 10, 50),
-    "aqua-sky-400": get-scale-color($color-aqua-sky, 10, 40),
-    "aqua-sky-300": get-scale-color($color-aqua-sky, 10, 30),
-    "aqua-sky-200": get-scale-color($color-aqua-sky, 10, 20),
-    "aqua-sky-100": get-scale-color($color-aqua-sky, 10, 10),
-    "mimosa": map-get($color-mimosa, hex),
-    "mimosa-900": get-scale-color($color-mimosa, 10, 90),
-    "mimosa-800": get-scale-color($color-mimosa, 10, 80),
-    "mimosa-700": get-scale-color($color-mimosa, 10, 70),
-    "mimosa-600": get-scale-color($color-mimosa, 10, 60),
-    "mimosa-500": get-scale-color($color-mimosa, 10, 50),
-    "mimosa-400": get-scale-color($color-mimosa, 10, 40),
-    "mimosa-300": get-scale-color($color-mimosa, 10, 30),
-    "mimosa-200": get-scale-color($color-mimosa, 10, 20),
-    "mimosa-100": get-scale-color($color-mimosa, 10, 10),
-    "turtle-green": map-get($color-turtle-green, hex),
-    "turtle-green-900": get-scale-color($color-turtle-green, 10, 90),
-    "turtle-green-800": get-scale-color($color-turtle-green, 10, 80),
-    "turtle-green-700": get-scale-color($color-turtle-green, 10, 70),
-    "turtle-green-600": get-scale-color($color-turtle-green, 10, 60),
-    "turtle-green-500": get-scale-color($color-turtle-green, 10, 50),
-    "turtle-green-400": get-scale-color($color-turtle-green, 10, 40),
-    "turtle-green-300": get-scale-color($color-turtle-green, 10, 30),
-    "turtle-green-200": get-scale-color($color-turtle-green, 10, 20),
-    "turtle-green-100": get-scale-color($color-turtle-green, 10, 10),
-    "ultra-violet": map-get($color-ultra-violet, hex),
-    "ultra-violet-900": get-scale-color($color-ultra-violet, 10, 90),
-    "ultra-violet-800": get-scale-color($color-ultra-violet, 10, 80),
-    "ultra-violet-700": get-scale-color($color-ultra-violet, 10, 70),
-    "ultra-violet-600": get-scale-color($color-ultra-violet, 10, 60),
-    "ultra-violet-500": get-scale-color($color-ultra-violet, 10, 50),
-    "ultra-violet-400": get-scale-color($color-ultra-violet, 10, 40),
-    "ultra-violet-300": get-scale-color($color-ultra-violet, 10, 30),
-    "ultra-violet-200": get-scale-color($color-ultra-violet, 10, 20),
-    "ultra-violet-100": get-scale-color($color-ultra-violet, 10, 10),
-    "red": map-get($color-red, hex),
-    "red-900": get-scale-color($color-red, 10, 90),
-    "red-800": get-scale-color($color-red, 10, 80),
-    "red-700": get-scale-color($color-red, 10, 70),
-    "red-600": get-scale-color($color-red, 10, 60),
-    "red-500": get-scale-color($color-red, 10, 50),
-    "red-400": get-scale-color($color-red, 10, 40),
-    "red-300": get-scale-color($color-red, 10, 30),
-    "red-200": get-scale-color($color-red, 10, 20),
-    "red-100": get-scale-color($color-red, 10, 10),
-    "blue": map-get($color-blue, hex),
-    "blue-900": get-scale-color($color-blue, 10, 90),
-    "blue-800": get-scale-color($color-blue, 10, 80),
-    "blue-700": get-scale-color($color-blue, 10, 70),
-    "blue-600": get-scale-color($color-blue, 10, 60),
-    "blue-500": get-scale-color($color-blue, 10, 50),
-    "blue-400": get-scale-color($color-blue, 10, 40),
-    "blue-300": get-scale-color($color-blue, 10, 30),
-    "blue-200": get-scale-color($color-blue, 10, 20),
-    "blue-100": get-scale-color($color-blue, 10, 10),
-    "dark-cyan": map-get($color-dark-cyan, hex),
-    "dark-cyan-900": get-scale-color($color-dark-cyan, 10, 90),
-    "dark-cyan-800": get-scale-color($color-dark-cyan, 10, 80),
-    "dark-cyan-700": get-scale-color($color-dark-cyan, 10, 70),
-    "dark-cyan-600": get-scale-color($color-dark-cyan, 10, 60),
-    "dark-cyan-500": get-scale-color($color-dark-cyan, 10, 50),
-    "dark-cyan-400": get-scale-color($color-dark-cyan, 10, 40),
-    "dark-cyan-300": get-scale-color($color-dark-cyan, 10, 30),
-    "dark-cyan-200": get-scale-color($color-dark-cyan, 10, 20),
-    "dark-cyan-100": get-scale-color($color-dark-cyan, 10, 10),
-    "alpha-black-10": rgba(map-get($color-black, hex), 0.1),
-    "alpha-black-20": rgba(map-get($color-black, hex), 0.2),
-    "alpha-black-30": rgba(map-get($color-black, hex), 0.3),
-    "alpha-black-40": rgba(map-get($color-black, hex), 0.4),
-    "alpha-black-50": rgba(map-get($color-black, hex), 0.5),
-    "alpha-black-60": rgba(map-get($color-black, hex), 0.6),
-    "alpha-black-70": rgba(map-get($color-black, hex), 0.7),
-    "alpha-black-80": rgba(map-get($color-black, hex), 0.8),
-    "alpha-black-90": rgba(map-get($color-black, hex), 0.9),
-    "alpha-white-10": rgba(map-get($color-white, hex), 0.1),
-    "alpha-white-20": rgba(map-get($color-white, hex), 0.2),
-    "alpha-white-30": rgba(map-get($color-white, hex), 0.3),
-    "alpha-white-40": rgba(map-get($color-white, hex), 0.4),
-    "alpha-white-50": rgba(map-get($color-white, hex), 0.5),
-    "alpha-white-60": rgba(map-get($color-white, hex), 0.6),
-    "alpha-white-70": rgba(map-get($color-white, hex), 0.7),
-    "alpha-white-80": rgba(map-get($color-white, hex), 0.8),
-    "alpha-white-90": rgba(map-get($color-white, hex), 0.9),
-  ),
-  $colors
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #edf2f7;
+$gray-300: #e2e8f0;
+$gray-400: #cbd5e0;
+$gray-500: #a0aec0;
+$gray-600: #718096;
+$gray-700: #4a5568;
+$gray-800: #2d3748;
+$gray-900: #1a202c;
+$black:    #000;
+
+// fusv-disable
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
 );
+// fusv-enable
 
+$blue:    #4299e1;
+$indigo:  #667eea;
+$purple:  #9f7aea;
+$pink:    #ed64a6;
+$red:     #f56565;
+$orange:  #ed8936;
+$yellow:  #ecc94b;
+$green:   #48bb78;
+$teal:    #38b2ac;
+$cyan:    #11a6db;// original color
 
-// ---------------------------------
-// Color System: Define Theme Colors
-// ---------------------------------
-// [note]
-// theme-colors() is special function
-// You can use auto utilitiy classes like this.
-// .text-primary, .bg-secondary
+// scss-docs-start colors-map
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800
+) !default;
+// scss-docs-end colors-map
 
-// Bootstrap
-// ------------------------------
-$primary: colors("blue");
-$secondary: colors("turtle-green");
-$success: colors("mimosa");
-$info: colors("ultra-violet");
-$warning: colors("mimosa");
-$danger: colors("red-900");
-$light: colors("gray-200");
-$dark: colors("black-800");
+$primary:       $blue;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+
+// scss-docs-start theme-colors-map
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-  "light": $light,
-  "dark": $dark
-);
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+// scss-docs-end theme-colors-map
 
 
-// Accent Theme
-// ------------------------------
-$color-accent-1: colors("gray-200");
-$color-accent-2: colors("aqua-sky-200");
-$color-accent-3: colors("living-coral-200");
-$color-accent-4: colors("turtle-green-200");
-$color-accent-5: colors("ultra-violet-200");
-$color-accent-6: colors("mimosa-200");
-$color-accent-7: colors("mimosa-200");
-$color-accent-8: colors("mimosa-200");
-$theme-colors: map-merge(
-  (
-    "accent-1": $color-accent-1,
-    "accent-2": $color-accent-2,
-    "accent-3": $color-accent-3,
-    "accent-4": $color-accent-4,
-    "accent-5": $color-accent-5,
-    "accent-6": $color-accent-6,
-    "accent-7": $color-accent-7,
-    "accent-8": $color-accent-8
-  ),
-  $theme-colors
-);
+// fusv-disable
+$blue-100: #ebf8ff;
+$blue-200: #bee3f8;
+$blue-300: #90cdf4;
+$blue-400: #63b3ed;
+$blue-500: $blue;
+$blue-600: #3182ce;
+$blue-700: #2b6cb0;
+$blue-800: #2c5282;
+$blue-900: #2a4365;
 
-// Web Site Theme
-// ------------------------------
-$color-theme-1: colors("gray");
-$color-theme-2: colors("gray");
-$color-theme-3: colors("gray");
-$color-theme-4: colors("gray");
-$color-theme-1-weak: colors("gray-200");
-$color-theme-2-weak: colors("gray-200");
-$color-theme-3-weak: colors("gray-200");
-$color-theme-4-weak: colors("gray-200");
-$theme-colors: map-merge(
-  (
-    "theme-1": $color-theme-1,
-    "theme-2": $color-theme-2,
-    "theme-3": $color-theme-3,
-    "theme-4": $color-theme-4,
-    "theme-1-weak": $color-theme-1-weak,
-    "theme-2-weak": $color-theme-2-weak,
-    "theme-3-weak": $color-theme-3-weak,
-    "theme-4-weak": $color-theme-4-weak
-  ),
-  $theme-colors
-);
+$indigo-100: #ebf4ff;
+$indigo-200: #c3dafe;
+$indigo-300: #a3bffa;
+$indigo-400: #7f9cf5;
+$indigo-500: $indigo;
+$indigo-600: #5a67d8;
+$indigo-700: #4c51bf;
+$indigo-800: #434190;
+$indigo-900: #3c366b;
+
+$purple-100: #faf5ff;
+$purple-200: #e9d8fd;
+$purple-300: #d6bcfa;
+$purple-400: #b794f4;
+$purple-500: $purple;
+$purple-600: #805ad5;
+$purple-700: #6b46c1;
+$purple-800: #553c9a;
+$purple-900: #44337a;
+
+$pink-100: #fff5f7;
+$pink-200: #fed7e2;
+$pink-300: #fbb6ce;
+$pink-400: #f687b3;
+$pink-500: $pink;
+$pink-600: #d53f8c;
+$pink-700: #b83280;
+$pink-800: #97266d;
+$pink-900: #702459;
+
+$red-100: #fff5f5;
+$red-200: #fed7d7;
+$red-300: #feb2b2;
+$red-400: #fc8181;
+$red-500: $red;
+$red-600: #e53e3e;
+$red-700: #c53030;
+$red-800: #9b2c2c;
+$red-900: #742a2a;
+
+$orange-100: #fffaf0;
+$orange-200: #feebc8;
+$orange-300: #fbd38d;
+$orange-400: #f6ad55;
+$orange-500: $orange;
+$orange-600: #dd6b20;
+$orange-700: #c05621;
+$orange-800: #9c4221;
+$orange-900: #7b341e;
+
+$yellow-100: #fffff0;
+$yellow-200: #fefcbf;
+$yellow-300: #faf089;
+$yellow-400: #f6e05e;
+$yellow-500: $yellow;
+$yellow-600: #d69e2e;
+$yellow-700: #b7791f;
+$yellow-800: #975a16;
+$yellow-900: #744210;
+
+$green-100: #f0fff4;
+$green-200: #c6f6d5;
+$green-300: #9ae6b4;
+$green-400: #68d391;
+$green-500: $green;
+$green-600: #38a169;
+$green-700: #2f855a;
+$green-800: #276749;
+$green-900: #22543d;
+
+$teal-100: #e6fffa;
+$teal-200: #b2f5ea;
+$teal-300: #81e6d9;
+$teal-400: #4fd1c5;
+$teal-500: $teal;
+$teal-600: #319795;
+$teal-700: #2c7a7b;
+$teal-800: #285e61;
+$teal-900: #234e52;
+
+$cyan-100: #daf7f9;
+$cyan-200: #adeef3;
+$cyan-300: #75e0ee;
+$cyan-400: #30c7e6;
+$cyan-500: $cyan;
+$cyan-600: #0d85c6;
+$cyan-700: #126aa1;
+$cyan-800: #135176;
+$cyan-900: #11415b;
+// fusv-enable
 
 
 // Brand theme
@@ -329,35 +295,35 @@ $theme-colors: map-merge(
 
 // Element - Base
 // ---------------------------------
-$body-bg: colors("white");
-$body-color: colors("black-900");
+$body-bg: $white;
+$body-color: $gray-900;
 $body-rvs-bg: $body-color;
 $body-rvs-color: $body-bg;
-$link-color: colors("blue");
+$link-color: $blue;
 $link-hover-color: darken($link-color, 15%);
 $link-decoration: underline;
 $link-hover-decoration: underline;
-$color-border-cmn: colors("gray-300");
+$color-border-cmn: $gray-300;
 
 // Element - header
 // ---------------------------------
-$header-bg-color: colors("black");
-$header-color: colors("white");
-$header-link-color: colors("white");
-$header-link-nvr-color: colors("white");
+$header-bg-color: $gray-900;
+$header-color: $white;
+$header-link-color: $white;
+$header-link-nvr-color: $white;
 $header-height: 70px;
 
 // Element - footer
 // ---------------------------------
-$footer-bg-color: colors("black");
-$footer-color: colors("white");
-$footer-link-color: colors("white");
-$footer-link-nvr-color: colors("white");
+$footer-bg-color: $gray-900;
+$footer-color: $white;
+$footer-link-color: $white;
+$footer-link-nvr-color: $white;
 
 // Element - breadcrumb
 // ---------------------------------
-$breadcrumb-wrap-bg-color: colors("gray-400");
-$breadcrumb-bg: colors("gray-400");
+$breadcrumb-wrap-bg-color: $gray-400;
+$breadcrumb-bg: $gray-400;
 $breadcrumb-divider: ">";
 
 
