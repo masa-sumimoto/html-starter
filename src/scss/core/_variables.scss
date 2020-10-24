@@ -16,18 +16,16 @@ $font-family-base-cond: $font-family-condensed-sans-serif;
 $font-family-display: $font-family-sans-serif;
 $headings-font-family: $font-family-sans-serif;
 
-
 // ---------------------------------
 // Font
 // ---------------------------------
-$font-size-base: 1.6rem;
+$font-size-base: 1rem;
 $font-weight-base: 400;
 $font-size-xl: ($font-size-base * 1.5); // 24px
-$font-size-lg: ($font-size-base * 1.25);  // 20px
+$font-size-lg: ($font-size-base * 1.25); // 20px
 $font-size-md: ($font-size-base * 1.125); // 18px
 $font-size-sm: ($font-size-base * 0.875); // 14px
-$font-size-xs: ($font-size-base) * 0.75;  // 12px
-
+$font-size-xs: ($font-size-base) * 0.75; // 12px
 
 // ---------------------------------
 // Heading Font
@@ -38,7 +36,6 @@ $h3-font-size: $font-size-base * 1.75; // 28px
 $h4-font-size: $font-size-base * 1.5; // 24px
 $h5-font-size: $font-size-base * 1.25; // 20px
 $h6-font-size: $font-size-base; // 16px
-
 
 // ---------------------------------
 // Color System: Define Function
@@ -67,7 +64,6 @@ $theme-colors: ();
   @return rgb($result-r, $result-g, $result-b);
 }
 
-
 // ---------------------------------
 // Color System
 //
@@ -75,7 +71,7 @@ $theme-colors: ();
 // [note] Use Tailwind Colors
 // ---------------------------------
 
-$white:    #fff;
+$white: #fff;
 $gray-100: #f8f9fa;
 $gray-200: #edf2f7;
 $gray-300: #e2e8f0;
@@ -85,73 +81,72 @@ $gray-600: #718096;
 $gray-700: #4a5568;
 $gray-800: #2d3748;
 $gray-900: #1a202c;
-$black:    #000;
+$black: #000;
 
 // fusv-disable
 $grays: (
-  "100": $gray-100,
-  "200": $gray-200,
-  "300": $gray-300,
-  "400": $gray-400,
-  "500": $gray-500,
-  "600": $gray-600,
-  "700": $gray-700,
-  "800": $gray-800,
-  "900": $gray-900
+  '100': $gray-100,
+  '200': $gray-200,
+  '300': $gray-300,
+  '400': $gray-400,
+  '500': $gray-500,
+  '600': $gray-600,
+  '700': $gray-700,
+  '800': $gray-800,
+  '900': $gray-900,
 );
 // fusv-enable
 
-$blue:    #4299e1;
-$indigo:  #667eea;
-$purple:  #9f7aea;
-$pink:    #ed64a6;
-$red:     #f56565;
-$orange:  #ed8936;
-$yellow:  #ecc94b;
-$green:   #48bb78;
-$teal:    #38b2ac;
-$cyan:    #11a6db;// original color
+$blue: #4299e1;
+$indigo: #667eea;
+$purple: #9f7aea;
+$pink: #ed64a6;
+$red: #f56565;
+$orange: #ed8936;
+$yellow: #ecc94b;
+$green: #48bb78;
+$teal: #38b2ac;
+$cyan: #11a6db; // original color
 
 // scss-docs-start colors-map
 $colors: (
-  "blue":       $blue,
-  "indigo":     $indigo,
-  "purple":     $purple,
-  "pink":       $pink,
-  "red":        $red,
-  "orange":     $orange,
-  "yellow":     $yellow,
-  "green":      $green,
-  "teal":       $teal,
-  "cyan":       $cyan,
-  "white":      $white,
-  "gray":       $gray-600,
-  "gray-dark":  $gray-800
+  'blue': $blue,
+  'indigo': $indigo,
+  'purple': $purple,
+  'pink': $pink,
+  'red': $red,
+  'orange': $orange,
+  'yellow': $yellow,
+  'green': $green,
+  'teal': $teal,
+  'cyan': $cyan,
+  'white': $white,
+  'gray': $gray-600,
+  'gray-dark': $gray-800,
 ) !default;
 // scss-docs-end colors-map
 
-$primary:       $blue;
-$secondary:     $gray-600;
-$success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
-$danger:        $red;
-$light:         $gray-100;
-$dark:          $gray-900;
+$primary: $blue;
+$secondary: $gray-600;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-900;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
 ) !default;
 // scss-docs-end theme-colors-map
-
 
 // fusv-disable
 $blue-100: #ebf8ff;
@@ -255,7 +250,6 @@ $cyan-800: #135176;
 $cyan-900: #11415b;
 // fusv-enable
 
-
 // Brand theme
 // ------------------------------
 $color-dropbox: #1f8ce6;
@@ -272,22 +266,21 @@ $color-twitter: #55acee;
 $color-youtube: #cd201f;
 $theme-colors: map-merge(
   (
-    "dropbox": $color-dropbox,
-    "facebook": $color-facebook,
-    "feedly": $color-feedly,
-    "flicker": $color-flicker,
-    "google-plus": $color-google-plus,
-    "instagram": $color-instagram,
-    "line": $color-line,
-    "linkedin": $color-linkedin,
-    "pinterest": $color-pinterest,
-    "tumblr": $color-tumblr,
-    "twitter": $color-twitter,
-    "youtube": $color-youtube
+    'dropbox': $color-dropbox,
+    'facebook': $color-facebook,
+    'feedly': $color-feedly,
+    'flicker': $color-flicker,
+    'google-plus': $color-google-plus,
+    'instagram': $color-instagram,
+    'line': $color-line,
+    'linkedin': $color-linkedin,
+    'pinterest': $color-pinterest,
+    'tumblr': $color-tumblr,
+    'twitter': $color-twitter,
+    'youtube': $color-youtube,
   ),
   $theme-colors
 );
-
 
 // ---------------------------------
 // Element Style
@@ -324,8 +317,7 @@ $footer-link-nvr-color: $white;
 // ---------------------------------
 $breadcrumb-wrap-bg-color: $gray-400;
 $breadcrumb-bg: $gray-400;
-$breadcrumb-divider: ">";
-
+$breadcrumb-divider: '>';
 
 // ---------------------------------
 // Grid columns / Spacers
@@ -333,23 +325,39 @@ $breadcrumb-divider: ">";
 $spacer: 1rem; // Default: 1rem
 $grid-gutter-width: 30px; // Default: 30px
 $grid-gutter-half-width: $grid-gutter-width / 2;
-$spacer-g: $grid-gutter-width;// Alias
-$spacer-hg: $grid-gutter-half-width;// Alias
-$spacer-cmn: $grid-gutter-half-width;// Alias
+$spacer-g: $grid-gutter-width; // Alias
+$spacer-hg: $grid-gutter-half-width; // Alias
+$spacer-cmn: $grid-gutter-half-width; // Alias
 
 $spacers: ();
 $spacers: map-merge(
   (
     0: 0,
-    1: ($spacer * 0.25),
-    2: ($spacer * 0.5),
+    1: (
+      $spacer * 0.25,
+    ),
+    2: (
+      $spacer * 0.5,
+    ),
     3: $spacer,
-    4: ($spacer * 2),
-    5: ($spacer * 3),
-    6: ($spacer * 4),
-    7: ($spacer * 5.5),
-    8: ($spacer * 7),
-    9: ($spacer * 9),
+    4: (
+      $spacer * 2,
+    ),
+    5: (
+      $spacer * 3,
+    ),
+    6: (
+      $spacer * 4,
+    ),
+    7: (
+      $spacer * 5.5,
+    ),
+    8: (
+      $spacer * 7,
+    ),
+    9: (
+      $spacer * 9,
+    ),
     1px: 1px,
     5px: 5px,
     10px: 10px,
@@ -360,11 +368,10 @@ $spacers: map-merge(
     35px: 35px,
     g: $grid-gutter-width,
     hg: $grid-gutter-half-width,
-    cmn: $spacer-cmn
+    cmn: $spacer-cmn,
   ),
   $spacers
 );
-
 
 // ---------------------------------
 // Sizes
@@ -399,7 +406,6 @@ $sizes: map-merge(
   $sizes
 );
 
-
 // ---------------------------------
 // Grid breakpoints
 // ---------------------------------
@@ -411,7 +417,6 @@ $sizes: map-merge(
 //   xl: 1200px
 // );
 
-
 // ---------------------------------
 // Grid containers
 // ---------------------------------
@@ -422,7 +427,6 @@ $sizes: map-merge(
 //   xl: 1140px
 // );
 
-
 // ---------------------------------
 // Various settings
 // ---------------------------------
@@ -432,13 +436,11 @@ $sizes: map-merge(
 // $enable-shadows: false;
 // $enable-transitions: false;
 
-
 // ---------------------------------
 // Buttons + Forms
 // ---------------------------------
 // $input-btn-padding-y: 0.5rem;
 // $btn-padding-x: 2rem;
-
 
 // ---------------------------------
 // z-index

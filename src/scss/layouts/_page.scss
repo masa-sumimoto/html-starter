@@ -5,7 +5,9 @@
 // ---------------------------------
 // Global
 // ---------------------------------
-*:focus { outline: none; }
+*:focus {
+  outline: none;
+}
 
 html,
 body,
@@ -22,7 +24,6 @@ body {
 }
 
 html {
-  font-size: 10px;
   height: 100%;
   overflow-x: hidden;
 }
@@ -64,12 +65,10 @@ table {
   border-spacing: 0;
 }
 
-
 // ---------------------------------
 // Main container
 // ---------------------------------
 // .page {}
-
 
 // ---------------------------------
 // Bootstrap containfers
