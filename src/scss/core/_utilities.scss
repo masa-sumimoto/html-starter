@@ -4,42 +4,32 @@
 /* stylelint-disable */
 
 // ---------------------------------
-// Colors
-// ---------------------------------
-
-// text
-// ------------------------------
-// *** global
-.text-white { color: $white !important; }
-.text-black { color: $gray-900 !important; }
-.text-gray { color: $gray-500 !important; }
-// *** role
-.text-body { color: $body-color !important; }
-.text-body-bg { color: $body-bg !important; }
-.text-body-rvs { color: $body-rvs-color !important; }
-.text-body-rvs-bg { color: $body-rvs-bg !important; }
-
-// bg
-// ------------------------------
-// *** global
-.bg-body { background-color: $body-bg !important}
-.bg-white { background-color: $white !important; }
-.bg-black { background-color: $black !important;}
-.bg-gray { background-color: $gray-500 !important;}
-
-
-// ---------------------------------
 // Typo
 // ---------------------------------
-.font-size-xl { font-size: $font-size-xl !important; }
-.font-size-lg { font-size: $font-size-lg !important; }
-.font-size-md { font-size: $font-size-md !important; }
-.font-size-sm { font-size: $font-size-sm !important; }
-.font-size-xs { font-size: $font-size-xs !important; }
-.line-height-1 { line-height: 1; }
-.line-height-1point2 { line-height: 1.2; }
-.line-height-1point3 { line-height: 1.3; }
-
+.font-size-xl {
+  font-size: $font-size-xl !important;
+}
+.font-size-lg {
+  font-size: $font-size-lg !important;
+}
+.font-size-md {
+  font-size: $font-size-md !important;
+}
+.font-size-sm {
+  font-size: $font-size-sm !important;
+}
+.font-size-xs {
+  font-size: $font-size-xs !important;
+}
+.line-height-1 {
+  line-height: 1;
+}
+.line-height-1point2 {
+  line-height: 1.2;
+}
+.line-height-1point3 {
+  line-height: 1.3;
+}
 
 // ---------------------------------
 // Sizes
@@ -65,60 +55,267 @@
 // glid-width
 // ------------------------------
 // extend bootstrap 指定したサイズ以上がその値%でfixされる。 w-100やw-75などと併用する
-.w-xs-10 { @include media-breakpoint-up(xs) { width: 10% !important; } }
-.w-sm-10 { @include media-breakpoint-up(sm) { width: 10% !important; } }
-.w-md-10 { @include media-breakpoint-up(md) { width: 10% !important; } }
-.w-lg-10 { @include media-breakpoint-up(lg) { width: 10% !important; } }
-.w-xs-20 { @include media-breakpoint-up(xs) { width: 20% !important; } }
-.w-sm-20 { @include media-breakpoint-up(sm) { width: 20% !important; } }
-.w-md-20 { @include media-breakpoint-up(md) { width: 20% !important; } }
-.w-lg-20 { @include media-breakpoint-up(lg) { width: 20% !important; } }
-.w-xs-25 { @include media-breakpoint-up(xs) { width: 25% !important; } }
-.w-sm-25 { @include media-breakpoint-up(sm) { width: 25% !important; } }
-.w-md-25 { @include media-breakpoint-up(md) { width: 25% !important; } }
-.w-lg-25 { @include media-breakpoint-up(lg) { width: 25% !important; } }
-.w-xs-30 { @include media-breakpoint-up(xs) { width: 30% !important; } }
-.w-sm-30 { @include media-breakpoint-up(sm) { width: 30% !important; } }
-.w-md-30 { @include media-breakpoint-up(md) { width: 30% !important; } }
-.w-lg-30 { @include media-breakpoint-up(lg) { width: 30% !important; } }
-.w-xs-40 { @include media-breakpoint-up(xs) { width: 40% !important; } }
-.w-sm-40 { @include media-breakpoint-up(sm) { width: 40% !important; } }
-.w-md-40 { @include media-breakpoint-up(md) { width: 40% !important; } }
-.w-lg-40 { @include media-breakpoint-up(lg) { width: 40% !important; } }
-.w-xs-50 { @include media-breakpoint-up(xs) { width: 50% !important; } }
-.w-sm-50 { @include media-breakpoint-up(sm) { width: 50% !important; } }
-.w-md-50 { @include media-breakpoint-up(md) { width: 50% !important; } }
-.w-lg-50 { @include media-breakpoint-up(lg) { width: 50% !important; } }
-.w-xs-60 { @include media-breakpoint-up(xs) { width: 60% !important; } }
-.w-sm-60 { @include media-breakpoint-up(sm) { width: 60% !important; } }
-.w-md-60 { @include media-breakpoint-up(md) { width: 60% !important; } }
-.w-lg-60 { @include media-breakpoint-up(lg) { width: 60% !important; } }
-.w-xs-70 { @include media-breakpoint-up(xs) { width: 70% !important; } }
-.w-sm-70 { @include media-breakpoint-up(sm) { width: 70% !important; } }
-.w-md-70 { @include media-breakpoint-up(md) { width: 70% !important; } }
-.w-lg-70 { @include media-breakpoint-up(lg) { width: 70% !important; } }
-.w-xs-75 { @include media-breakpoint-up(xs) { width: 75% !important; } }
-.w-sm-75 { @include media-breakpoint-up(sm) { width: 75% !important; } }
-.w-md-75 { @include media-breakpoint-up(md) { width: 75% !important; } }
-.w-lg-75 { @include media-breakpoint-up(lg) { width: 75% !important; } }
-.w-xs-80 { @include media-breakpoint-up(xs) { width: 80% !important; } }
-.w-sm-80 { @include media-breakpoint-up(sm) { width: 80% !important; } }
-.w-md-80 { @include media-breakpoint-up(md) { width: 80% !important; } }
-.w-lg-80 { @include media-breakpoint-up(lg) { width: 80% !important; } }
-.w-xs-90 { @include media-breakpoint-up(xs) { width: 90% !important; } }
-.w-sm-90 { @include media-breakpoint-up(sm) { width: 90% !important; } }
-.w-md-90 { @include media-breakpoint-up(md) { width: 90% !important; } }
-.w-lg-90 { @include media-breakpoint-up(lg) { width: 90% !important; } }
-.w-xs-100 { @include media-breakpoint-up(xs) { width: 100% !important; } }
-.w-sm-100 { @include media-breakpoint-up(sm) { width: 100% !important; } }
-.w-md-100 { @include media-breakpoint-up(md) { width: 100% !important } }
-.w-lg-100 { @include media-breakpoint-up(lg) { width: 100% !important; } }
-.w-xs-auto { @include media-breakpoint-up(xs) { width: auto !important; } }
-.w-sm-auto { @include media-breakpoint-up(sm) { width: auto !important; } }
-.w-md-auto { @include media-breakpoint-up(md) { width: auto !important; } }
-.w-lg-auto { @include media-breakpoint-up(lg) { width: auto !important; } }
+.w-xs-10 {
+  @include media-breakpoint-up(xs) {
+    width: 10% !important;
+  }
+}
+.w-sm-10 {
+  @include media-breakpoint-up(sm) {
+    width: 10% !important;
+  }
+}
+.w-md-10 {
+  @include media-breakpoint-up(md) {
+    width: 10% !important;
+  }
+}
+.w-lg-10 {
+  @include media-breakpoint-up(lg) {
+    width: 10% !important;
+  }
+}
+.w-xs-20 {
+  @include media-breakpoint-up(xs) {
+    width: 20% !important;
+  }
+}
+.w-sm-20 {
+  @include media-breakpoint-up(sm) {
+    width: 20% !important;
+  }
+}
+.w-md-20 {
+  @include media-breakpoint-up(md) {
+    width: 20% !important;
+  }
+}
+.w-lg-20 {
+  @include media-breakpoint-up(lg) {
+    width: 20% !important;
+  }
+}
+.w-xs-25 {
+  @include media-breakpoint-up(xs) {
+    width: 25% !important;
+  }
+}
+.w-sm-25 {
+  @include media-breakpoint-up(sm) {
+    width: 25% !important;
+  }
+}
+.w-md-25 {
+  @include media-breakpoint-up(md) {
+    width: 25% !important;
+  }
+}
+.w-lg-25 {
+  @include media-breakpoint-up(lg) {
+    width: 25% !important;
+  }
+}
+.w-xs-30 {
+  @include media-breakpoint-up(xs) {
+    width: 30% !important;
+  }
+}
+.w-sm-30 {
+  @include media-breakpoint-up(sm) {
+    width: 30% !important;
+  }
+}
+.w-md-30 {
+  @include media-breakpoint-up(md) {
+    width: 30% !important;
+  }
+}
+.w-lg-30 {
+  @include media-breakpoint-up(lg) {
+    width: 30% !important;
+  }
+}
+.w-xs-40 {
+  @include media-breakpoint-up(xs) {
+    width: 40% !important;
+  }
+}
+.w-sm-40 {
+  @include media-breakpoint-up(sm) {
+    width: 40% !important;
+  }
+}
+.w-md-40 {
+  @include media-breakpoint-up(md) {
+    width: 40% !important;
+  }
+}
+.w-lg-40 {
+  @include media-breakpoint-up(lg) {
+    width: 40% !important;
+  }
+}
+.w-xs-50 {
+  @include media-breakpoint-up(xs) {
+    width: 50% !important;
+  }
+}
+.w-sm-50 {
+  @include media-breakpoint-up(sm) {
+    width: 50% !important;
+  }
+}
+.w-md-50 {
+  @include media-breakpoint-up(md) {
+    width: 50% !important;
+  }
+}
+.w-lg-50 {
+  @include media-breakpoint-up(lg) {
+    width: 50% !important;
+  }
+}
+.w-xs-60 {
+  @include media-breakpoint-up(xs) {
+    width: 60% !important;
+  }
+}
+.w-sm-60 {
+  @include media-breakpoint-up(sm) {
+    width: 60% !important;
+  }
+}
+.w-md-60 {
+  @include media-breakpoint-up(md) {
+    width: 60% !important;
+  }
+}
+.w-lg-60 {
+  @include media-breakpoint-up(lg) {
+    width: 60% !important;
+  }
+}
+.w-xs-70 {
+  @include media-breakpoint-up(xs) {
+    width: 70% !important;
+  }
+}
+.w-sm-70 {
+  @include media-breakpoint-up(sm) {
+    width: 70% !important;
+  }
+}
+.w-md-70 {
+  @include media-breakpoint-up(md) {
+    width: 70% !important;
+  }
+}
+.w-lg-70 {
+  @include media-breakpoint-up(lg) {
+    width: 70% !important;
+  }
+}
+.w-xs-75 {
+  @include media-breakpoint-up(xs) {
+    width: 75% !important;
+  }
+}
+.w-sm-75 {
+  @include media-breakpoint-up(sm) {
+    width: 75% !important;
+  }
+}
+.w-md-75 {
+  @include media-breakpoint-up(md) {
+    width: 75% !important;
+  }
+}
+.w-lg-75 {
+  @include media-breakpoint-up(lg) {
+    width: 75% !important;
+  }
+}
+.w-xs-80 {
+  @include media-breakpoint-up(xs) {
+    width: 80% !important;
+  }
+}
+.w-sm-80 {
+  @include media-breakpoint-up(sm) {
+    width: 80% !important;
+  }
+}
+.w-md-80 {
+  @include media-breakpoint-up(md) {
+    width: 80% !important;
+  }
+}
+.w-lg-80 {
+  @include media-breakpoint-up(lg) {
+    width: 80% !important;
+  }
+}
+.w-xs-90 {
+  @include media-breakpoint-up(xs) {
+    width: 90% !important;
+  }
+}
+.w-sm-90 {
+  @include media-breakpoint-up(sm) {
+    width: 90% !important;
+  }
+}
+.w-md-90 {
+  @include media-breakpoint-up(md) {
+    width: 90% !important;
+  }
+}
+.w-lg-90 {
+  @include media-breakpoint-up(lg) {
+    width: 90% !important;
+  }
+}
+.w-xs-100 {
+  @include media-breakpoint-up(xs) {
+    width: 100% !important;
+  }
+}
+.w-sm-100 {
+  @include media-breakpoint-up(sm) {
+    width: 100% !important;
+  }
+}
+.w-md-100 {
+  @include media-breakpoint-up(md) {
+    width: 100% !important;
+  }
+}
+.w-lg-100 {
+  @include media-breakpoint-up(lg) {
+    width: 100% !important;
+  }
+}
+.w-xs-auto {
+  @include media-breakpoint-up(xs) {
+    width: auto !important;
+  }
+}
+.w-sm-auto {
+  @include media-breakpoint-up(sm) {
+    width: auto !important;
+  }
+}
+.w-md-auto {
+  @include media-breakpoint-up(md) {
+    width: auto !important;
+  }
+}
+.w-lg-auto {
+  @include media-breakpoint-up(lg) {
+    width: auto !important;
+  }
+}
 /* stylelint-enable */
-
 
 // ---------------------------------
 // Gutter
@@ -129,13 +326,13 @@
 }
 
 .col-gutter-65 {
-  @include col-space($m:0.65);
+  @include col-space($m: 0.65);
 }
 
 .col-gutter-50 {
-  @include col-space($m:0.5);
+  @include col-space($m: 0.5);
 }
 
 .col-gutter-40 {
-  @include col-space($m:0.4);
+  @include col-space($m: 0.4);
 }
