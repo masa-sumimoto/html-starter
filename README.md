@@ -6,24 +6,18 @@ The following list is an introduction to the modules in this environment.
 
 ```
 [ Core Information ]
-This environment works with Node.js version 12.3.1 on my Mac.
 
-[ About Architecture ]
 Package Manager               : Yarn
-Module Bundler                : Webpack4
+Module Bundler                : Webpack5
 JavaScript Transpiler         : Babel
 JavaScript Framework          : jQuery
 JavaScript Linter             : ESLint
 JavaScript Linting Regulation : slint:recommended & prettier with my custom option
 CSS Pre-processer             : SASS (SCSS)
 CSS Framework                 : Bootstrap 4
-CSS Architecture              : BEM
+CSS Architecture              : BEM (& OOCSS)
 CSS Linter                    : Stylelint
 CSS Linting Regulation        : stylelint-config-standard & my custom option
-
-[ Optional Modules ]
-- Autoprefixser (as option of postcss-loader)
-- Extract Text Webpack Plugin (for style separation)
 ```
 
 ## What Can You do with this Kit?
@@ -50,67 +44,10 @@ You can start coding immediately in the following way.
 
 ※ If you want to stop server, Please use `ctrl+c` on your shell.
 
-### How to add HTML files
-Please add HTML files to under `/public/`.
-```
-[ Example ]
-
-./public/index.html => http://localhost:8080/
-./public/foo.html => http://localhost:8080/foo.html
-```
-
-### How to manage Stylesheets
-Please add css files as scss to under `/src/scss`.
-```
-[ Example ]
-
-/src/scss/_foo.scss
-/src/scss/foo/_bar.scss
-```
-And import the file into `/src/scss/index.scss`.
-You can use both css style and scss style on scss files.
-
-
-### How to manage Javascripts
-Please add JavaScript files to under `/src/js`.
-```
-[ Example ]
-
-/src/js/foo.js
-/src/js/foo/bar.js
-```
-And import the file into `/src/js/index.js`.
-You can use both es5 style and es6 style on javascript files.
-
-### How to add other asseets
-Please add other assets to `/public/**`.
-I often use the following regulation for the assets.
-```
-[ Example ]
-
-// for images
-`/public/assets/images/foo.png`
-`/public/assets/images/foo/bar.png`
-
-// for fonts
-`/public/assets/images/foo.ttf`
-`/public/assets/images/foo/bar.ttf`
-```
+### Edit Files
+Please add HTML, SCSS, JavaScript files to under `/src`.  
+You can access /src/index.html as http://localhost:8080/
 
 
 ## Build and Reading files
-If you want to get bundle files, There is `yarn run dev-build` or `yarn run build` commands.
-After run the command, `public/css` and `public/js` folder will get bundle files.
-
-The following is way of loading assets. You have to load bundle file in HTML like this.
-```
-[ HTML ]
-
-<link rel="stylesheet" href="/assets/stylesheets/bundle.css">
-<script src="/assets/javascripts/bundle.js"></script>
-```
-
-# How to Design
-
-Please look `My Design Cording Regulation` !  
-[Design Cording Regulation Docs](https://github.com/masa-sumimoto/design-cording-regulation-docs)
+If you want to get bundle files, There is `yarn run dev-build` or `yarn run build` commands. You can get compile files in `dist`.

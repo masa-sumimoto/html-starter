@@ -1,6 +1,4 @@
 *.DS_Store
 yarn-error.log
 node_modules/
-public/assets/javascripts/
-public/assets/stylesheets/
-README_ja.md
+dist
