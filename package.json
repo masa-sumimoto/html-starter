@@ -43,7 +43,11 @@
     "sass-loader": "^11.0.0",
     "style-loader": "^2.0.0",
     "stylelint": "^13.9.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-prettier": "^1.2.0",
+    "stylelint-scss": "^3.19.0",
     "webpack": "^5.21.1",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
