@@ -1,6 +1,5 @@
 *.DS_Store
 yarn-error.log
 node_modules/
-dist/*.html
 dist/assets/javascripts
 dist/assets/stylesheets

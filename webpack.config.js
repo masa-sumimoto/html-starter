@@ -1,7 +1,6 @@
 const path = require('path');
 // plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 // options
 const MODE = 'development'; // production or development
 const enabledSourceMap = MODE === 'development';
@@ -70,10 +69,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/stylesheets/bundle.css',
       // chunkFilename: "bundle-chunk.css",
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/html/index.html',
     }),
   ],
   devServer: {
