@@ -7,7 +7,8 @@
 // ---------------------------------
 // [note] $font-family-base = $font-family-sans-serif
 $font-family-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif, Yu Gothic;
-$font-family-condensed-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif, Yu Gothic;
+$font-family-condensed-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif,
+  Yu Gothic;
 $font-family-serif: Times, Georgia, serif;
 $font-family-monospace: monospace;
 
@@ -324,7 +325,7 @@ $breadcrumb-divider: '>';
 // ---------------------------------
 $spacer: 1rem; // Default: 1rem
 $grid-gutter-width: 30px; // Default: 30px
-$grid-gutter-half-width: $grid-gutter-width / 2;
+$grid-gutter-half-width: calc($grid-gutter-width / 2);
 $spacer-g: $grid-gutter-width; // Alias
 $spacer-hg: $grid-gutter-half-width; // Alias
 $spacer-cmn: $grid-gutter-half-width; // Alias
