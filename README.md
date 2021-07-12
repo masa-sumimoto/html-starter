@@ -21,8 +21,8 @@ JavaScript Frameworks : Bootstrap5 / jQuery
 ## Initialize
 
 ```
-$ git clone git@github.com:masa-sumimoto/my-starter_html-scss-js-html.git
-$ mv my-starter_html-scss-js-vite
+$ git clone git@github.com:masa-sumimoto/my-starter_html-scss-js-webpack.git
+$ mv my-starter_html-scss-js-webpack
 $ yarn install
 ```
 
