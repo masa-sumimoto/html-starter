@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/masa-sumimoto/my-webpack-web-starter"
+    "url": "https://github.com/masa-sumimoto/my-starter_html-scss-js-webpack"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
